@@ -1,0 +1,172 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/projects/devsecops-home-lab/installation-and-configuration/security-tools/sonarqube.md",
+  "source_file_content_hash": "aabd52e788091d5fc716cfe8b67d62a422fbbe4f7b1b5dd5d15f636260f16eaa",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: install-config-sonarqube\ntitle: SonarQube\nsidebar_position: 4\n---",
+      "source_content_hash": "defcb6b7011f2795e93d86468afb58ee4d8f8b7d599beacd4fe75366369cc6e4",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "a703643c",
+      "source_content": "## Overview",
+      "source_content_hash": "7337f3d0aa29e9a82b8f1650b743a98eef90794631fa763a319686e69c546821",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 概要"
+      }
+    },
+    {
+      "segment_id": "cbf61009",
+      "source_content": "> This installation happens on the `dsb-hub`.",
+      "source_content_hash": "4e97ed73bdf09122b24991087c2a802e48ae15f31fa7d383dac6df74ebb87db1",
+      "node_type": "blockquote",
+      "translatable": true,
+      "translations": {
+        "ja": "> このインストールは `dsb-hub` 上で行われます。"
+      }
+    },
+    {
+      "segment_id": "8ac585fb",
+      "source_content": "According to [SonarQube's Website], SonarQube is an open-source platform used to continuously inspect the quality of code in various programming languages. It is designed to detect bugs, security vulnerabilities, and code smells, providing detailed reports to help developers maintain high standards in their codebases. SonarQube is widely used in DevSecOps environments to ensure that code remains secure, maintainable, and follows industry best practices.",
+      "source_content_hash": "56102580e40c506e5dfff58025487e7dda207f7814ae669639223920858cdc55",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "[SonarQubeのWebサイト]によると、SonarQubeはさまざまなプログラミング言語のコード品質を継続的に検査するためのオープンソースプラットフォームです。バグ、セキュリティ脆弱性、コードの臭いを検出するように設計されており、開発者がコードベースの高い基準を維持できるよう詳細なレポートを提供します。SonarQubeは、コードが安全で保守可能であり、業界のベストプラクティスに従っていることを保証するために、DevSecOps環境で広く使用されています。"
+      }
+    },
+    {
+      "segment_id": "ba4f48ff",
+      "source_content": "## Prerequisites",
+      "source_content_hash": "bbd3d4949a6f237efd8d4ff5c7c5f30d968e7a989ad12f3d7dcef69c98053912",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 前提条件"
+      }
+    },
+    {
+      "segment_id": "4269e691",
+      "source_content": "1. **Switch to the PostgreSQL User**  \n   First, switch to the `postgres` user to perform database-related tasks:\n\n   ```bash\n   sudo -i -u postgres\n   ```\n\n2. **Create a Database and User for SonarQube**  \n   Create a new PostgreSQL user and database for SonarQube:\n\n   ```bash\n   createuser sonar\n   createdb sonar\n   ```\n\n3. **Set Password and Grant Privileges**  \n   Set a password for the `sonar` user and grant the necessary privileges:\n\n   ```bash\n   psql\n   ALTER USER sonar WITH ENCRYPTED PASSWORD 'your_password';\n   GRANT ALL PRIVILEGES ON DATABASE sonar TO sonar;\n\n   \\c sonar\n   GRANT ALL ON SCHEMA public TO sonar;\n   GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO sonar;\n   GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO sonar;\n   GRANT ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA public TO sonar;\n   GRANT USAGE ON SCHEMA public TO sonar;\n   GRANT CREATE ON SCHEMA public TO sonar;\n   ```\n\n4. **Exit PostgreSQL and Return to the Original User**  \n   Exit the PostgreSQL session and return to your original user:\n\n   ```bash\n   exit\n   exit\n   ```\n\n5. **Update the `pg_hba.conf` File**  \n   Modify the `pg_hba.conf` file to configure authentication:\n\n   ```bash\n   sudo nano /etc/postgresql/16/main/pg_hba.conf\n   ```\n\n   Add the following line to enable `scram-sha-256` authentication for the `sonar` user:\n\n   ```conf\n   local   sonar           sonar                                   scram-sha-256\n   ```",
+      "source_content_hash": "6acbed99427dc2b7f2ea2dcb62e79e0cf1a696d822b439405912e193a4d889b1",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **PostgreSQLユーザーに切り替える**  \n   最初に、データベース関連のタスクを実行するために`postgres`ユーザーに切り替えます:\n\n   ```bash\n   sudo -i -u postgres\n   ```\n\n2. **SonarQube用のデータベースとユーザーを作成する**  \n   SonarQube用の新しいPostgreSQLユーザーとデータベースを作成します:\n\n   ```bash\n   createuser sonar\n   createdb sonar\n   ```\n\n3. **パスワードを設定し権限を付与する**  \n   `sonar`ユーザーのパスワードを設定し、必要な権限を付与します:\n\n   ```bash\n   psql\n   ALTER USER sonar WITH ENCRYPTED PASSWORD 'your_password';\n   GRANT ALL PRIVILEGES ON DATABASE sonar TO sonar;\n\n   \\c sonar\n   GRANT ALL ON SCHEMA public TO sonar;\n   GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO sonar;\n   GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO sonar;\n   GRANT ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA public TO sonar;\n   GRANT USAGE ON SCHEMA public TO sonar;\n   GRANT CREATE ON SCHEMA public TO sonar;\n   ```\n\n4. **PostgreSQLセッションを終了し元のユーザーに戻る**  \n   PostgreSQLセッションを終了し、元のユーザーに戻ります:\n\n   ```bash\n   exit\n   exit\n   ```\n\n5. **`pg_hba.conf`ファイルを更新する**  \n   `pg_hba.conf`ファイルを修正して認証を設定します:\n\n   ```bash\n   sudo nano /etc/postgresql/16/main/pg_hba.conf\n   ```\n\n   `sonar`ユーザーの`scram-sha-256`認証を有効にするために、次の行を追加します:\n\n   ```conf\n   local   sonar           sonar                                   scram-sha-256\n   ```"
+      }
+    },
+    {
+      "segment_id": "bd92edfc",
+      "source_content": "## Installation Steps",
+      "source_content_hash": "176cd2c0cf80c3564adae3b72d2ad36ac95f9883c3d2b17da74d1dc605bb60b7",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## インストール手順"
+      }
+    },
+    {
+      "segment_id": "af7d8a35",
+      "source_content": "1. **Download and Install SonarQube**  \n   Download the SonarQube package and extract it:\n\n   ```bash\n   cd /opt\n   sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.6.0.92116.zip\n   sudo apt install unzip -y\n   sudo unzip sonarqube-10.6.0.92116.zip\n   sudo mv sonarqube-10.6.0.92116 sonarqube\n   ```\n\n1. **Create a SonarQube User**  \n   Create a dedicated user for running SonarQube and set the correct permissions:\n\n   ```bash\n   sudo adduser sonar\n   sudo chown -R sonar:sonar /opt/sonarqube\n   ```\n\n1. **Update SonarQube Database Configuration**  \n   Edit the `sonar.properties` file to configure SonarQube's connection to the PostgreSQL database:\n\n   ```bash\n   sudo nano /opt/sonarqube/conf/sonar.properties\n   ```\n\n   Update the PostgreSQL settings:\n\n   ```ini\n   # PostgreSQL settings\n   sonar.jdbc.username=sonar\n   sonar.jdbc.password=your_password\n   sonar.jdbc.url=jdbc:postgresql://localhost/sonar\n   ```\n\n1. **Set Up the SonarQube Service**  \n   Create a new systemd service file for SonarQube:\n\n   ```bash\n   sudo nano /etc/systemd/system/sonarqube.service\n   ```\n\n   Copy the following content into the file:\n\n   ```ini\n   [Unit]\n   Description=SonarQube service\n   After=syslog.target network.target\n\n   [Service]\n   Type=forking\n   User=sonar\n   Group=sonar\n\n   ExecStart=/opt/sonarqube/bin/linux-x86-64/sonar.sh start\n   ExecStop=/opt/sonarqube/bin/linux-x86-64/sonar.sh stop\n   ExecReload=/opt/sonarqube/bin/linux-x86-64/sonar.sh restart\n\n   Restart=on-failure\n\n   [Install]\n   WantedBy=multi-user.target\n   ```\n\n1. **Reload Systemd and Start SonarQube**  \n   Reload the systemd daemon and start the SonarQube service:\n\n   ```bash\n   sudo systemctl daemon-reload\n   sudo systemctl start sonarqube\n   sudo systemctl enable sonarqube\n   ```\n\n1. **Confirm SonarQube is Running**  \n   Verify that SonarQube is running by opening your web browser and navigating to:\n\n   ```text\n   http://your_ip_address:9000\n   ```\n\n   ![SonarQube Interface](/img/projects/devsecops-home-lab/installation-and-configuration/sonarqube-login-dashboard.png)",
+      "source_content_hash": "706a1e81dda841f0fec72ff1ca7ce5e39ce6a6ef0e996217527fda9dc881be4b",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **SonarQubeのダウンロードとインストール**  \n   SonarQubeパッケージをダウンロードして展開します:\n\n   ```bash\n   cd /opt\n   sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.6.0.92116.zip\n   sudo apt install unzip -y\n   sudo unzip sonarqube-10.6.0.92116.zip\n   sudo mv sonarqube-10.6.0.92116 sonarqube\n   ```\n\n1. **SonarQubeユーザーの作成**  \n   SonarQubeを実行する専用ユーザーを作成し、適切な権限を設定します:\n\n   ```bash\n   sudo adduser sonar\n   sudo chown -R sonar:sonar /opt/sonarqube\n   ```\n\n1. **SonarQubeデータベース設定の更新**  \n   `sonar.properties`ファイルを編集して、PostgreSQLデータベースへの接続を設定します:\n\n   ```bash\n   sudo nano /opt/sonarqube/conf/sonar.properties\n   ```\n\n   PostgreSQL設定を更新します:\n\n   ```ini\n   # PostgreSQL設定\n   sonar.jdbc.username=sonar\n   sonar.jdbc.password=your_password\n   sonar.jdbc.url=jdbc:postgresql://localhost/sonar\n   ```\n\n1. **SonarQubeサービスのセットアップ**  \n   SonarQube用の新しいsystemdサービスファイルを作成します:\n\n   ```bash\n   sudo nano /etc/systemd/system/sonarqube.service\n   ```\n\n   以下の内容をファイルにコピーします:\n\n   ```ini\n   [Unit]\n   Description=SonarQube service\n   After=syslog.target network.target\n\n   [Service]\n   Type=forking\n   User=sonar\n   Group=sonar\n\n   ExecStart=/opt/sonarqube/bin/linux-x86-64/sonar.sh start\n   ExecStop=/opt/sonarqube/bin/linux-x86-64/sonar.sh stop\n   ExecReload=/opt/sonarqube/bin/linux-x86-64/sonar.sh restart\n\n   Restart=on-failure\n\n   [Install]\n   WantedBy=multi-user.target\n   ```\n\n1. **SystemdのリロードとSonarQubeの起動**  \n   systemdデーモンをリロードし、SonarQubeサービスを起動します:\n\n   ```bash\n   sudo systemctl daemon-reload\n   sudo systemctl start sonarqube\n   sudo systemctl enable sonarqube\n   ```\n\n1. **SonarQubeの動作確認**  \n   Webブラウザを開いて以下のURLにアクセスし、SonarQubeが動作していることを確認します:\n\n   ```text\n   http://your_ip_address:9000\n   ```\n\n   ![SonarQubeインターフェース](/img/projects/devsecops-home-lab/installation-and-configuration/sonarqube-login-dashboard.png)"
+      }
+    },
+    {
+      "segment_id": "6ab1b234",
+      "source_content": "## Configuring SonarQube",
+      "source_content_hash": "5da8f86e5bc472589479bfd03b213f9cf946cbe0fde8e362e29d11809d90fbad",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## SonarQubeの設定"
+      }
+    },
+    {
+      "segment_id": "3670cec0",
+      "source_content": "- Log into SonarQube and type in the default credentials (username: `admin`, password: `admin`).\n\n- Change your password to something new after the first login.\n  ![alt text](/img/projects/devsecops-home-lab/installation-and-configuration/sonarqube-change-admin-creds.png)\n\n- You will be directed to the dashboard. Click on 'Create Project':\n  ![alt text](/img/projects/devsecops-home-lab/installation-and-configuration/sonarqube-dashboard.png)\n\n- Create a local project and enter `owasp-juice-shop` as the display name and project key. Set branch = `master`.\n  ![alt text](/img/projects/devsecops-home-lab/installation-and-configuration/sonarqube-project-creation.png)\n\n- Hit next and set 'Use global setting', then hit 'Create Project'.",
+      "source_content_hash": "65add0763b8283cbd6698c494e3c41263ffb832552c48a2dc85d108add99b37c",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- SonarQubeにログインし、デフォルトの認証情報（ユーザー名: `admin`、パスワード: `admin`）を入力します。\n\n- 初回ログイン後、新しいパスワードに変更します。\n  ![alt text](/img/projects/devsecops-home-lab/installation-and-configuration/sonarqube-change-admin-creds.png)\n\n- ダッシュボードに移動します。「プロジェクト作成」をクリックします:\n  ![alt text](/img/projects/devsecops-home-lab/installation-and-configuration/sonarqube-dashboard.png)\n\n- ローカルプロジェクトを作成し、表示名とプロジェクトキーに`owasp-juice-shop`を入力します。ブランチは`master`に設定します。\n  ![alt text](/img/projects/devsecops-home-lab/installation-and-configuration/sonarqube-project-creation.png)\n\n- 「次へ」をクリックし、「グローバル設定を使用」を選択してから「プロジェクト作成」をクリックします。"
+      }
+    },
+    {
+      "segment_id": "3f77c6a0",
+      "source_content": "## Jenkins Integration with SonarQube",
+      "source_content_hash": "4642dd01cff2ae821ddd7ea5116b3559a1462651b9c76da6a4cd1eb0eb77c118",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## JenkinsとSonarQubeの統合"
+      }
+    },
+    {
+      "segment_id": "af7b7e3f",
+      "source_content": "1. From the Jenkins Dashboard, navigate to **Manage Jenkins > Manage Plugins** and install the **SonarQube Scanner** plugin.\n\n2. Navigate to **Credentials > System** from the Jenkins Dashboard.\n\n3. Click the **Global credentials (unrestricted)** link in the System table.\n\n4. Click **Add credentials** and add the following information:\n\n   - **Kind**: Secret Text\n   - **Scope**: Global\n   - **Secret**: Generate a token at **User > My Account > Security** in SonarQube, and copy and paste it here.\n\n5. From the Jenkins Dashboard, navigate to **Manage Jenkins > Configure System**.\n\n6. In the **SonarQube Servers** section, click **Add SonarQube**. Add the following information:\n\n   - **Name**: Give a unique name to your SonarQube instance.\n   - **Server URL**: Your SonarQube instance URL.\n   - **Credentials**: Select the credentials created in step 4.\n\n7. Click **Save** to complete the integration.",
+      "source_content_hash": "2e2e2682a1589b650cd59375fb4f628ea64ef79eafc238abe03149e8bb9722e4",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. Jenkinsダッシュボードから、**Manage Jenkins > Manage Plugins**に移動し、**SonarQube Scanner**プラグインをインストールします。\n\n2. Jenkinsダッシュボードから、**Credentials > System**に移動します。\n\n3. Systemテーブル内の**Global credentials (unrestricted)**リンクをクリックします。\n\n4. **Add credentials**をクリックし、以下の情報を追加します：\n\n   - **Kind**: Secret Text\n   - **Scope**: Global\n   - **Secret**: SonarQubeの**User > My Account > Security**でトークンを生成し、ここにコピー＆ペーストします。\n\n5. Jenkinsダッシュボードから、**Manage Jenkins > Configure System**に移動します。\n\n6. **SonarQube Servers**セクションで、**Add SonarQube**をクリックします。以下の情報を追加します：\n\n   - **Name**: SonarQubeインスタンスに一意の名前を付けます。\n   - **Server URL**: SonarQubeインスタンスのURL。\n   - **Credentials**: ステップ4で作成した認証情報を選択します。\n\n7. **Save**をクリックして統合を完了します。"
+      }
+    },
+    {
+      "segment_id": "af250a10",
+      "source_content": "## You're Done",
+      "source_content_hash": "dc146497f2e2562df8ec3f604024e77882ae11623fc2a1260623fa30c5fe06f5",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 完了です"
+      }
+    },
+    {
+      "segment_id": "295367fa",
+      "source_content": "You’ve successfully installed and configured SonarQube and integrated it with Jenkins. This setup allows you to continuously monitor code quality and security vulnerabilities.",
+      "source_content_hash": "4f3ef87ae81d7b621b4c7342cd590eb6142ea3a4d92f72ab22bc98cdf27810ce",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "SonarQubeのインストールと設定、およびJenkinsとの統合が正常に完了しました。このセットアップにより、コード品質とセキュリティ脆弱性を継続的に監視できるようになります。"
+      }
+    },
+    {
+      "segment_id": "f3fc1e64",
+      "source_content": "<!-- Sources -->",
+      "source_content_hash": "4494bb095c897c283a22423ee5efc82db998c4872791a85cc207cdfd0d31ff25",
+      "node_type": "comment",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_f3fc1e64"
+      }
+    },
+    {
+      "segment_id": "bb62bdc1",
+      "source_content": "[SonarQube's Website]: https://docs.sonarsource.com/sonarqube/latest/#what-is-sonarcloud",
+      "source_content_hash": "7558046a950b31c59455eef9d4137043bfbd97bd90ed7c20250676d19248726a",
+      "node_type": "definition",
+      "translatable": true,
+      "translations": {
+        "ja": "[SonarQube's Website]: https://docs.sonarsource.com/sonarqube/latest/#what-is-sonarcloud"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/projects/devsecops-home-lab/installation-and-configuration/security-tools/sonarqube.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.147325+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "aabd52e788091d5fc716cfe8b67d62a422fbbe4f7b1b5dd5d15f636260f16eaa"
+  }
+}

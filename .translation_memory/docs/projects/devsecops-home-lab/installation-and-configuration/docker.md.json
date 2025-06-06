@@ -1,0 +1,162 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/projects/devsecops-home-lab/installation-and-configuration/docker.md",
+  "source_file_content_hash": "c7b81b1a5d5a8b9a41a3db61abf0f4fb68995c7add367af28061bd3e7a79bdd4",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: install-config-docker\ntitle: Docker\nsidebar_position: 1\n---",
+      "source_content_hash": "b8317cf6d856d09569e5141812f18884c44bb8588ab430eb6bd7caf8288f490e",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "a703643c",
+      "source_content": "## Overview",
+      "source_content_hash": "7337f3d0aa29e9a82b8f1650b743a98eef90794631fa763a319686e69c546821",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 概要"
+      }
+    },
+    {
+      "segment_id": "cbf61009",
+      "source_content": "> This installation happens on both of the machines.",
+      "source_content_hash": "5629855f9477cf5ff5d3e8d79cca23fef21a70cea0f704b3a5a1476b7057d7d5",
+      "node_type": "blockquote",
+      "translatable": true,
+      "translations": {
+        "ja": "> このインストールは両方のマシンで行われます。"
+      }
+    },
+    {
+      "segment_id": "8ac585fb",
+      "source_content": "According to [Docker's Website], Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications from your infrastructure so you can deliver software quickly. With Docker, you can manage your infrastructure in the same ways you manage your applications. By taking advantage of Docker's methodologies for shipping, testing, and deploying code, you can significantly reduce the delay between writing code and running it in production.",
+      "source_content_hash": "0c24a7e4f113ae09fa5d73539464bb8cc296846408a3dc29b0981c805de91cf5",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "[Dockerの公式サイト]によると、Dockerはアプリケーションの開発、配布、実行のためのオープンプラットフォームです。Dockerを使用することで、アプリケーションをインフラストラクチャから分離し、ソフトウェアを迅速に提供できます。Dockerを利用すれば、アプリケーションを管理するのと同じ方法でインフラストラクチャを管理できます。Dockerのコードの配布、テスト、デプロイの方法論を活用することで、コードの記述から本番環境での実行までの遅延を大幅に削減できます。"
+      }
+    },
+    {
+      "segment_id": "ba4f48ff",
+      "source_content": "## Docker Installation Steps",
+      "source_content_hash": "267693bd969ef36f3ce88a715f03c73580ec0a7a1982340f0ddad8e2bf7a7689",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## Dockerインストール手順"
+      }
+    },
+    {
+      "segment_id": "4269e691",
+      "source_content": "1. **Update the Package Index**\n\n   First, update your existing list of packages:\n\n   ```bash\n   sudo apt-get update\n   ```\n\n2. **Install Required Packages**\n\n   Install the necessary packages to allow apt to use a repository over HTTPS:\n\n   ```bash\n   sudo apt-get install \\\n       ca-certificates \\\n       curl \\\n       gnupg \\\n       lsb-release\n   ```\n\n3. **Add Docker’s Official GPG Key**\n\n   Add Docker’s official GPG key to your system:\n\n   ```bash\n   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg\n   ```\n\n4. **Set Up the Stable Repository**\n\n   Use the following command to set up the stable Docker repository:\n\n   ```bash\n   echo \\\n     \"deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \\\n     $(lsb_release -cs) stable\" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null\n   ```\n\n5. **Install Docker Engine**\n\n   Update the package index again and install Docker Engine, along with `containerd` and `docker-compose`:\n\n   ```bash\n   sudo apt-get update\n   sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-compose\n   ```\n\n6. **Verify Docker Installation**\n\n   After the installation, verify that Docker is installed and running correctly:\n\n   ```bash\n   sudo docker --version\n   ```\n\n   This command should return the Docker version installed.\n\n7. **Start and Enable Docker Service**\n\n   Ensure Docker starts on boot:\n\n   ```bash\n   sudo systemctl start docker\n   sudo systemctl enable docker\n   ```\n\n8. **Manage Docker as a Non-Root User (Optional)**\n\n   By default, Docker commands need to be run with `sudo`. If you want to run Docker commands as a non-root user, you need to add your user to the `docker` group:\n\n   ```bash\n   sudo usermod -aG docker $USER\n   sudo usermod -aG docker jenkins\n   ```\n\n   After running this command, log out and back in, or run the following command to apply the group membership:\n\n   ```bash\n   newgrp docker\n   ```\n\n9. **Test Docker Installation**\n\n   Test the Docker installation by running a simple Docker container:\n\n   ```bash\n   docker run hello-world\n   ```\n\n   This command will download a test image, run it in a container, and print a confirmation message.\n\n10. **(Optional) Install Additional Docker Tools**",
+      "source_content_hash": "cf535da55eee5869919c5eef7f27dd8216be7a5fd47baf494c51359d3d9557e6",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **パッケージインデックスの更新**\n\n   まず、既存のパッケージリストを更新します:\n\n   ```bash\n   sudo apt-get update\n   ```\n\n2. **必要なパッケージのインストール**\n\n   aptがHTTPS経由でリポジトリを使用できるようにするために必要なパッケージをインストールします:\n\n   ```bash\n   sudo apt-get install \\\n       ca-certificates \\\n       curl \\\n       gnupg \\\n       lsb-release\n   ```\n\n3. **Docker公式GPGキーの追加**\n\n   Dockerの公式GPGキーをシステムに追加します:\n\n   ```bash\n   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg\n   ```\n\n4. **安定版リポジトリのセットアップ**\n\n   以下のコマンドを使用してDockerの安定版リポジトリをセットアップします:\n\n   ```bash\n   echo \\\n     \"deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \\\n     $(lsb_release -cs) stable\" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null\n   ```\n\n5. **Docker Engineのインストール**\n\n   パッケージインデックスを再度更新し、Docker Engineと`containerd`、`docker-compose`をインストールします:\n\n   ```bash\n   sudo apt-get update\n   sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-compose\n   ```\n\n6. **Dockerインストールの確認**\n\n   インストール後、Dockerが正しくインストールされ、実行されていることを確認します:\n\n   ```bash\n   sudo docker --version\n   ```\n\n   このコマンドはインストールされたDockerのバージョンを返すはずです。\n\n7. **Dockerサービスの起動と有効化**\n\n   Dockerが起動時に開始されるようにします:\n\n   ```bash\n   sudo systemctl start docker\n   sudo systemctl enable docker\n   ```\n\n8. **非rootユーザーとしてDockerを管理（オプション）**\n\n   デフォルトでは、Dockerコマンドは`sudo`で実行する必要があります。非rootユーザーとしてDockerコマンドを実行したい場合は、ユーザーを`docker`グループに追加する必要があります:\n\n   ```bash\n   sudo usermod -aG docker $USER\n   sudo usermod -aG docker jenkins\n   ```\n\n   このコマンドを実行した後、ログアウトして再度ログインするか、以下のコマンドを実行してグループメンバーシップを適用します:\n\n   ```bash\n   newgrp docker\n   ```\n\n9. **Dockerインストールのテスト**\n\n   簡単なDockerコンテナを実行してDockerのインストールをテストします:\n\n   ```bash\n   docker run hello-world\n   ```\n\n   このコマンドはテストイメージをダウンロードし、コンテナ内で実行し、確認メッセージを表示します。\n\n10. **（オプション）追加のDockerツールのインストール**"
+      }
+    },
+    {
+      "segment_id": "f0984c2a",
+      "source_content": "You may also want to install Docker Compose if it's not already included:",
+      "source_content_hash": "4d9f9d13f87d8587c9b4da898cd3334eefcd2d1013c5c33e9b8180df25d86b08",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "まだ含まれていない場合は、Docker Composeもインストールすると良いでしょう:"
+      }
+    },
+    {
+      "segment_id": "7ded566f",
+      "source_content": "```bash\nsudo apt-get install docker-compose-plugin\n```",
+      "source_content_hash": "6f9ee429780969b99abac9756e41dc21e066cd45e564c3c3fd5ab5a55d09f8f2",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_7ded566f"
+      }
+    },
+    {
+      "segment_id": "ab39e8a7",
+      "source_content": "## Docker Registry Installation Steps",
+      "source_content_hash": "24ee82fe46eb47abdb96bdaadb4bed405e10b25e5ba39a8e53a774457fbfc119",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## Dockerレジストリインストール手順"
+      }
+    },
+    {
+      "segment_id": "d21af28f",
+      "source_content": "Setting up your own Docker registry locally allows you to host your Docker images privately without relying on a third-party service like Docker Hub. Below are the steps to set up and use a local Docker registry on your machine or server.",
+      "source_content_hash": "446f9731d374da64b6ba3dd37b4d9a1009983e4b09a8850d91ca5725c12c58ec",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "独自のDockerレジストリをローカルにセットアップすることで、Docker Hubのようなサードパーティサービスに依存せずにDockerイメージをプライベートにホストできます。以下は、マシンまたはサーバー上でローカルDockerレジストリをセットアップして使用する手順です。"
+      }
+    },
+    {
+      "segment_id": "2979d081",
+      "source_content": "1. **Create Necessary Directories and Files**\n\n   Begin by navigating to your home directory and creating directories to store your Docker registry files:\n\n   ```bash\n   cd ~\n   mkdir -p apps/docker\n   cd apps/docker\n   touch docker-compose.yml\n   ```\n\n1. **Set Up `docker-compose.yml`**\n\n   Next, edit the `docker-compose.yml` file with the following content:\n\n   ```yaml\n   version: \"3.8\"\n\n   services:\n     registry:\n       image: registry:2.8.2\n       ports:\n         - \"5000:5000\"\n       environment:\n         REGISTRY_HTTP_HEADERS_Access-Control-Allow-Origin: \"[http://registry.example.com]\"\n         REGISTRY_HTTP_HEADERS_Access-Control-Allow-Methods: \"[HEAD,GET,OPTIONS,DELETE]\"\n         REGISTRY_HTTP_HEADERS_Access-Control-Allow-Credentials: \"[true]\"\n         REGISTRY_HTTP_HEADERS_Access-Control-Allow-Headers: \"[Authorization,Accept,Cache-Control]\"\n         REGISTRY_HTTP_HEADERS_Access-Control-Expose-Headers: \"[Docker-Content-Digest]\"\n         REGISTRY_STORAGE_DELETE_ENABLED: \"true\"\n         REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /var/lib/registry\n       volumes:\n         - ./registry-data:/var/lib/registry\n\n     ui:\n       image: joxit/docker-registry-ui:latest\n       ports:\n         - \"8082:80\"\n       environment:\n         - SINGLE_REGISTRY=true\n         - REGISTRY_TITLE=Docker Registry UI\n         - DELETE_IMAGES=true\n         - SHOW_CONTENT_DIGEST=true\n         - NGINX_PROXY_PASS_URL=http://<your_dsb_hub_ip_address>:5000\n         - SHOW_CATALOG_NB_TAGS=true\n         - CATALOG_MIN_BRANCHES=1\n         - CATALOG_MAX_BRANCHES=1\n         - TAGLIST_PAGE_SIZE=100\n         - REGISTRY_SECURED=false\n         - CATALOG_ELEMENTS_LIMIT=1000\n       depends_on:\n         - registry\n\n   volumes:\n     registry-data:\n   ```\n\n1. **Deploy the Docker Registry**\n\n   Use Docker Compose to deploy the Docker registry and the UI:\n\n   ```bash\n   docker compose up -d\n   ```\n\n1. **Configure Docker Daemon**\n\n   To allow Docker to interact with your insecure registry, you need to update the Docker daemon configuration:\n\n   ```bash\n   sudo nano /etc/docker/daemon.json\n   ```\n\n   Add the following content:\n\n   ```json\n   {\n     \"insecure-registries\": [\"<your_dsb_hub_ip_address>:5000\"]\n   }\n   ```\n\n1. **Restart Docker Service**\n\n   After updating the Docker daemon configuration, restart Docker to apply the changes:\n\n   ```bash\n   sudo systemctl restart docker\n   ```\n\n1. **Configure Additional Docker Nodes (if applicable)**\n\n   If you're working with additional Docker nodes, such as `dsb-hub-01`, you'll need to apply similar settings:\n\n   ```bash\n   sudo nano /var/snap/docker/current/config/daemon.json\n   ```\n\n   Add the following content:\n\n   ```json\n   {\n     \"log-level\": \"error\",\n     \"insecure-registries\": [\"<your_dsb_hub_ip_address>:5000\"]\n   }\n   ```\n\n   Then, restart the Docker service:\n\n   ```bash\n   sudo snap restart docker\n   ```",
+      "source_content_hash": "b66a2a8d1739a8b9d6f3ce09c9d1748c924e878d0115cc1a4b1279b5471748e0",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **必要なディレクトリとファイルの作成**\n\n   ホームディレクトリに移動し、Dockerレジストリ用のディレクトリを作成します:\n\n   ```bash\n   cd ~\n   mkdir -p apps/docker\n   cd apps/docker\n   touch docker-compose.yml\n   ```\n\n1. **`docker-compose.yml`の設定**\n\n   `docker-compose.yml`ファイルを以下の内容で編集します:\n\n   ```yaml\n   version: \"3.8\"\n\n   services:\n     registry:\n       image: registry:2.8.2\n       ports:\n         - \"5000:5000\"\n       environment:\n         REGISTRY_HTTP_HEADERS_Access-Control-Allow-Origin: \"[http://registry.example.com]\"\n         REGISTRY_HTTP_HEADERS_Access-Control-Allow-Methods: \"[HEAD,GET,OPTIONS,DELETE]\"\n         REGISTRY_HTTP_HEADERS_Access-Control-Allow-Credentials: \"[true]\"\n         REGISTRY_HTTP_HEADERS_Access-Control-Allow-Headers: \"[Authorization,Accept,Cache-Control]\"\n         REGISTRY_HTTP_HEADERS_Access-Control-Expose-Headers: \"[Docker-Content-Digest]\"\n         REGISTRY_STORAGE_DELETE_ENABLED: \"true\"\n         REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /var/lib/registry\n       volumes:\n         - ./registry-data:/var/lib/registry\n\n     ui:\n       image: joxit/docker-registry-ui:latest\n       ports:\n         - \"8082:80\"\n       environment:\n         - SINGLE_REGISTRY=true\n         - REGISTRY_TITLE=Docker Registry UI\n         - DELETE_IMAGES=true\n         - SHOW_CONTENT_DIGEST=true\n         - NGINX_PROXY_PASS_URL=http://<your_dsb_hub_ip_address>:5000\n         - SHOW_CATALOG_NB_TAGS=true\n         - CATALOG_MIN_BRANCHES=1\n         - CATALOG_MAX_BRANCHES=1\n         - TAGLIST_PAGE_SIZE=100\n         - REGISTRY_SECURED=false\n         - CATALOG_ELEMENTS_LIMIT=1000\n       depends_on:\n         - registry\n\n   volumes:\n     registry-data:\n   ```\n\n1. **Dockerレジストリのデプロイ**\n\n   Docker Composeを使用してDockerレジストリとUIをデプロイします:\n\n   ```bash\n   docker compose up -d\n   ```\n\n1. **Dockerデーモンの設定**\n\n   セキュアでないレジストリとやり取りできるようにするため、Dockerデーモンの設定を更新します:\n\n   ```bash\n   sudo nano /etc/docker/daemon.json\n   ```\n\n   以下の内容を追加します:\n\n   ```json\n   {\n     \"insecure-registries\": [\"<your_dsb_hub_ip_address>:5000\"]\n   }\n   ```\n\n1. **Dockerサービスの再起動**\n\n   Dockerデーモンの設定を更新した後、変更を適用するためにDockerを再起動します:\n\n   ```bash\n   sudo systemctl restart docker\n   ```\n\n1. **追加のDockerノードの設定（該当する場合）**\n\n   `dsb-hub-01`などの追加のDockerノードを使用する場合、同様の設定を適用する必要があります:\n\n   ```bash\n   sudo nano /var/snap/docker/current/config/daemon.json\n   ```\n\n   以下の内容を追加します:\n\n   ```json\n   {\n     \"log-level\": \"error\",\n     \"insecure-registries\": [\"<your_dsb_hub_ip_address>:5000\"]\n   }\n   ```\n\n   その後、Dockerサービスを再起動します:\n\n   ```bash\n   sudo snap restart docker\n   ```"
+      }
+    },
+    {
+      "segment_id": "63daebc9",
+      "source_content": "## You're Done",
+      "source_content_hash": "dc146497f2e2562df8ec3f604024e77882ae11623fc2a1260623fa30c5fe06f5",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 完了です"
+      }
+    },
+    {
+      "segment_id": "228d01d5",
+      "source_content": "You've completed configuring and installing Docker and the Docker Registry on your servers.",
+      "source_content_hash": "ccfbdc3ea76ca260c7671efb11cc98f6e1a8ab70e437ad7a5689ec79fe980045",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "サーバー上でのDockerおよびDockerレジストリの設定とインストールが完了しました。"
+      }
+    },
+    {
+      "segment_id": "e52251be",
+      "source_content": "<!-- Sources -->",
+      "source_content_hash": "4494bb095c897c283a22423ee5efc82db998c4872791a85cc207cdfd0d31ff25",
+      "node_type": "comment",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_e52251be"
+      }
+    },
+    {
+      "segment_id": "47030723",
+      "source_content": "[Docker's Website]: https://docs.docker.com/get-started/overview/",
+      "source_content_hash": "87f17c32c9a3a1a080acd295aa05bc756eb4505b92ec46a0bf90ffe6ecb7ad38",
+      "node_type": "definition",
+      "translatable": true,
+      "translations": {
+        "ja": "[Docker's Website]: https://docs.docker.com/get-started/overview/"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/projects/devsecops-home-lab/installation-and-configuration/docker.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.153512+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "c7b81b1a5d5a8b9a41a3db61abf0f4fb68995c7add367af28061bd3e7a79bdd4"
+  }
+}

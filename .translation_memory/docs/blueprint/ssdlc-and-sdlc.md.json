@@ -1,0 +1,362 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/blueprint/ssdlc-and-sdlc.md",
+  "source_file_content_hash": "09cbdc9bd0d6c988199ff782e126aef50af615a8efae38184d6cca90279c7a53",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: what-is-the-secure-sdlc-and-sdlc\ntitle: What is the Secure SDLC?\ndescription: SDLC vs S-SDLC!\nsidebar_position: 3\n---",
+      "source_content_hash": "51342c78556fe8286fd903a4f481fe4c8855e0c0f9432a7097d47a24f988604f",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "3fbbcc07",
+      "source_content": "Author: [Damien Burks]",
+      "source_content_hash": "5ea0b7dea762d9db1deb5a12bbe8e41ef43190e41291691bb9f75859ac1ac1bf",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "著者: [Damien Burks]"
+      }
+    },
+    {
+      "segment_id": "7e5c5a39",
+      "source_content": "Now that we've covered Application Security, and you're familiar with key concepts of Application Security, let's dive into the Software Development Life Cycle (SDLC) and Secure Software Development Life Cycle (SSDLC).",
+      "source_content_hash": "95b3d9e0e7aa632638a97acc3839a4b06152baac416305796729873549b794ff",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "アプリケーションセキュリティについてカバーし、その主要な概念を理解したところで、ソフトウェア開発ライフサイクル（SDLC）とセキュアソフトウェア開発ライフサイクル（SSDLC）について深く掘り下げていきましょう。"
+      }
+    },
+    {
+      "segment_id": "9fcbdce9",
+      "source_content": "## Overview",
+      "source_content_hash": "7337f3d0aa29e9a82b8f1650b743a98eef90794631fa763a319686e69c546821",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 概要"
+      }
+    },
+    {
+      "segment_id": "ad8fd492",
+      "source_content": "One of the most critical building blocks is the **Secure Software Development Life Cycle (Secure SDLC)**. By establishing a strong understanding of Secure SDLC, you will be better equipped to comprehend how security is integrated throughout the development lifecycle.",
+      "source_content_hash": "e1d4b6d3c7660957555064d4d86d7cbc4cfda626ee6ea07cf576e0ed2dc8423a",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "最も重要な基礎の一つが**セキュアソフトウェア開発ライフサイクル（Secure SDLC）**です。Secure SDLCをしっかり理解することで、セキュリティが開発ライフサイクル全体にどのように統合されるかをより深く把握できるようになります。"
+      }
+    },
+    {
+      "segment_id": "cbe57f9d",
+      "source_content": "## What is the SDLC?",
+      "source_content_hash": "c30e5fbc37c9f5cd24798b6548f1cc8610826185a2234d5d3e9bc2a6e16c4b09",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## SDLCとは？"
+      }
+    },
+    {
+      "segment_id": "39b3772c",
+      "source_content": "![SDLC](/img/blueprint/sdlc_image.webp)",
+      "source_content_hash": "60a424b2ef20b33f3dc3f550c91bfac3aaf4399415c50c5a7b960c418c2f040e",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "![SDLC](/img/blueprint/sdlc_image.webp)"
+      }
+    },
+    {
+      "segment_id": "ea07d81e",
+      "source_content": "> Image Source: [Software Development Life Cycle (SDLC) | Snyk](https://snyk.io/learn/secure-sdlc/#history)",
+      "source_content_hash": "2962eae0b8fe5a7e95d3936d54e6aafe1c0ae0c5a9f70df684385cf6ac7bb1c8",
+      "node_type": "blockquote",
+      "translatable": true,
+      "translations": {
+        "ja": "> 画像出典: [Software Development Life Cycle (SDLC) | Snyk](https://snyk.io/learn/secure-sdlc/#history)"
+      }
+    },
+    {
+      "segment_id": "2df4f75f",
+      "source_content": "The **Software Development Life Cycle (SDLC)** is a **structured** process used for developing software applications. To keep it short, the SDLC consists of six key phases:",
+      "source_content_hash": "a6206d86529000a4db4fb098b7be01b20c85c379141709147a4cdd47fa535375",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "**ソフトウェア開発ライフサイクル（SDLC）**は、ソフトウェアアプリケーションを開発するための**構造化された**プロセスです。簡潔に言うと、SDLCは以下の6つの主要なフェーズで構成されます:"
+      }
+    },
+    {
+      "segment_id": "8cf6d045",
+      "source_content": "1. **Planning and Requirements Gathering**: Understanding what the software needs to do and ensuring it aligns with business requirements.\n2. **Design**: Architecting the solution to meet _functional_ and _non-functional_ requirements.\n3. **Development**: Writing the _actual_ code... or programming.\n4. **Testing**: Ensuring that the software works as intended and is free from bugs (that don't impact the features).\n5. **Deployment**: Releasing the software into higher environments (QA, Production)\n6. **Maintenance**: Ongoing updates/enhancements and fixes post-release",
+      "source_content_hash": "1004aadd140e2b3e24ef85145f98e679a72c0e15171f74c22c0ffc78cab9f87d",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **計画と要件定義**: ソフトウェアが何をすべきかを理解し、ビジネス要件に沿っていることを確認する。\n2. **設計**: _機能的な_要件と_非機能的な_要件を満たすためのソリューションを設計する。\n3. **開発**: _実際の_コードを書く...つまりプログラミングを行う。\n4. **テスト**: ソフトウェアが意図通りに動作し、（機能に影響しない）バグがないことを確認する。\n5. **デプロイ**: より高い環境（QA、本番環境）にソフトウェアをリリースする。\n6. **保守**: リリース後の継続的な更新/機能拡張と修正。"
+      }
+    },
+    {
+      "segment_id": "dfe931a2",
+      "source_content": "The downside to this process is that there is no security baked into any of phases. Formally known as the traditional SDLC, when developers follow this model, security is often treated as an _afterthought_ and addressed after the deployment phase and _well_ into the maintenance phase (and I do mean _well into the maintanence phase_). This reactive approach can result in security issues being discovered late, which can be quite costly and disruptive to fix overtime. So, when you're developing applications of any kind, pretty pretty please keep this in mind.",
+      "source_content_hash": "9257b205f5e6dc26fac2819fc9deb00f5ff17abdbe36621680697e22a1a3a6e1",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "このプロセスの欠点は、どのフェーズにもセキュリティが組み込まれていないことです。従来のSDLCとして知られるこのモデルでは、開発者がこれに従う場合、セキュリティは往々にして_後付け_として扱われ、デプロイフェーズの後、_しかも_保守フェーズの_かなり後半_（本当に_かなり後半_です）になってから対応されます。このような反応的なアプローチでは、セキュリティ問題が後になって発見されることが多く、時間とともに修正コストがかさみ、大きな混乱を招く可能性があります。ですから、どんな種類のアプリケーションを開発する際にも、この点をしっかりと心に留めておいてください。"
+      }
+    },
+    {
+      "segment_id": "0037ff70",
+      "source_content": "## The Secure SDLC",
+      "source_content_hash": "3030fd34d91103310feb4ee37d90e05b5e7773e2caaa255aceea7f02572cf748",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## セキュアSDLC"
+      }
+    },
+    {
+      "segment_id": "bdc231b1",
+      "source_content": "Now that we've covered the SDLC at a high-level, let's talk about the replacement (or the better process to follow).",
+      "source_content_hash": "6c63fa4c7ee1a18ca7b0ad50b3b67e7efe8fc00449d1ec9bce1f627db1214703",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "SDLCを高レベルでカバーしたので、次はその代替（または従うべきより良いプロセス）について話しましょう。"
+      }
+    },
+    {
+      "segment_id": "97ae4a01",
+      "source_content": "The **Secure SDLC** (SSDLC) is an evolution of the traditional SDLC model, where security is a key consideration at **every phase** of the process. Rather than treating security as a final step, it becomes an significant part of each phase by helping to reduce vulnerabilities and risks earlier in the lifecycle. So, when you the term \"shift-left\" or \"shifting-left\", I want you think about the SSDLC, because that's essentially what we're doing. We are moving security from the end of the SDLC and integrating it into every phase within the SDLC.",
+      "source_content_hash": "75a41f94a37f1ffa5615ea4fb9679276c9a80867bcb1e69a0bc778a36608b821",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "**セキュアSDLC**（SSDLC）は、従来のSDLCモデルの進化形であり、セキュリティがプロセスの**各フェーズ**で重要な考慮事項となります。セキュリティを最終ステップとして扱うのではなく、ライフサイクルの早い段階で脆弱性やリスクを減らすために、各フェーズの重要な一部とします。ですから、「shift-left」や「shifting-left」という用語を聞いたら、SSDLCのことを思い浮かべてください。なぜなら、本質的にはそれこそが私たちが行っていることだからです。SDLCの終わりにあるセキュリティを移動させ、SDLC内のすべてのフェーズに統合しているのです。"
+      }
+    },
+    {
+      "segment_id": "c3a738de",
+      "source_content": "One of the key benefits of the SSDLC is that you are finding and figuring out any security issues as you iterate through the Secure SDLC, which overtime helps save cost and eliminates the overhead and potential of releasing vulnerabilities into the wild.",
+      "source_content_hash": "d1d733399ee63be839f53012cdda3430b4dbac47ce9112d0480c492f2726bf74",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "SSDLCの主な利点の一つは、セキュアSDLCを反復しながらセキュリティ問題を見つけ、解決していくことで、時間の経過とともにコストを節約し、脆弱性を世にリリースするオーバーヘッドや可能性を排除できることです。"
+      }
+    },
+    {
+      "segment_id": "3cfe6286",
+      "source_content": "![SSDLC](/img/blueprint/ssdlc_image.webp)",
+      "source_content_hash": "59ff5eea6ab83771b11650018bf0d3670e50c3f9a74429bfff5b8745b75c9ea4",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "![SSDLC](/img/blueprint/ssdlc_image.webp)"
+      }
+    },
+    {
+      "segment_id": "3ff39c1d",
+      "source_content": "> Image Source: [Secure Software Development Life Cycle (SSDLC) | Snyk](https://snyk.io/learn/secure-sdlc/#phases)",
+      "source_content_hash": "54c85692629de01377fde602f7810b735c415a5ee7e2b8b16797ad193a6189e9",
+      "node_type": "blockquote",
+      "translatable": true,
+      "translations": {
+        "ja": "> 画像出典: [Secure Software Development Life Cycle (SSDLC) | Snyk](https://snyk.io/learn/secure-sdlc/#phases)"
+      }
+    },
+    {
+      "segment_id": "35a77014",
+      "source_content": "### Key Phases of the Secure SDLC",
+      "source_content_hash": "2e0eef1b178835d49acfb9dc293cfa63d9e8d83b7754d3f165fc83ef8224102f",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "### セキュアSDLCの主要フェーズ"
+      }
+    },
+    {
+      "segment_id": "13d9cd70",
+      "source_content": "There are 6 key phases that you should know:",
+      "source_content_hash": "217c91d543d1ed20917d8eb218edca534b73931cd30ab9efd659526071cf12c4",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "知っておくべき6つの主要フェーズがあります:"
+      }
+    },
+    {
+      "segment_id": "6773b78b",
+      "source_content": "1. **Planning and Requirements Gathering (with Security in Mind)**\n\n   - At this phase, it’s crucial to gather both functional and security requirements. By considering security from the outset, you ensure that the software design accounts for potential threats and compliance with security standards such as GDPR, HIPPA, etc. Some example security activities that you should be aware of that happens at this phase include:\n\n     1. Threat modeling (very... very... important)\n     1. Conducting risk assessments\n     1. Complaince mapping\n\n2. **Design (Secure Architecture)**\n\n   - During the design phase, architectural decisions should be made with security as a priority. This involves creating a robust design that can mitigate common security threats, which is **SUPER** important. Starting off with security in the design ensures that the developers code securely. Some example security activities that you should be aware of that happens at this phase include:\n\n     1. Identifying security design patterns\n     1. Defining security controls\n     1. Identifying attack vectors and ways to mitigate them.\n\n3. **Development (Secure Coding Practices)**\n\n   - This is my **favorite phase**, because this is where the magic happens. However, you don't really get anywhere without coding _securely_. Secure coding is the first line of defense for your application. You're literally ensuring that you are preventing vulnerabilites by coding in secure manner and following best practices for preventing things like SQL Injection and Cross-Site Scripting (XSS). The best practices will differ based on the language that you're coding in, but the concept itself is transferable. Some example security activities that you should be aware of that happens at this phase include:\n\n     1. Performing code reviews and pair programming\n     1. Executing static application security testing (SAST) scans\n     1. Checking your dependencies for vulnerabilities by running dependency scans against them.\n\n4. **Testing (Security Testing)**\n\n   - Okay... this is my _second_ favorite phase because you can to see if what you built truly works and is secured properly by performing automated and manual security tests. To add context, automated and manual security testing **should** be embedded in this phase to catch vulnerabilities early. Instead of relying solely on traditional testing, specific security tests like penetration testing and dynamic analysis are key. This can be achieved by:\n\n     1. Performing or implementing Dynamic Application Security Testing (DAST) scanning\n     1. Conducting penetration tests,\n     1. Finding and using fuzz testing tools.\n\n5. **Deployment (Secure Configuration and Monitoring)**\n\n   - In this phase, security continues during deployment by ensuring that applications are deployed securely. This includes using secure configurations, Infrastructure as Code (IaC) security, and container security practices. Some example security activities that you should be aware of that happens at this phase include:\n\n     1. The reviewal of deployment configurations to ensure that they adhere to best practices\n     1. Container hardening and scanning\n     1. Ensuring least privilege access controls for your application or infrastructure.\n\n6. **Maintenance (Continuous Security and Monitoring)**\n\n   - After deployment, the application enters the maintenance phase, where it’s essential to continue monitoring for new vulnerabilities and regularly apply patches or updates. If you did everything correctly the first time, your application should be pretty secure. From a security standpoint though, some common activities that happen in this phase that you should be aware of is:\n\n     1. Implementing continous monitoring solutions and processes\n     1. Creating patch management processes\n     1. Developing and implementing an incident response plan (security and operations).",
+      "source_content_hash": "ebadf597b6f6d4f00360db7f45cec01577fd38cc3b48e56da63b5e773ab1e654",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **セキュリティを考慮した計画と要件収集**\n\n   - このフェーズでは、機能要件とセキュリティ要件の両方を収集することが重要です。最初からセキュリティを考慮することで、ソフトウェア設計が潜在的な脅威やGDPR、HIPAAなどのセキュリティ基準への準拠を考慮したものになります。このフェーズで行われるべきセキュリティ活動の例には以下があります：\n\n     1. 脅威モデリング（非常に...非常に...重要）\n     1. リスク評価の実施\n     1. コンプライアンスマッピング\n\n2. **設計（セキュアなアーキテクチャ）**\n\n   - 設計フェーズでは、セキュリティを優先したアーキテクチャの決定が行われます。これには、一般的なセキュリティ脅威を緩和できる堅牢な設計の作成が含まれます。これは**非常に**重要です。設計段階でセキュリティを考慮することで、開発者が安全なコードを書くことが保証されます。このフェーズで行われるべきセキュリティ活動の例には以下があります：\n\n     1. セキュリティ設計パターンの特定\n     1. セキュリティコントロールの定義\n     1. 攻撃ベクトルの特定とその緩和方法\n\n3. **開発（セキュアなコーディングプラクティス）**\n\n   - これは私の**お気に入りのフェーズ**です。なぜなら、ここで魔法が起こるからです。しかし、安全にコーディングしなければ何も達成できません。セキュアなコーディングはアプリケーションの最初の防御ラインです。SQLインジェクションやクロスサイトスクリプティング（XSS）などの脆弱性を防ぐためのベストプラクティスに従うことで、脆弱性を予防します。ベストプラクティスは使用する言語によって異なりますが、概念自体は転用可能です。このフェーズで行われるべきセキュリティ活動の例には以下があります：\n\n     1. コードレビューとペアプログラミングの実施\n     1. 静的アプリケーションセキュリティテスト（SAST）スキャンの実行\n     1. 依存関係の脆弱性チェック（依存関係スキャンの実行）\n\n4. **テスト（セキュリティテスト）**\n\n   - これは私の**第二のお気に入りのフェーズ**です。なぜなら、自動化および手動のセキュリティテストを実行することで、構築したものが本当に機能し、適切に保護されているかを確認できるからです。自動化および手動のセキュリティテストをこのフェーズに組み込むことで、早期に脆弱性を発見できます。従来のテストだけに頼るのではなく、ペネトレーションテストや動的解析などの特定のセキュリティテストが重要です。これらは以下の方法で達成できます：\n\n     1. 動的アプリケーションセキュリティテスト（DAST）スキャンの実施\n     1. ペネトレーションテストの実施\n     1. ファジングテストツールの使用\n\n5. **デプロイ（セキュアな構成とモニタリング）**\n\n   - このフェーズでは、アプリケーションが安全にデプロイされるようにセキュリティを継続します。これには、セキュアな構成の使用、Infrastructure as Code（IaC）セキュリティ、コンテナセキュリティプラクティスが含まれます。このフェーズで行われるべきセキュリティ活動の例には以下があります：\n\n     1. ベストプラクティスに準拠したデプロイ構成のレビュー\n     1. コンテナのハードニングとスキャン\n     1. アプリケーションまたはインフラストラクチャに対する最小権限アクセスコントロールの確保\n\n6. **保守（継続的なセキュリティとモニタリング）**\n\n   - デプロイ後、アプリケーションは保守フェーズに入ります。ここでは、新しい脆弱性を継続的に監視し、定期的にパッチや更新を適用することが不可欠です。最初からすべてを正しく行っていれば、アプリケーションはかなり安全な状態になっているはずです。セキュリティの観点から、このフェーズで行われる一般的な活動には以下があります：\n\n     1. 継続的モニタリングソリューションとプロセスの導入\n     1. パッチ管理プロセスの作成\n     1. インシデントレスポンスプラン（セキュリティと運用）の策定と実施"
+      }
+    },
+    {
+      "segment_id": "b10963d7",
+      "source_content": "## Recommended Resources",
+      "source_content_hash": "60b0333cd7349662f1a6625c43b42c2488a9a4b4adaa93668ee9194a298d3490",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 推奨リソース"
+      }
+    },
+    {
+      "segment_id": "2822251a",
+      "source_content": "Before we move onto the next section, here are some resources that I believe you should look into to help you better understand the SDLC and SSDLC:",
+      "source_content_hash": "4fe58f11f1274218cb7383153798e2661f2ed3369d04b2f3ac17ab346b128e70",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "次のセクションに進む前に、SDLCとSSDLCをより深く理解するために役立つリソースをいくつか紹介します："
+      }
+    },
+    {
+      "segment_id": "99d0dd9b",
+      "source_content": "### Books",
+      "source_content_hash": "344b2af65af2d2dbb34da9412ec763f8a8e36a23588aa8fc42195ea9ec6a23bf",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "### 書籍"
+      }
+    },
+    {
+      "segment_id": "baeab777",
+      "source_content": "| **Book Title**                                         | **Author**       | **Link**                          |\n| ------------------------------------------------------ | ---------------- | --------------------------------- |\n| Threat Modeling: Designing for Security                | Adam Shostack    | [Amazon](https://amzn.to/3Oa5dDP) |\n| Designing Secure Software: A Guide for Developers      | Loren Kohnfelder | [Amazon](https://amzn.to/4euRz9c) |\n| Clean Code: A Handbook of Agile Software Craftsmanship | Robert C. Martin | [Amazon](https://amzn.to/3O762xg) |",
+      "source_content_hash": "d01db65ca16ff644f54091413e20f06979954f90e09db352cdb305876d677e5d",
+      "node_type": "table",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_baeab777"
+      }
+    },
+    {
+      "segment_id": "f947c8e4",
+      "source_content": "### YouTube Videos",
+      "source_content_hash": "22295a0af76e9b6a1795c9b7fa092594c5d699f523fa43c1325148212053b768",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "### YouTube動画"
+      }
+    },
+    {
+      "segment_id": "d1f76d04",
+      "source_content": "#### Secure SDLC",
+      "source_content_hash": "c4c31de80ec50a6e5e5a13975d92c63230c9cb6a111583df0e9a6a93061c0466",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "#### セキュアSDLC"
+      }
+    },
+    {
+      "segment_id": "65095059",
+      "source_content": "<iframe\n  width=\"100%\"\n  height=\"500\"\n  src=\"https://www.youtube.com/embed/snJGzyXzVec?si=eFEeMQKn3207uc_g\"\n  frameborder=\"0\"\n  allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\"\n  allowfullscreen\n></iframe>",
+      "source_content_hash": "90cfaf19a5b3f77de6f22d96c179e09ee1ae598f86b57c0d19736da21c850d95",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_65095059"
+      }
+    },
+    {
+      "segment_id": "cbd60296",
+      "source_content": "#### Introduction To The Software Development Life Cycle (SDLC)",
+      "source_content_hash": "1f232a4de97886621d7608411436196fa7c89164ab0cf34bce553d198315ab5d",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "#### ソフトウェア開発ライフサイクル（SDLC）入門"
+      }
+    },
+    {
+      "segment_id": "d4059883",
+      "source_content": "<iframe\n  width=\"100%\"\n  height=\"500\"\n  src=\"https://www.youtube.com/embed/Fi3_BjVzpqk?si=OhL-aUx9PSdjCPnf\"\n  frameborder=\"0\"\n  allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\"\n  allowfullscreen\n></iframe>",
+      "source_content_hash": "0b3130dae461f0932deb27acae6c1fc562b8462c2a4a06e17252290d6b7eed57",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_d4059883"
+      }
+    },
+    {
+      "segment_id": "c766290e",
+      "source_content": "#### Agile vs Waterfall Methodlogy",
+      "source_content_hash": "00b61226a144b16181d1fb251897dad8bc4aae7a80554dfd7f88583fdc3f5dd1",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "#### アジャイル vs ウォーターフォール手法"
+      }
+    },
+    {
+      "segment_id": "448a0039",
+      "source_content": "<iframe\n  width=\"100%\"\n  height=\"500\"\n  src=\"https://www.youtube.com/embed/5RocT_OdQcA?si=4d7jjvy_y7aPrhSm\"\n  frameborder=\"0\"\n  allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\"\n  allowfullscreen\n></iframe>",
+      "source_content_hash": "820068ee6a3003d550960223a9960d0267f0d0861c7720fc1c7661072fcd626d",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_448a0039"
+      }
+    },
+    {
+      "segment_id": "0d5321b7",
+      "source_content": "#### What is Threat Modeling and Why Is It Important?",
+      "source_content_hash": "7416b5be097bd23f015218e0d4773b84d030a374d363a79b3ccd97d434d9c13e",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "#### 脅威モデリングとは？なぜ重要なのか？"
+      }
+    },
+    {
+      "segment_id": "dc7a93fa",
+      "source_content": "<iframe\n  width=\"100%\"\n  height=\"500\"\n  src=\"https://www.youtube.com/embed/h_BC6QMWDbA?si=Eb8VFjqBUYxsHcFim\"\n  frameborder=\"0\"\n  allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\"\n  allowfullscreen\n></iframe>",
+      "source_content_hash": "f404dc20f43e9a040c7dc8eeac14843f3b0f04c606bda53ba5294b7d131c884f",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_dc7a93fa"
+      }
+    },
+    {
+      "segment_id": "d24ae29a",
+      "source_content": "<!-- Links -->",
+      "source_content_hash": "25f54153c0d0e0dac3bb699044aa9b88a8a71752b65c898e921cc72c327d285a",
+      "node_type": "comment",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_d24ae29a"
+      }
+    },
+    {
+      "segment_id": "d0e55c7e",
+      "source_content": "[Damien Burks]: https://www.youtube.com/@damienjburks",
+      "source_content_hash": "7097815c6ac6c02cff2091f30ccf75b895bb53b20eda52fea9f0f673e9d0ed23",
+      "node_type": "definition",
+      "translatable": true,
+      "translations": {
+        "ja": "[Damien Burks]: https://www.youtube.com/@damienjburks"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/blueprint/ssdlc-and-sdlc.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.154091+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "09cbdc9bd0d6c988199ff782e126aef50af615a8efae38184d6cca90279c7a53"
+  }
+}

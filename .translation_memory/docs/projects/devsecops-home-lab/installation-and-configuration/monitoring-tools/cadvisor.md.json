@@ -1,0 +1,112 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/projects/devsecops-home-lab/installation-and-configuration/monitoring-tools/cadvisor.md",
+  "source_file_content_hash": "7c8cb4e296f9362e04856a0fa813622b0b5f77998869a809af224f07610818cf",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: install-config-cadvisor\ntitle: cAdvisor\nsidebar_position: 4\n---",
+      "source_content_hash": "422967cd33eab6d31ec410e99eb5b136ce9826b5bddb5bc901dc6e66ffa6528e",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "a703643c",
+      "source_content": "## Overview",
+      "source_content_hash": "7337f3d0aa29e9a82b8f1650b743a98eef90794631fa763a319686e69c546821",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 概要"
+      }
+    },
+    {
+      "segment_id": "cbf61009",
+      "source_content": "> This installation happens on the `dsb-node-01`.",
+      "source_content_hash": "b17ef05dfd9bab5ec5cf15335e7d51d2259b249219462cd2563b6cf579e3e1ee",
+      "node_type": "blockquote",
+      "translatable": true,
+      "translations": {
+        "ja": "> このインストールは `dsb-node-01` 上で行われます。"
+      }
+    },
+    {
+      "segment_id": "8ac585fb",
+      "source_content": "According to [cAdvisor's GitHub Repository], cAdvisor (Container Advisor) is an open-source tool from Google designed to provide insights into resource usage and performance characteristics of running containers. It collects, aggregates, processes, and exports information about running containers, making it a valuable tool for monitoring containerized environments. This guide will walk you through the steps to install and configure cAdvisor using Docker Compose on your system.",
+      "source_content_hash": "4eb73bc822e29c4059da40b6dc5fde5f11225dbb152348138e7e69d87432b043",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "[cAdvisorのGitHubリポジトリ]によると、cAdvisor（Container Advisor）はGoogleが開発したオープンソースツールで、実行中のコンテナのリソース使用状況とパフォーマンス特性に関する洞察を提供することを目的としています。このツールは実行中のコンテナに関する情報を収集、集計、処理、エクスポートするため、コンテナ化された環境を監視するための貴重なツールとなります。このガイドでは、Docker Composeを使用してシステムにcAdvisorをインストールおよび設定する手順を説明します。"
+      }
+    },
+    {
+      "segment_id": "ba4f48ff",
+      "source_content": "## Installation Steps",
+      "source_content_hash": "176cd2c0cf80c3564adae3b72d2ad36ac95f9883c3d2b17da74d1dc605bb60b7",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## インストール手順"
+      }
+    },
+    {
+      "segment_id": "4269e691",
+      "source_content": "1. **Create Necessary Directories**\n\n   First, navigate to your `apps` directory and create a new directory for cAdvisor:\n\n   ```bash\n   cd apps\n   mkdir cadvisor\n   ```\n\n   Next, create the Docker library directory if it does not already exist:\n\n   ```bash\n   cd /var/lib\n   mkdir docker\n   chown -R root:root docker\n   ```\n\n2. **Create Docker Compose File**\n\n   Navigate back to the `cadvisor` directory and create a `docker-compose.yml` file:\n\n   ```bash\n   cd ~/apps/cadvisor\n   touch docker-compose.yml\n   ```\n\n3. **Configure Docker Compose File**\n\n   Edit the `docker-compose.yml` file and add the following configuration:\n\n   ```yaml\n   version: \"3.8\"\n\n   services:\n     cadvisor:\n       image: gcr.io/cadvisor/cadvisor\n       container_name: cadvisor\n       privileged: true\n       restart: unless-stopped\n       ports:\n         - \"8080:8080\"\n       volumes:\n         - /:/rootfs:ro\n         - /var/run:/var/run:ro\n         - /sys:/sys:ro\n       network_mode: host\n   ```\n\n4. **Deploy cAdvisor**\n\n   Finally, use Docker Compose to deploy cAdvisor:\n\n   ```bash\n   docker-compose up -d\n   ```",
+      "source_content_hash": "e8009420713e7d70a53de1b44534d544db038cfde4781b2e3481db402358e646",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **必要なディレクトリの作成**\n\n   まず、`apps`ディレクトリに移動し、cAdvisor用の新しいディレクトリを作成します：\n\n   ```bash\n   cd apps\n   mkdir cadvisor\n   ```\n\n   次に、Dockerライブラリディレクトリが存在しない場合は作成します：\n\n   ```bash\n   cd /var/lib\n   mkdir docker\n   chown -R root:root docker\n   ```\n\n2. **Docker Composeファイルの作成**\n\n   `cadvisor`ディレクトリに戻り、`docker-compose.yml`ファイルを作成します：\n\n   ```bash\n   cd ~/apps/cadvisor\n   touch docker-compose.yml\n   ```\n\n3. **Docker Composeファイルの設定**\n\n   `docker-compose.yml`ファイルを編集し、以下の設定を追加します：\n\n   ```yaml\n   version: \"3.8\"\n\n   services:\n     cadvisor:\n       image: gcr.io/cadvisor/cadvisor\n       container_name: cadvisor\n       privileged: true\n       restart: unless-stopped\n       ports:\n         - \"8080:8080\"\n       volumes:\n         - /:/rootfs:ro\n         - /var/run:/var/run:ro\n         - /sys:/sys:ro\n       network_mode: host\n   ```\n\n4. **cAdvisorのデプロイ**\n\n   最後に、Docker Composeを使用してcAdvisorをデプロイします：\n\n   ```bash\n   docker-compose up -d\n   ```"
+      }
+    },
+    {
+      "segment_id": "52388877",
+      "source_content": "## You're Done",
+      "source_content_hash": "dc146497f2e2562df8ec3f604024e77882ae11623fc2a1260623fa30c5fe06f5",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 完了"
+      }
+    },
+    {
+      "segment_id": "eab056be",
+      "source_content": "Congratulations! You have successfully installed and configured cAdvisor. The cAdvisor service is now running and can be accessed via port 8080 on your host machine. This setup will allow you to monitor and visualize the performance metrics of your running containers in real-time.",
+      "source_content_hash": "11205944fa9924da1491dc485d960611166e3c115299c129943a8418937ccd6a",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "おめでとうございます！cAdvisorのインストールと設定が正常に完了しました。cAdvisorサービスは現在実行中であり、ホストマシンのポート8080経由でアクセスできます。このセットアップにより、実行中のコンテナのパフォーマンスメトリクスをリアルタイムで監視および視覚化することが可能になります。"
+      }
+    },
+    {
+      "segment_id": "f126e197",
+      "source_content": "<!-- Sources -->",
+      "source_content_hash": "4494bb095c897c283a22423ee5efc82db998c4872791a85cc207cdfd0d31ff25",
+      "node_type": "comment",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_f126e197"
+      }
+    },
+    {
+      "segment_id": "8f465dd1",
+      "source_content": "[cAdvisor's GitHub Repository]: https://github.com/google/cadvisor",
+      "source_content_hash": "656b2e4d63336f5127068e02b75c0097442ca6145138c26b486550c12a80cb76",
+      "node_type": "definition",
+      "translatable": true,
+      "translations": {
+        "ja": "[cAdvisorのGitHubリポジトリ]: https://github.com/google/cadvisor"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/projects/devsecops-home-lab/installation-and-configuration/monitoring-tools/cadvisor.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.151319+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "7c8cb4e296f9362e04856a0fa813622b0b5f77998869a809af224f07610818cf"
+  }
+}

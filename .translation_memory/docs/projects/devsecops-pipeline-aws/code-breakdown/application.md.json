@@ -1,0 +1,352 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/projects/devsecops-pipeline-aws/code-breakdown/application.md",
+  "source_file_content_hash": "7d9280688b5c1e9f9ecb47ad20b97e759696d307e89adb9df61bac11ff6264cb",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: application-code\ntitle: Application Code - Explained\nsidebar_position: 2\n---",
+      "source_content_hash": "214fa3d5beca8ba7ed309f6370269f2935a652a62ffc11615c1b4bc1b99db9ae",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "a703643c",
+      "source_content": "## Overview",
+      "source_content_hash": "7337f3d0aa29e9a82b8f1650b743a98eef90794631fa763a319686e69c546821",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 概要"
+      }
+    },
+    {
+      "segment_id": "53eaf0e1",
+      "source_content": "This section provides a detailed explanation of the application's codebase. The project is a simple Python-based FastAPI application that can be run locally or containerized for deployment. Its primary purpose is to demonstrate a secure and automated DevSecOps pipeline while highlighting potential vulnerabilities for testing purposes.",
+      "source_content_hash": "c0ee2dbbd2909230a7b4a3d6a9f144764100b14e518566435ca4a7a55566e88e",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "このセクションでは、アプリケーションのコードベースについて詳細に説明します。このプロジェクトは、PythonベースのシンプルなFastAPIアプリケーションで、ローカルで実行したり、コンテナ化してデプロイしたりできます。主な目的は、安全で自動化されたDevSecOpsパイプラインを実演するとともに、テスト用に意図的な脆弱性を組み込んでいます。"
+      }
+    },
+    {
+      "segment_id": "8a5f6a7b",
+      "source_content": "## Defining AWSOME-FastAPI",
+      "source_content_hash": "68538db565c2886b6ac38b49b02f221f65558d83752a749289590c41e778bbdf",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## AWSOME-FastAPIの定義"
+      }
+    },
+    {
+      "segment_id": "180bddb1",
+      "source_content": "The project sets up a FastAPI application inside a Docker container. It uses the official Python runtime and includes all the necessary configurations to deploy the app efficiently. Upon starting, the container automatically runs the FastAPI app, exposing it on port 80.",
+      "source_content_hash": "0b4a4ada38aa72d149817779b94dc3d45f84958301b974c6d6c394155eef4d62",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "このプロジェクトでは、Dockerコンテナ内にFastAPIアプリケーションをセットアップします。公式のPythonランタイムを使用し、アプリを効率的にデプロイするために必要なすべての設定が含まれています。起動すると、コンテナは自動的にFastAPIアプリを実行し、ポート80で公開します。"
+      }
+    },
+    {
+      "segment_id": "cf898102",
+      "source_content": "The goal of this project is to push it through a DevSecOps pipeline, as it intentionally contains some vulnerabilities. For more details, you can review the code in the [main.py](https://github.com/The-DevSec-Blueprint/awsome-fastapi/blob/main/main.py) file.",
+      "source_content_hash": "d130559031a89ccd0fbc6816cf2dd42fed868566bb455aad93a674101682f67e",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "このプロジェクトの目的は、意図的にいくつかの脆弱性を含んだ状態でDevSecOpsパイプラインを通じて展開することです。詳細については、[main.py](https://github.com/The-DevSec-Blueprint/awsome-fastapi/blob/main/main.py)ファイルのコードを確認してください。"
+      }
+    },
+    {
+      "segment_id": "3daf1b88",
+      "source_content": "### Requirements",
+      "source_content_hash": "2b0c19102a0fe244435ee339d7e394f2b88ea976889c2566401900d95b5a1bb8",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "### 要件"
+      }
+    },
+    {
+      "segment_id": "034de896",
+      "source_content": "- **Docker**: For containerizing and running the application.\n- **Python 3.12+**: The latest stable version ensures compatibility with modern features.\n- **FastAPI**: Framework for building the API.\n- **Uvicorn**: ASGI server for running the application.",
+      "source_content_hash": "7dcc959d31b3be8bd221cc421b62179581d7957f5f5660cd7ab0daa2611950c4",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- **Docker**: アプリケーションのコンテナ化と実行用\n- **Python 3.12+**: 最新の安定版で、最新機能との互換性を確保\n- **FastAPI**: API構築用フレームワーク\n- **Uvicorn**: アプリケーション実行用のASGIサーバー"
+      }
+    },
+    {
+      "segment_id": "95b38f97",
+      "source_content": "### Features",
+      "source_content_hash": "55aec44787473df9add42bcb49e7a9d80129cb7de7533c5bfbaa8c673fbeec14",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "### 特徴"
+      }
+    },
+    {
+      "segment_id": "0cc488ed",
+      "source_content": "- **Dockerized Application**: Simplifies deployment using containers.\n- **Python 3.12.5 Runtime**: Ensures compatibility with the latest features and security patches.\n- **Optimized Dependency Installation**: Leverages `requirements.txt` for streamlined package management.",
+      "source_content_hash": "732519b297dbc35d57eba0c9628085ead8c1e3c19ffdde0589255c72a8fe0564",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- **コンテナ化されたアプリケーション**: コンテナを使用したデプロイを簡素化\n- **Python 3.12.5 ランタイム**: 最新の機能とセキュリティパッチとの互換性を確保\n- **最適化された依存関係インストール**: `requirements.txt`を活用した効率的なパッケージ管理"
+      }
+    },
+    {
+      "segment_id": "d06306f7",
+      "source_content": "### Project Structure",
+      "source_content_hash": "2e1495eaecb1cd6a93d288050a6534d166ba09f881ee73cc79155814cbc16342",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "### プロジェクト構成"
+      }
+    },
+    {
+      "segment_id": "b017063d",
+      "source_content": "```bash\nawesome-fastapi/\n├── Dockerfile         # Configuration for the Docker container\n├── requirements.txt   # Python dependencies\n├── main.py            # Entry point for the FastAPI app (contains sample vulnerabilities)\n└── ...\n```",
+      "source_content_hash": "147b89b7f9d6a148bdc87fe1eb00e5b21012585897ab7c67abf568fdafac8618",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_b017063d"
+      }
+    },
+    {
+      "segment_id": "782c902a",
+      "source_content": "### Setup and Installation",
+      "source_content_hash": "5405abd48554d131c67a8fd8b5db90c669311b69be6ea2ccf28a32e7f07b8a5e",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "### セットアップとインストール"
+      }
+    },
+    {
+      "segment_id": "8d04259b",
+      "source_content": "#### 1. Clone the Repository",
+      "source_content_hash": "8a5090a8a24f4c3f8227e2f2660c1f9f799e87124a5a0a0c5345401ea96a8604",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "#### 1. リポジトリのクローン"
+      }
+    },
+    {
+      "segment_id": "95e9ba12",
+      "source_content": "Clone the project repository using the following command:",
+      "source_content_hash": "0219cb7fb0175a2d7821c35cadd0208d6f83cfba0ce42c206a03c49b371dfba3",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "以下のコマンドでプロジェクトリポジトリをクローンします："
+      }
+    },
+    {
+      "segment_id": "4ec2920d",
+      "source_content": "```bash\ngit clone https://github.com/your-username/awesome-fastapi.git\ncd awesome-fastapi\n```",
+      "source_content_hash": "572ea52bed743f708909a4564ee6e7612618fea22301b3e61dec12dbd8848c76",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_4ec2920d"
+      }
+    },
+    {
+      "segment_id": "11c76fcc",
+      "source_content": "#### 2. Build the Docker Image",
+      "source_content_hash": "714a9b070ffc76db97146be4139c6be388042dba5e1e9099ffcc1225b6138a79",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "#### 2. Dockerイメージのビルド"
+      }
+    },
+    {
+      "segment_id": "98d26038",
+      "source_content": "Run the following command in the project root to build the Docker image:",
+      "source_content_hash": "5195365bb1835788a0e24d638084cc380e13c2b24e1e6b471857be0b78e96391",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "プロジェクトのルートディレクトリで以下のコマンドを実行し、Dockerイメージをビルドします："
+      }
+    },
+    {
+      "segment_id": "f275f5fd",
+      "source_content": "```bash\ndocker build -t awesome-fastapi .\n```",
+      "source_content_hash": "a6b7c2b33f7f25ba586ed0772655d6146e26ff3a8f6371722d837fd9651a58f6",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_f275f5fd"
+      }
+    },
+    {
+      "segment_id": "7283cdac",
+      "source_content": "#### 3. Run the Docker Container",
+      "source_content_hash": "7f3d70d327354596f1ca19f598fabdd119d840dd3a86abd89a4e95e995ab73bd",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "#### 3. Dockerコンテナの実行"
+      }
+    },
+    {
+      "segment_id": "1131ef75",
+      "source_content": "After building the image, start the container:",
+      "source_content_hash": "9eb6b99ed99e7428da0552959de9df73076e36809d41f09fe4a7116d7a78a115",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "イメージのビルド後、コンテナを起動します："
+      }
+    },
+    {
+      "segment_id": "750e2f7e",
+      "source_content": "```bash\ndocker run -d -p 80:80 awesome-fastapi\n```",
+      "source_content_hash": "56417c28f4e4608d8002ecd85c7e559cd344d34f1c8254027f5cd07d4b228a1c",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_750e2f7e"
+      }
+    },
+    {
+      "segment_id": "0bb95128",
+      "source_content": "This command will start the FastAPI app on port 80 of your localhost.",
+      "source_content_hash": "2f1141fd541ee9c8c20bbf55f7ceaf061a62a6608fd78189a36b68efedc6c320",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "このコマンドにより、FastAPIアプリがlocalhostのポート80で起動します。"
+      }
+    },
+    {
+      "segment_id": "3ef18741",
+      "source_content": "#### 4. Access the Application",
+      "source_content_hash": "5563c63920b49922fac5fc5607b017c9991685e120de125f435a4b98e7982c54",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "#### 4. アプリケーションへのアクセス"
+      }
+    },
+    {
+      "segment_id": "e7772088",
+      "source_content": "Once the container is running, you can access the application in your browser:",
+      "source_content_hash": "04982952d6619b177a4af2a05a0bbb65fffd820a45a95de6c8a26c93788bd144",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "コンテナが実行中になったら、ブラウザでアプリケーションにアクセスできます："
+      }
+    },
+    {
+      "segment_id": "bc137a19",
+      "source_content": "```text\nhttp://localhost:80\n```",
+      "source_content_hash": "2920341b433856ae6bcdb48cee757b678b3b69d99a5ffaee2653c32df0ba7619",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_bc137a19"
+      }
+    },
+    {
+      "segment_id": "93028a4e",
+      "source_content": "### Dependencies",
+      "source_content_hash": "700f48e26e0c2c319acdd9e25c517f549ee38279333d2bc16c8485557eecff9b",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "### 依存関係"
+      }
+    },
+    {
+      "segment_id": "e8e162a9",
+      "source_content": "The application relies on the following Python packages, specified in the `requirements.txt` file:",
+      "source_content_hash": "f38778c6d31c244363d969107bc24d9f4f02637c87a89731aad31a3abb3bb64c",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "アプリケーションは、`requirements.txt`ファイルで指定された以下のPythonパッケージに依存しています："
+      }
+    },
+    {
+      "segment_id": "5efe9dee",
+      "source_content": "- `fastapi`: The main framework for building APIs.\n- `uvicorn`: The ASGI server for running the application.",
+      "source_content_hash": "88e6e7a1a52d8dd2bc3a0920765208e2bc3430defc1994c79ddeb662deab4993",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- `fastapi`: API構築用の主要フレームワーク\n- `uvicorn`: アプリケーション実行用のASGIサーバー"
+      }
+    },
+    {
+      "segment_id": "a1fa5396",
+      "source_content": "To install these dependencies locally, run:",
+      "source_content_hash": "8ca0629bbe396f1ffdeacd2f85dc93bbee160a69254024aa25c509a93387acdd",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "これらの依存関係をローカルにインストールするには、以下を実行します："
+      }
+    },
+    {
+      "segment_id": "8c3563d3",
+      "source_content": "```bash\npip install -r requirements.txt\n```",
+      "source_content_hash": "4f131af6e242d0f9813a79b7fd3465e180cb36f4b0096691363c97a458677475",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_8c3563d3"
+      }
+    },
+    {
+      "segment_id": "90d35b51",
+      "source_content": "### Notes",
+      "source_content_hash": "87265b8bc3a2b582373d130c1eeb5b465f36386c3ee6a2e5d5902872270bc115",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "### 注意事項"
+      }
+    },
+    {
+      "segment_id": "2fc7ec55",
+      "source_content": "- The default entry point for the FastAPI application is `main.py`, where the application instance is named `app`. If your setup differs, update the `CMD` directive in the Dockerfile accordingly.\n- By default, the container exposes the application on port 80. To use a different port, modify the `EXPOSE` and `CMD` directives in the Dockerfile as needed.",
+      "source_content_hash": "21cc1dcf024c696936ae941e1967c870623953f20125b5599a2cf33285767e7d",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- FastAPIアプリケーションのデフォルトエントリーポイントは`main.py`で、アプリケーションインスタンスは`app`という名前です。設定が異なる場合は、Dockerfileの`CMD`ディレクティブを適宜更新してください。\n- デフォルトでは、コンテナはポート80でアプリケーションを公開します。別のポートを使用する場合は、Dockerfileの`EXPOSE`および`CMD`ディレクティブを必要に応じて変更してください。"
+      }
+    },
+    {
+      "segment_id": "785750ac",
+      "source_content": "This straightforward setup ensures you can run, test, and deploy the FastAPI application with minimal effort while integrating it into a secure DevSecOps pipeline.",
+      "source_content_hash": "888253edcd1b0d8920547e5346cec7f01b2e66f5510e387b965e4b0a8a329f1d",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "このシンプルなセットアップにより、最小限の手間でFastAPIアプリケーションを実行、テスト、デプロイできるとともに、安全なDevSecOpsパイプラインに統合できます。"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/projects/devsecops-pipeline-aws/code-breakdown/application.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.154683+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "7d9280688b5c1e9f9ecb47ad20b97e759696d307e89adb9df61bac11ff6264cb"
+  }
+}

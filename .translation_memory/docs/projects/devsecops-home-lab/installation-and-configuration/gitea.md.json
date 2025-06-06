@@ -1,0 +1,152 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/projects/devsecops-home-lab/installation-and-configuration/gitea.md",
+  "source_file_content_hash": "64673d24846129c42b3e2102437a2d1c3a977a1107606713e56ff38364a819ef",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: install-config-gitea\ntitle: Gitea\nsidebar_position: 2\n---",
+      "source_content_hash": "23941a452d1e2d10c9f5f0519ec1eed92f816391e8491307eb26fa1ed96b90fd",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "a703643c",
+      "source_content": "## Overview",
+      "source_content_hash": "7337f3d0aa29e9a82b8f1650b743a98eef90794631fa763a319686e69c546821",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 概要"
+      }
+    },
+    {
+      "segment_id": "cbf61009",
+      "source_content": "> This installation happens on the `dsb-hub`.",
+      "source_content_hash": "4e97ed73bdf09122b24991087c2a802e48ae15f31fa7d383dac6df74ebb87db1",
+      "node_type": "blockquote",
+      "translatable": true,
+      "translations": {
+        "ja": "> このインストールは `dsb-hub` 上で行われます。"
+      }
+    },
+    {
+      "segment_id": "8ac585fb",
+      "source_content": "According to [Gitea]'s documentation, Gitea is a painless self-hosted all-in-one software development service, including Git hosting, code review, team collaboration, package registry and CI/CD. It's open source under MIT license. It is designed to be lightweight, easy to use, and highly customizable, making it an ideal choice for both small teams and large organizations.",
+      "source_content_hash": "e7b50f8dd7d203b5e24f7aee827838a1e020f8709632b17bc002ceb21b2479d4",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "[Gitea]のドキュメントによると、Giteaはセルフホスト型のオールインワンソフトウェア開発サービスで、Gitホスティング、コードレビュー、チームコラボレーション、パッケージレジストリ、CI/CDを含みます。MITライセンスの下でオープンソースとして提供されており、軽量で使いやすく、高度にカスタマイズ可能な設計となっており、小規模チームから大規模組織まで理想的な選択肢です。"
+      }
+    },
+    {
+      "segment_id": "ba4f48ff",
+      "source_content": "## Prerequisites",
+      "source_content_hash": "bbd3d4949a6f237efd8d4ff5c7c5f30d968e7a989ad12f3d7dcef69c98053912",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 前提条件"
+      }
+    },
+    {
+      "segment_id": "4269e691",
+      "source_content": "1. **Install PostgreSQL:**\n\n   - Run the following command to install PostgreSQL and its contrib package:\n\n     ```bash\n     sudo apt install postgresql postgresql-contrib\n     ```\n\n   - Switch to the PostgreSQL user:\n\n     ```bash\n     sudo -i -u postgres\n     ```\n\n   - Update the PostgreSQL configuration files:\n\n     ```bash\n     sudo nano /etc/postgresql/16/main/postgresql.conf\n     ```\n\n   - Scroll down and uncomment the `listen_addresses` setting, then set it to `localhost`:\n\n     ```conf\n     listen_addresses = 'localhost'\n     ```\n\n   - Scroll down and uncomment the `password_encryption` setting, then set it to `scram-sha-256`:\n\n     ```conf\n     password_encryption = scram-sha-256\n     ```\n\n2. **Log into PostgreSQL:**\n\n   - Log into the PostgreSQL command line as the `postgres` user:\n\n     ```bash\n     psql\n     ```\n\n3. **Configure the Database:**\n\n   - Create a new role (user) for Gitea with a secure password and a new database owned by that role:\n\n     ```sql\n     CREATE ROLE gitea WITH LOGIN PASSWORD 'your_password';\n     CREATE DATABASE giteadb WITH OWNER gitea TEMPLATE template0 ENCODING 'UTF8' LC_COLLATE 'en_US.UTF-8' LC_CTYPE 'en_US.UTF-8';\n     ```\n\n   - Update the `pg_hba.conf` file to allow the `gitea` user to connect to the `giteadb` database using `scram-sha-256`:\n\n     ```bash\n     sudo nano /etc/postgresql/16/main/pg_hba.conf\n     ```\n\n     Add the following line:\n\n     ```conf\n     local    giteadb    gitea    scram-sha-256\n     ```\n\n4. **Test Database Connection:**\n\n   - Restart the PostgreSQL service and test the connection to the Gitea database:\n\n     ```bash\n     sudo systemctl restart postgresql.service\n     psql -U gitea -d giteadb\n     ```\n\n5. **Install Nginx:**\n\n   - Install Nginx using the following command:\n\n     ```bash\n     sudo apt install nginx\n     ```\n\n6. **Configure Nginx:**\n\n   - Unlink the default configuration file:\n\n     ```bash\n     sudo unlink /etc/nginx/sites-enabled/default\n     ```\n\n   - Create a new configuration file for the reverse proxy:\n\n     ```bash\n     sudo nano /etc/nginx/sites-available/reverse-proxy\n     ```\n\n   - Copy the following configuration into the file, then save and close it:\n\n     ```nginx\n     server {\n         listen 80;\n         server_name localhost;\n\n         location / {\n             proxy_pass http://127.0.0.1:3000;\n             proxy_set_header Host $host;\n             proxy_set_header X-Real-IP $remote_addr;\n             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\n             proxy_set_header X-Forwarded-Proto $scheme;\n         }\n     }\n     ```\n\n   - Activate the new proxy configuration and restart Nginx:\n\n     ```bash\n     sudo ln -s /etc/nginx/sites-available/reverse-proxy /etc/nginx/sites-enabled/\n     sudo systemctl restart nginx\n     ```",
+      "source_content_hash": "62e6c3086e0ae664256d4b9f8a128d000cf15ae19173d45e45f55e1f23160bcc",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **PostgreSQLのインストール:**\n\n   - 以下のコマンドを実行してPostgreSQLとそのcontribパッケージをインストールします:\n\n     ```bash\n     sudo apt install postgresql postgresql-contrib\n     ```\n\n   - PostgreSQLユーザーに切り替えます:\n\n     ```bash\n     sudo -i -u postgres\n     ```\n\n   - PostgreSQLの設定ファイルを更新します:\n\n     ```bash\n     sudo nano /etc/postgresql/16/main/postgresql.conf\n     ```\n\n   - 下にスクロールして`listen_addresses`設定のコメントを解除し、`localhost`に設定します:\n\n     ```conf\n     listen_addresses = 'localhost'\n     ```\n\n   - さらに下にスクロールして`password_encryption`設定のコメントを解除し、`scram-sha-256`に設定します:\n\n     ```conf\n     password_encryption = scram-sha-256\n     ```\n\n2. **PostgreSQLへのログイン:**\n\n   - `postgres`ユーザーとしてPostgreSQLコマンドラインにログインします:\n\n     ```bash\n     psql\n     ```\n\n3. **データベースの設定:**\n\n   - Gitea用の新しいロール（ユーザー）を安全なパスワードで作成し、そのロールが所有する新しいデータベースを作成します:\n\n     ```sql\n     CREATE ROLE gitea WITH LOGIN PASSWORD 'your_password';\n     CREATE DATABASE giteadb WITH OWNER gitea TEMPLATE template0 ENCODING 'UTF8' LC_COLLATE 'en_US.UTF-8' LC_CTYPE 'en_US.UTF-8';\n     ```\n\n   - `pg_hba.conf`ファイルを更新して、`gitea`ユーザーが`scram-sha-256`を使用して`giteadb`データベースに接続できるようにします:\n\n     ```bash\n     sudo nano /etc/postgresql/16/main/pg_hba.conf\n     ```\n\n     以下の行を追加します:\n\n     ```conf\n     local    giteadb    gitea    scram-sha-256\n     ```\n\n4. **データベース接続のテスト:**\n\n   - PostgreSQLサービスを再起動し、Giteaデータベースへの接続をテストします:\n\n     ```bash\n     sudo systemctl restart postgresql.service\n     psql -U gitea -d giteadb\n     ```\n\n5. **Nginxのインストール:**\n\n   - 以下のコマンドを使用してNginxをインストールします:\n\n     ```bash\n     sudo apt install nginx\n     ```\n\n6. **Nginxの設定:**\n\n   - デフォルトの設定ファイルのリンクを解除します:\n\n     ```bash\n     sudo unlink /etc/nginx/sites-enabled/default\n     ```\n\n   - リバースプロキシ用の新しい設定ファイルを作成します:\n\n     ```bash\n     sudo nano /etc/nginx/sites-available/reverse-proxy\n     ```\n\n   - 以下の設定をファイルにコピーし、保存して閉じます:\n\n     ```nginx\n     server {\n         listen 80;\n         server_name localhost;\n\n         location / {\n             proxy_pass http://127.0.0.1:3000;\n             proxy_set_header Host $host;\n             proxy_set_header X-Real-IP $remote_addr;\n             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\n             proxy_set_header X-Forwarded-Proto $scheme;\n         }\n     }\n     ```\n\n   - 新しいプロキシ設定を有効化し、Nginxを再起動します:\n\n     ```bash\n     sudo ln -s /etc/nginx/sites-available/reverse-proxy /etc/nginx/sites-enabled/\n     sudo systemctl restart nginx\n     ```"
+      }
+    },
+    {
+      "segment_id": "c35e5786",
+      "source_content": "## Installation Steps",
+      "source_content_hash": "176cd2c0cf80c3564adae3b72d2ad36ac95f9883c3d2b17da74d1dc605bb60b7",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## インストール手順"
+      }
+    },
+    {
+      "segment_id": "d8460b5b",
+      "source_content": "1. **Install Gitea:**\n\n   - Install Gitea using Snap:\n\n     ```bash\n     sudo snap install gitea\n     ```\n\n   - Start the Gitea service:\n\n     ```bash\n     sudo snap start gitea\n     ```\n\n   - Configure web hooks:\n\n   ```bash\n   sudo nano /var/snap/gitea/common/conf/app.ini\n\n   # Add this inside of the file\n   [webhook]\n   ALLOWED_HOST_LIST = localhost, 127.0.0.1\n   ```",
+      "source_content_hash": "cab15312359dced265a4d314bbfad6d37373a6afddc1e6e1bf7f4f6d12e4d1b8",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **Giteaのインストール:**\n\n   - Snapを使用してGiteaをインストールします:\n\n     ```bash\n     sudo snap install gitea\n     ```\n\n   - Giteaサービスを開始します:\n\n     ```bash\n     sudo snap start gitea\n     ```\n\n   - Webフックを設定します:\n\n   ```bash\n   sudo nano /var/snap/gitea/common/conf/app.ini\n\n   # ファイル内に以下を追加\n   [webhook]\n   ALLOWED_HOST_LIST = localhost, 127.0.0.1\n   ```"
+      }
+    },
+    {
+      "segment_id": "b50cf7ff",
+      "source_content": "## Configuration Steps",
+      "source_content_hash": "46b73969bd7ae342f27c4c5abce80a42600ba1c0846396c70ac16f4b181acd52",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 設定手順"
+      }
+    },
+    {
+      "segment_id": "504cd4ff",
+      "source_content": "1. **Configure Gitea:**\n\n   - Open a web browser and navigate to your server's IP address or domain name.\n   - Follow the on-screen instructions to configure Gitea, entering your previously created PostgreSQL database credentials when prompted.\n     ![Gitea Setup Screenshot](/img/projects/devsecops-home-lab/installation-and-configuration/gitea-init-config.png)\n\n1. **Create an Account:**\n\n   - Create an admin account to manage your Gitea instance.\n     ![Create Account Screenshot](/img/projects/devsecops-home-lab/installation-and-configuration/gitea-create-account.png)",
+      "source_content_hash": "2ff88eec3db7204a42812e75be9be7ab68ca422dfdb896c12483cd641e8647f5",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **Giteaの設定:**\n\n   - Webブラウザを開き、サーバーのIPアドレスまたはドメイン名にアクセスします。\n   - 画面の指示に従ってGiteaを設定し、プロンプトが表示されたら事前に作成したPostgreSQLデータベースの認証情報を入力します。\n     ![Giteaセットアップスクリーンショット](/img/projects/devsecops-home-lab/installation-and-configuration/gitea-init-config.png)\n\n1. **アカウントの作成:**\n\n   - Giteaインスタンスを管理するための管理者アカウントを作成します。\n     ![アカウント作成スクリーンショット](/img/projects/devsecops-home-lab/installation-and-configuration/gitea-create-account.png)"
+      }
+    },
+    {
+      "segment_id": "58f98d22",
+      "source_content": "## You're Done",
+      "source_content_hash": "dc146497f2e2562df8ec3f604024e77882ae11623fc2a1260623fa30c5fe06f5",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 完了です"
+      }
+    },
+    {
+      "segment_id": "d636abf8",
+      "source_content": "Gitea is now successfully installed and configured on your server. Feel free to log in and take a look around.\n![Success Screenshot](/img/projects/devsecops-home-lab/installation-and-configuration/gitea-success-account-creation.png)",
+      "source_content_hash": "247c9f8ad4d5ab0984508461f0cd91bd06423f1a51af20ec7f08b2c458af871a",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "Giteaはサーバーに正常にインストールおよび設定されました。ログインして自由に操作を確認してください。\n![成功スクリーンショット](/img/projects/devsecops-home-lab/installation-and-configuration/gitea-success-account-creation.png)"
+      }
+    },
+    {
+      "segment_id": "0b58a7a7",
+      "source_content": "<!-- Sources -->",
+      "source_content_hash": "4494bb095c897c283a22423ee5efc82db998c4872791a85cc207cdfd0d31ff25",
+      "node_type": "comment",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_0b58a7a7"
+      }
+    },
+    {
+      "segment_id": "34b9f95a",
+      "source_content": "[Gitea]: https://about.gitea.com/products/gitea/",
+      "source_content_hash": "c5d4d3ddd709c7a02846e8e0719634e3e575d53bdaa429b64b70f52c98490dce",
+      "node_type": "definition",
+      "translatable": true,
+      "translations": {
+        "ja": "[Gitea]: https://about.gitea.com/products/gitea/"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/projects/devsecops-home-lab/installation-and-configuration/gitea.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.146810+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "64673d24846129c42b3e2102437a2d1c3a977a1107606713e56ff38364a819ef"
+  }
+}

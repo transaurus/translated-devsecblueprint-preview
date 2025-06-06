@@ -1,0 +1,232 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/index.md",
+  "source_file_content_hash": "ff470b68e0310677544cdf937ff2dd529624fa1727aad91cb28ed3f427316e4f",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: intro\ntitle: Welcome!\ndescription: The Ultimate (and free) Blueprint for Coding Fun and Securing Runs!\nsidebar_position: 1\n---",
+      "source_content_hash": "e4ecc35e5e830a045bf63d6964f20faa609a47feb175c79423a1b3a2db970236",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "e1dae588",
+      "source_content": "<!-- markdownlint-disable MD025 -->",
+      "source_content_hash": "971249c24fe36d786f5450e558f45e6af248a794317e6d4428d447aa0032612d",
+      "node_type": "comment",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_e1dae588"
+      }
+    },
+    {
+      "segment_id": "1cc03ec8",
+      "source_content": "# Welcome to The DevSec Blueprint",
+      "source_content_hash": "9908cbb1f91a4808e57181ecc351862b61057927f6956ed3e568636d60f2c2ad",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "# The DevSec Blueprint へようこそ"
+      }
+    },
+    {
+      "segment_id": "b7b09f68",
+      "source_content": "<!-- markdownlint-enable MD025 -->",
+      "source_content_hash": "2de85c3168e13909f7c73fe4385334e56b3287093f079138892094d2c46290a0",
+      "node_type": "comment",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_b7b09f68"
+      }
+    },
+    {
+      "segment_id": "ad8fd492",
+      "source_content": "[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)](https://makeapullrequest.com)\n![Open Source](https://img.shields.io/badge/Open%20Source-❤-blue?style=for-the-badge)\n![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)\n![Community](https://img.shields.io/badge/Community-Join%20Us-brightgreen?style=for-the-badge)\n![GitHub Stars](https://img.shields.io/github/stars/The-DevSec-Blueprint/devsecblueprint.github.io?style=for-the-badge)\n![GitHub Forks](https://img.shields.io/github/forks/The-DevSec-Blueprint/devsecblueprint.github.io?style=for-the-badge)",
+      "source_content_hash": "47603e745c369f2be52dc025403d31c8eaae55a7239622b65b8db5a558a4b6f2",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)](https://makeapullrequest.com)\n![Open Source](https://img.shields.io/badge/Open%20Source-❤-blue?style=for-the-badge)\n![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)\n![Community](https://img.shields.io/badge/Community-Join%20Us-brightgreen?style=for-the-badge)\n![GitHub Stars](https://img.shields.io/github/stars/The-DevSec-Blueprint/devsecblueprint.github.io?style=for-the-badge)\n![GitHub Forks](https://img.shields.io/github/forks/The-DevSec-Blueprint/devsecblueprint.github.io?style=for-the-badge)"
+      }
+    },
+    {
+      "segment_id": "f5f6d2ce",
+      "source_content": "The DevSec Blueprint is a comprehensive, free, and open-source learning _guide_ designed to equip you with the essential skills and knowledge needed to transition into DevSecOps or grow within your DevSecOps career.",
+      "source_content_hash": "d0a79ddbfd3acfff219a6e938ee8da8131f8604c2ee6aebc4e90ec0dd9dc3769",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "The DevSec Blueprintは、DevSecOpsへの移行やDevSecOpsキャリアの成長に必要なスキルと知識を習得するための、包括的で無料のオープンソース学習ガイドです。"
+      }
+    },
+    {
+      "segment_id": "40f9552a",
+      "source_content": "## What You'll Learn",
+      "source_content_hash": "616528bfaf9bc6f89f3ae39ed28ab8243c39e89a7a760ada19fba0db47c12a83",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 学習内容"
+      }
+    },
+    {
+      "segment_id": "f2c2bdd0",
+      "source_content": "By following The DevSec Blueprint, you'll gain:",
+      "source_content_hash": "bf62a69ad5d6e6cd7cfd7c46e0e57a5582d68eaf0379ca07bed4356d39248c90",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "The DevSec Blueprintを通じて、以下のことが学べます:"
+      }
+    },
+    {
+      "segment_id": "b3f5c97c",
+      "source_content": "- **Foundational Knowledge**: Understand the core principles of DevSecOps, Cybersecurity, and the Secure Software Development Life Cycle (SSDLC), and the importance of soft skills.\n- **Core DevSecOps Skills**: Learn how to secure and automate infrastructure, build secure CI/CD pipelines, and implement robust monitoring systems through hands-on experience.\n- **Hands-On Experience**: Apply your knowledge by completing [projects] that combines on-prem and cloud environments using your own homelab or cloud-lab setup.",
+      "source_content_hash": "f918bd8b9c74e6e3ff9ead2cfa189836cd42f599caf69f0dc6fb359956de3344",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- **基礎知識**: DevSecOps、サイバーセキュリティ、セキュアソフトウェア開発ライフサイクル（SSDLC）の基本原則と、ソフトスキルの重要性を理解します。\n- **コアDevSecOpsスキル**: インフラのセキュリティ保護と自動化、安全なCI/CDパイプラインの構築、堅牢な監視システムの実装を、実践を通じて学びます。\n- **実践経験**: 自宅ラボまたはクラウドラボ環境を使用して、オンプレミスとクラウド環境を組み合わせた[プロジェクト]を完了することで、知識を応用します。"
+      }
+    },
+    {
+      "segment_id": "48847fd4",
+      "source_content": "## Getting Started",
+      "source_content_hash": "c6144136c5fdde00c066bed01a81aecaf8f239036f9ecabc432e5386d5b7a49a",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## はじめに"
+      }
+    },
+    {
+      "segment_id": "4daf5cdd",
+      "source_content": "No matter where you are in your journey, The DevSec Blueprint has something for you. If you're ready to dive in, start with our [Prerequisities] page.",
+      "source_content_hash": "af917ff4f4b3023a79dfbf782345facf44b678242e980d7a66fc28a5c81887d2",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "学習のどの段階にいても、The DevSec Blueprintは役立ちます。すぐに始めたい場合は、[前提条件]ページから始めてください。"
+      }
+    },
+    {
+      "segment_id": "366d6955",
+      "source_content": "> **NOTE**: You do not have to finish this all in one go. Please, learn at your own pace and do what you feel is best for you. This is a very comprehensive plan that was put together by us, so it will take a lot of time to complete.",
+      "source_content_hash": "ab197bd407676ff8969cbf08f894217d4481447cda6b4c722c93b7c14101f163",
+      "node_type": "blockquote",
+      "translatable": true,
+      "translations": {
+        "ja": "> **注意**: 一度にすべてを終わらせる必要はありません。自分のペースで学び、自分に最適な方法で進めてください。これは非常に包括的なプランであり、完了には多くの時間がかかります。"
+      }
+    },
+    {
+      "segment_id": "3b7478ea",
+      "source_content": "## Have an Issue or Feedback?",
+      "source_content_hash": "347c0aa8ccf981fe05bd1f38f8aeced03e8a5c464cbef7c15c513c8f66007926",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 問題やフィードバックがありますか？"
+      }
+    },
+    {
+      "segment_id": "c3a738de",
+      "source_content": "If you have any issue, or you run into a problem, please feel free to raise an issue on GitHub by going here: [Issues](https://github.com/The-DevSec-Blueprint/devsecblueprint/issues), or come speak to us in our [Discord Server].",
+      "source_content_hash": "1ccbdc41622ce7610c8c7dc1d90a80ca3dafbd28d22426ee33af5a548a1fc02e",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "問題が発生した場合やフィードバックがある場合は、GitHubで[Issue](https://github.com/The-DevSec-Blueprint/devsecblueprint/issues)を登録するか、[Discordサーバー]でお知らせください。"
+      }
+    },
+    {
+      "segment_id": "9f9e64f5",
+      "source_content": "## Contributors",
+      "source_content_hash": "18cb1c1e3502a0110fcf9ea0d2d63feed7abe371d19c0ddd6f80e268bdc497d6",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 貢献者"
+      }
+    },
+    {
+      "segment_id": "1042b50d",
+      "source_content": "![Contributors](/img/CONTRIBUTORS.svg)",
+      "source_content_hash": "8807c3caa90852e1c36bc879c1a39837939ac6ab6417fd0c03e75cf396ee9db4",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "![Contributors](/img/CONTRIBUTORS.svg)"
+      }
+    },
+    {
+      "segment_id": "aa1e7006",
+      "source_content": "We would also like to acknowledge the valuable contributions of many the individuals above who have provided insights, feedback, and support throughout the development of The DevSec Blueprint. This project would not have been possible without your help. Thank you!",
+      "source_content_hash": "8b907dc6e64d42da437a897fc2b7f0b2f11c75cca5067a6f5ff46a1645831f6a",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "The DevSec Blueprintの開発において、貴重な洞察、フィードバック、サポートを提供してくれた多くの方々に感謝いたします。このプロジェクトは皆さんの助けなしには実現できませんでした。ありがとうございます！"
+      }
+    },
+    {
+      "segment_id": "13d9cd70",
+      "source_content": "For those who are interested in contributing, you can find out more information by joining our Discord server here: [Discord Server].",
+      "source_content_hash": "eedde2ec013953b625d09367ad3369e9ab67b1a8ae114658dba7aebfb67b8d21",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "貢献に興味のある方は、[Discordサーバー]に参加して詳細をご確認ください。"
+      }
+    },
+    {
+      "segment_id": "e475880e",
+      "source_content": "<!-- Links -->",
+      "source_content_hash": "25f54153c0d0e0dac3bb699044aa9b88a8a71752b65c898e921cc72c327d285a",
+      "node_type": "comment",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_e475880e"
+      }
+    },
+    {
+      "segment_id": "6e714da1",
+      "source_content": "[projects]: ./projects/",
+      "source_content_hash": "33971c8efd5765dfa610e5c16023e63b8de9db26bab341810607f23ea33b5d1e",
+      "node_type": "definition",
+      "translatable": true,
+      "translations": {
+        "ja": "[projects]: ./projects/"
+      }
+    },
+    {
+      "segment_id": "5a2b7dac",
+      "source_content": "[Prerequisities]: ./prerequisites.md",
+      "source_content_hash": "4a997e8a083aadd5c91f6cbd3ec0c35697d01909ede4933972843498ce4374b5",
+      "node_type": "definition",
+      "translatable": true,
+      "translations": {
+        "ja": "[Prerequisities]: ./prerequisites.md"
+      }
+    },
+    {
+      "segment_id": "61ee15c3",
+      "source_content": "[Discord Server]: https://discord.gg/enMmUNq8jc",
+      "source_content_hash": "589931eb31b4f814ff99830543b1f5da5bbf3d19e1d6fc26e6db0bb44d4c9bbb",
+      "node_type": "definition",
+      "translatable": true,
+      "translations": {
+        "ja": "[Discord Server]: https://discord.gg/enMmUNq8jc"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/index.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.153089+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "ff470b68e0310677544cdf937ff2dd529624fa1727aad91cb28ed3f427316e4f"
+  }
+}

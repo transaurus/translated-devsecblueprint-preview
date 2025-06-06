@@ -1,0 +1,492 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/projects/devsecops-home-lab/installation-and-configuration/jenkins.md",
+  "source_file_content_hash": "396e55457b04cd55f83f1e437cf476e7be09d4a9639728f06dc76b1dc1f10fa1",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: install-config-jenkins\ntitle: Jenkins\nsidebar_position: 3\n---",
+      "source_content_hash": "7c055374de3fc0d251a17b57e0f11aba6aa376f5530b8a10587cf72be06ca0ac",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "a703643c",
+      "source_content": "## Overview",
+      "source_content_hash": "7337f3d0aa29e9a82b8f1650b743a98eef90794631fa763a319686e69c546821",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 概要"
+      }
+    },
+    {
+      "segment_id": "cbf61009",
+      "source_content": "> This installation happens on the `dsb-hub`.",
+      "source_content_hash": "4e97ed73bdf09122b24991087c2a802e48ae15f31fa7d383dac6df74ebb87db1",
+      "node_type": "blockquote",
+      "translatable": true,
+      "translations": {
+        "ja": "> このインストールは `dsb-hub` 上で行われます。"
+      }
+    },
+    {
+      "segment_id": "8ac585fb",
+      "source_content": "According to [Jenkins User Documentation], Jenkins is a self-contained, open source automation server which can be used to automate all sorts of tasks related to building, testing, and delivering or deploying software. It's a CI/CD platform.",
+      "source_content_hash": "4fa2bc6ead665d32ed24f2fa6f5d2079f3ffa5b19c294ec80ba427c6079700bc",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "[Jenkins ユーザードキュメント]によると、Jenkinsは自己完結型のオープンソース自動化サーバーであり、ソフトウェアのビルド、テスト、配布またはデプロイに関連するあらゆるタスクを自動化するために使用できます。CI/CDプラットフォームです。"
+      }
+    },
+    {
+      "segment_id": "ba4f48ff",
+      "source_content": "## Prerequisites",
+      "source_content_hash": "bbd3d4949a6f237efd8d4ff5c7c5f30d968e7a989ad12f3d7dcef69c98053912",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 前提条件"
+      }
+    },
+    {
+      "segment_id": "4269e691",
+      "source_content": "1. **Install Java**",
+      "source_content_hash": "4dc846594a4420c489e1f5ab96954cabc240a30f96b8f650f9a65e74e55ffd71",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **Javaのインストール**"
+      }
+    },
+    {
+      "segment_id": "42ad8e83",
+      "source_content": "Before installing Jenkins, ensure that Java is installed on your system:",
+      "source_content_hash": "62f3f86dce94b1e1d628494210c50b2aa7a45e285ae7a7a0176e8deb558ccccd",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "Jenkinsをインストールする前に、システムにJavaがインストールされていることを確認してください:"
+      }
+    },
+    {
+      "segment_id": "034de896",
+      "source_content": "- Update your package manager and install Java:\n\n  ```bash\n  sudo apt update\n  sudo apt install fontconfig openjdk-17-jre\n  ```",
+      "source_content_hash": "cea8f334b0652819c378449ee3a374ab2224a882ef69d3a3135feb592a071c4c",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- パッケージマネージャーを更新し、Javaをインストールします:\n\n  ```bash\n  sudo apt update\n  sudo apt install fontconfig openjdk-17-jre\n  ```"
+      }
+    },
+    {
+      "segment_id": "79b2d0b9",
+      "source_content": "## Installation Steps",
+      "source_content_hash": "176cd2c0cf80c3564adae3b72d2ad36ac95f9883c3d2b17da74d1dc605bb60b7",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## インストール手順"
+      }
+    },
+    {
+      "segment_id": "1d13125b",
+      "source_content": "1. **Configure the Package Manager and Install Jenkins**",
+      "source_content_hash": "2abf23a13b09dbf5e48ae3a686045b4b2256701649be412eb8a0b8e8b4cf5169",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **パッケージマネージャーの設定とJenkinsのインストール**"
+      }
+    },
+    {
+      "segment_id": "5da9e02b",
+      "source_content": "- Add Jenkins to your package manager by downloading and installing the Jenkins key:\n\n  ```bash\n  sudo wget -O /usr/share/keyrings/jenkins-keyring.asc https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key\n  ```\n\n- Add the Jenkins repository to your sources list:\n\n  ```bash\n  echo \"deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/\" | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null\n  ```\n\n- Update your package list and install Jenkins:\n\n  ```bash\n  sudo apt-get update\n  sudo apt-get install jenkins\n  ```",
+      "source_content_hash": "ed6bf7bfcac832ca2c35b8ceb523c006d8daea34705334a5095f8f240c42757f",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- Jenkinsをパッケージマネージャーに追加するために、Jenkinsキーをダウンロードしてインストールします:\n\n  ```bash\n  sudo wget -O /usr/share/keyrings/jenkins-keyring.asc https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key\n  ```\n\n- Jenkinsリポジトリをソースリストに追加します:\n\n  ```bash\n  echo \"deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/\" | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null\n  ```\n\n- パッケージリストを更新し、Jenkinsをインストールします:\n\n  ```bash\n  sudo apt-get update\n  sudo apt-get install jenkins\n  ```"
+      }
+    },
+    {
+      "segment_id": "6773b78b",
+      "source_content": "1. **Enable and Start Jenkins**",
+      "source_content_hash": "9b2848db1aaee12014e88439c4f448c3570b11c8524a4f90e1730635018a8ef8",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **Jenkinsの有効化と起動**"
+      }
+    },
+    {
+      "segment_id": "ddd2c7ae",
+      "source_content": "- Enable Jenkins to start on boot:\n\n  ```bash\n  sudo systemctl enable jenkins\n  ```\n\n- Start Jenkins:\n\n  ```bash\n  sudo systemctl start jenkins\n  ```",
+      "source_content_hash": "fdfdd02ff024d0424e742fbcca5a9a42b7a7c246ee182bf5cf388565598c2f45",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- 起動時にJenkinsが自動で開始されるように設定します:\n\n  ```bash\n  sudo systemctl enable jenkins\n  ```\n\n- Jenkinsを起動します:\n\n  ```bash\n  sudo systemctl start jenkins\n  ```"
+      }
+    },
+    {
+      "segment_id": "ea0c7bae",
+      "source_content": "1. **Verify Jenkins is Running**",
+      "source_content_hash": "10826fc61e4c27edb9a0ccb6f452864f47f1f2ce564aa71986c0a1b8ec157469",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **Jenkinsの動作確認**"
+      }
+    },
+    {
+      "segment_id": "35f6931b",
+      "source_content": "- Check the status of Jenkins to ensure it's active:\n\n  ```bash\n  sudo systemctl status jenkins\n  ```\n\n- You should see output similar to the following if Jenkins is up and running:\n\n  ```bash\n  ● jenkins.service - Jenkins Continuous Integration Server\n     Loaded: loaded (/usr/lib/systemd/system/jenkins.service; enabled; preset: enabled)\n     Active: active (running) since [DATE]; [TIME] ago\n     Main PID: 9188 (java)\n  ```",
+      "source_content_hash": "ede5af2a18c37ba82ab7934becba8bfd8496011eb7041593a933407af7af5258",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- Jenkinsがアクティブであることを確認するためにステータスをチェックします:\n\n  ```bash\n  sudo systemctl status jenkins\n  ```\n\n- Jenkinsが正常に起動している場合、以下のような出力が表示されます:\n\n  ```bash\n  ● jenkins.service - Jenkins Continuous Integration Server\n     Loaded: loaded (/usr/lib/systemd/system/jenkins.service; enabled; preset: enabled)\n     Active: active (running) since [DATE]; [TIME] ago\n     Main PID: 9188 (java)\n  ```"
+      }
+    },
+    {
+      "segment_id": "2fd0be2a",
+      "source_content": "## Configuration Steps",
+      "source_content_hash": "46b73969bd7ae342f27c4c5abce80a42600ba1c0846396c70ac16f4b181acd52",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 設定手順"
+      }
+    },
+    {
+      "segment_id": "c0ea80dd",
+      "source_content": "1. **Access Jenkins via Web Browser**",
+      "source_content_hash": "d8f78c9813df215fc0c6be535a647a80c34599680ea0e72a54a1b2369067c98e",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **WebブラウザからJenkinsにアクセス**"
+      }
+    },
+    {
+      "segment_id": "c142abbb",
+      "source_content": "- Open your web browser and go to:\n\n  ```bash\n  http://your_ip:8080\n  ```\n\n- You should see the Jenkins setup screen.\n\n  ![Jenkins Setup](/img/projects/devsecops-home-lab/installation-and-configuration/jenkins-init-config.png)",
+      "source_content_hash": "884705ee14ccd4f2975a14fea1bd7beadde3298673b471b12e48d6d08c580a62",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- Webブラウザを開き、以下にアクセスします:\n\n  ```bash\n  http://your_ip:8080\n  ```\n\n- Jenkinsのセットアップ画面が表示されます。\n\n  ![Jenkins Setup](/img/projects/devsecops-home-lab/installation-and-configuration/jenkins-init-config.png)"
+      }
+    },
+    {
+      "segment_id": "023197ab",
+      "source_content": "1. **Retrieve the Initial Admin Password**",
+      "source_content_hash": "045457edf756274c05fc62737488cb2e13f6d4597f71e4b0b1338b9c040c1147",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **初期管理者パスワードの取得**"
+      }
+    },
+    {
+      "segment_id": "e0019b35",
+      "source_content": "- To proceed with the setup, you will need the initial admin password. Retrieve it by running the following command on your server:\n\n  ```bash\n  sudo cat /var/lib/jenkins/secrets/initialAdminPassword\n  ```\n\n- Copy the password and enter it in the password box on the web interface.\n\n  ![Initial Admin Password](/img/projects/devsecops-home-lab/installation-and-configuration/jenkins-init-password.png)",
+      "source_content_hash": "ae6bf078c94daad481093f25753e2c20e072a1744cb8dd35be7b5cfc5e5424ce",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- セットアップを進めるには、初期管理者パスワードが必要です。サーバー上で以下のコマンドを実行して取得します:\n\n  ```bash\n  sudo cat /var/lib/jenkins/secrets/initialAdminPassword\n  ```\n\n- パスワードをコピーし、Webインターフェースのパスワードボックスに入力します。\n\n  ![Initial Admin Password](/img/projects/devsecops-home-lab/installation-and-configuration/jenkins-init-password.png)"
+      }
+    },
+    {
+      "segment_id": "cd1d0fe2",
+      "source_content": "1. **Install Suggested Plugins**",
+      "source_content_hash": "a697b3f7f3ba1ab3c87abe4e5b7f57155aa02afc2aa4fc1d7ba0eb45140cdd5f",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **推奨プラグインのインストール**"
+      }
+    },
+    {
+      "segment_id": "7a3b7c62",
+      "source_content": "- After entering the admin password, click **Install suggested plugins** and allow Jenkins to install the necessary plugins.\n\n  ![Install Plugins](/img/projects/devsecops-home-lab/installation-and-configuration/jenkins-install-suggested-plugins.png)",
+      "source_content_hash": "09a13b486125416a58da20cd8b08625e3620318f9b4e2a5c5dadb988e24a8e74",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- 管理者パスワードを入力した後、**Install suggested plugins**をクリックし、Jenkinsが必要なプラグインをインストールするのを待ちます。\n\n  ![Install Plugins](/img/projects/devsecops-home-lab/installation-and-configuration/jenkins-install-suggested-plugins.png)"
+      }
+    },
+    {
+      "segment_id": "5cb70a3d",
+      "source_content": "1. **Set Up Your Admin Account**",
+      "source_content_hash": "e1ea5575f96488d407bcfe81c92d53fb4f6fc551e25ed8111fd465ba2c2da0b6",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **管理者アカウントの設定**"
+      }
+    },
+    {
+      "segment_id": "1b8037f4",
+      "source_content": "- After the plugins are installed, you’ll be prompted to set up your admin account. Enter your IP details and set up your Jenkins instance.\n\n  ![Admin Setup](/img/projects/devsecops-home-lab/installation-and-configuration/jenkins-admin-user.png)",
+      "source_content_hash": "2c43284a01bcec8d7e1fde4ec8b8a7345b3e38fca26935d3daeb4c35bb94d02a",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- プラグインのインストールが完了すると、管理者アカウントの設定を求められます。IPの詳細を入力し、Jenkinsインスタンスを設定します。\n\n  ![Admin Setup](/img/projects/devsecops-home-lab/installation-and-configuration/jenkins-admin-user.png)"
+      }
+    },
+    {
+      "segment_id": "2979d081",
+      "source_content": "1. **Configure Instance IP**",
+      "source_content_hash": "5b138199ddabcab9633b0ab6a459555d0c3f953484a0de0cc53c169c8d953c28",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **インスタンスIPの設定**"
+      }
+    },
+    {
+      "segment_id": "2a1e835c",
+      "source_content": "- After you enter your admin information, set the URL IP address of your instance or press `Not Now`.\n\n  ![Configure Instance](/img/projects/devsecops-home-lab/installation-and-configuration/jenkins-instance-config.png)",
+      "source_content_hash": "f879fe762c4fd760b2ede1a3f7e7eeff2fe8b14f80014026bbb50f6db7cafdd9",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- 管理者情報を入力した後、インスタンスのURL IPアドレスを設定するか、「Not Now」を押します。\n\n  ![インスタンスの設定](/img/projects/devsecops-home-lab/installation-and-configuration/jenkins-instance-config.png)"
+      }
+    },
+    {
+      "segment_id": "f93a1bb7",
+      "source_content": "1. **Navigate to the home page**",
+      "source_content_hash": "7bb8171d47edb933084017545b397f443b841f01e145600fbfa3853d02166011",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **ホームページに移動**"
+      }
+    },
+    {
+      "segment_id": "0aa939cf",
+      "source_content": "- You should be here now.\n\n  ![Home Page](/img/projects/devsecops-home-lab/installation-and-configuration/jenkins-home.png)",
+      "source_content_hash": "60c05628f6be87c33159df4e1ff01a5dee721e0cc06664f5772ed33f9e263598",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- これでホームページが表示されます。\n\n  ![ホームページ](/img/projects/devsecops-home-lab/installation-and-configuration/jenkins-home.png)"
+      }
+    },
+    {
+      "segment_id": "4dd6a631",
+      "source_content": "## Installing Jenkins Node",
+      "source_content_hash": "41da3c27b43a5d25a6c490ee49d103554d34e3a37cdee0c9bbbad5ba6b9dfbc3",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## Jenkinsノードのインストール"
+      }
+    },
+    {
+      "segment_id": "74b3b732",
+      "source_content": "> This section covers installing and configuring a Jenkins node on `dsb-node-01`.",
+      "source_content_hash": "e097d9f6916b18c006d854302df21633daac237b04bbc3fe004c5a01121e3812",
+      "node_type": "blockquote",
+      "translatable": true,
+      "translations": {
+        "ja": "> このセクションでは、`dsb-node-01`にJenkinsノードをインストールおよび設定する方法を説明します。"
+      }
+    },
+    {
+      "segment_id": "d30a9380",
+      "source_content": "1. **Create Jenkins User**",
+      "source_content_hash": "a0a23f0d813188307bfdba30aea17037bc0e9bc72ec9ef6ce933d1c2cb00499e",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **Jenkinsユーザーの作成**"
+      }
+    },
+    {
+      "segment_id": "c7ff42af",
+      "source_content": "- Create a Jenkins user and set appropriate permissions:\n\n  ```bash\n  sudo adduser jenkins\n  sudo chown -R jenkins:jenkins /home/jenkins\n  sudo chmod 755 /home/jenkins\n  sudo usermod -aG docker jenkins\n  ```",
+      "source_content_hash": "2f55bc2788a93285e402a08b64db23720c285c251b474dd94cf55387d9949d78",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- Jenkinsユーザーを作成し、適切な権限を設定します：\n\n  ```bash\n  sudo adduser jenkins\n  sudo chown -R jenkins:jenkins /home/jenkins\n  sudo chmod 755 /home/jenkins\n  sudo usermod -aG docker jenkins\n  ```"
+      }
+    },
+    {
+      "segment_id": "6892c8d2",
+      "source_content": "1. **Install Java**",
+      "source_content_hash": "4dc846594a4420c489e1f5ab96954cabc240a30f96b8f650f9a65e74e55ffd71",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **Javaのインストール**"
+      }
+    },
+    {
+      "segment_id": "d3939446",
+      "source_content": "- Install Java on the Jenkins node:\n\n  ```bash\n  sudo apt install openjdk-17-jre-headless\n  ```",
+      "source_content_hash": "bf22e549d692fa799cb8bcbd71cb45b814cfa70cfc5882bcef5691c207f7edaa",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- JenkinsノードにJavaをインストールします：\n\n  ```bash\n  sudo apt install openjdk-17-jre-headless\n  ```"
+      }
+    },
+    {
+      "segment_id": "a627a446",
+      "source_content": "1. **Configure the Jenkins Node in Jenkins UI**",
+      "source_content_hash": "cee0ce4f0e8622c7af22e0bebd398350ca8743ae0dcfc3415e1ee57f5af88a7c",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **Jenkins UIでのノード設定**"
+      }
+    },
+    {
+      "segment_id": "1852dfef",
+      "source_content": "- In Jenkins UI, navigate to **Dashboard > Manage Jenkins > Nodes**. Click on **New Node**. Select **Permanent Agent** and click **OK**.\n\n  ![Node Configuration](/img/projects/devsecops-home-lab/installation-and-configuration/jenkins-create-node.png)\n\n- For your agent, configure the **Remote root directory** to `/home/jenkins/agent` and save the configuration.",
+      "source_content_hash": "f2f0ac19759286423ccabf51588ec0b98a197b2b92ac9bd0d834acca86d3934a",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- Jenkins UIで、**ダッシュボード > Jenkinsの管理 > ノード**に移動します。「新規ノード」をクリックし、「永続エージェント」を選択して「OK」を押します。\n\n  ![ノード設定](/img/projects/devsecops-home-lab/installation-and-configuration/jenkins-create-node.png)\n\n- エージェントの設定で、「リモートルートディレクトリ」を`/home/jenkins/agent`に設定し、設定を保存します。"
+      }
+    },
+    {
+      "segment_id": "dc03f97c",
+      "source_content": "1. **Configure Jenkins Security for Agents**",
+      "source_content_hash": "e5079a34ede3c32b426567652684b2d9b0d260cebc2cc64facfc8d941e17d591",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **エージェントのセキュリティ設定**"
+      }
+    },
+    {
+      "segment_id": "0c315794",
+      "source_content": "- In Jenkins UI, navigate to **Dashboard > Manage Jenkins > Security**, and scroll down until you see **TCP ports for inbound agents**. Select **Random**. Apply/Save.\n\n  ![Security Configuration](/img/projects/devsecops-home-lab/installation-and-configuration/jenkins-node-conf-security.png)",
+      "source_content_hash": "55fad3de8fd3a2a6c16d4ed3ae58768de8bde0d9a965592591298e93ef78ac00",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- Jenkins UIで、**ダッシュボード > Jenkinsの管理 > セキュリティ**に移動し、「インバウンドエージェントのTCPポート」セクションまでスクロールします。「ランダム」を選択し、適用/保存します。\n\n  ![セキュリティ設定](/img/projects/devsecops-home-lab/installation-and-configuration/jenkins-node-conf-security.png)"
+      }
+    },
+    {
+      "segment_id": "5df815de",
+      "source_content": "1. **Set Up the Jenkins Node**",
+      "source_content_hash": "3031b943c94c7262aa09c6046204e2da21d8dd7f866faed0d028115885f7d72f",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **Jenkinsノードのセットアップ**"
+      }
+    },
+    {
+      "segment_id": "af7b7e3f",
+      "source_content": "- On `dsb-node-01`, create the agent directory:\n\n  ```bash\n  cd /home/jenkins && mkdir agent\n  ```\n\n- Download the Jenkins agent JAR file:\n\n  ```bash\n  wget http://<jenkins-server-url>/jnlpJars/agent.jar\n  ```\n\n- Run the Jenkins agent:\n\n  ```bash\n  java -jar agent.jar -jnlpUrl http://<jenkins-server-url>/computer/<node-name>/slave-agent.jnlp -secret <secret-key> -workDir \"/home/jenkins/agent\"\n  ```",
+      "source_content_hash": "4fe71a1d51bfa0bab15f49e6654c6285422e68e0b9f26df3374b2833d222cae6",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- `dsb-node-01`で、エージェントディレクトリを作成します：\n\n  ```bash\n  cd /home/jenkins && mkdir agent\n  ```\n\n- JenkinsエージェントのJARファイルをダウンロードします：\n\n  ```bash\n  wget http://<jenkins-server-url>/jnlpJars/agent.jar\n  ```\n\n- Jenkinsエージェントを実行します：\n\n  ```bash\n  java -jar agent.jar -jnlpUrl http://<jenkins-server-url>/computer/<node-name>/slave-agent.jnlp -secret <secret-key> -workDir \"/home/jenkins/agent\"\n  ```"
+      }
+    },
+    {
+      "segment_id": "4c49c4c5",
+      "source_content": "> **NOTE**: You can find the secret key on the Jenkins node configuration page.",
+      "source_content_hash": "46f5479bdac37ec7b2792735bed8d48c1d96aa16884851b8d75f5b19aad8d2d8",
+      "node_type": "blockquote",
+      "translatable": true,
+      "translations": {
+        "ja": "> **注**: シークレットキーはJenkinsノード設定ページで確認できます。"
+      }
+    },
+    {
+      "segment_id": "b49a7009",
+      "source_content": "![Secret Key Location](/img/projects/devsecops-home-lab/installation-and-configuration/jenkins-node-cmd.png)",
+      "source_content_hash": "52e63f048157002c38f702c61f776f044e247a57b6a1a08980be49199e9cd0f5",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "![シークレットキーの場所](/img/projects/devsecops-home-lab/installation-and-configuration/jenkins-node-cmd.png)"
+      }
+    },
+    {
+      "segment_id": "84432a64",
+      "source_content": "1. **Create a Systemd Service for the Jenkins Agent**",
+      "source_content_hash": "d13fd177ffd6f94cbd753225562bbc020f4379b503fb25ad00bb3db9b09cf289",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **Jenkinsエージェント用のSystemdサービスの作成**"
+      }
+    },
+    {
+      "segment_id": "1a287dc7",
+      "source_content": "- Create a new systemd service for the Jenkins agent:\n\n  ```bash\n  sudo nano /etc/systemd/system/jenkins-agent.service\n  ```\n\n- Add the following configuration to the service file:\n\n  ```ini\n  [Unit]\n  Description=Jenkins Agent\n\n  [Service]\n  User=jenkins\n  Group=jenkins\n  ExecStart=/usr/bin/java -jar /home/jenkins/agent/agent.jar -jnlpUrl http://<jenkins-server-url>/computer/<node-name>/slave-agent.jnlp -secret <secret-key> -workDir /home/jenkins/agent\n  Restart=always\n\n  [Install]\n  WantedBy=multi-user.target\n  ```\n\n- Reload systemd and start the Jenkins agent service:\n\n  ```bash\n  sudo systemctl daemon-reload\n  sudo systemctl start jenkins-agent\n  sudo systemctl enable jenkins-agent\n  ```",
+      "source_content_hash": "989fb3c60fdbf75f7479d308d9f76e120e4c32ba5f01c24a05957a1d86d79b59",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- Jenkinsエージェント用の新しいsystemdサービスを作成します：\n\n  ```bash\n  sudo nano /etc/systemd/system/jenkins-agent.service\n  ```\n\n- サービスファイルに以下の設定を追加します：\n\n  ```ini\n  [Unit]\n  Description=Jenkins Agent\n\n  [Service]\n  User=jenkins\n  Group=jenkins\n  ExecStart=/usr/bin/java -jar /home/jenkins/agent/agent.jar -jnlpUrl http://<jenkins-server-url>/computer/<node-name>/slave-agent.jnlp -secret <secret-key> -workDir /home/jenkins/agent\n  Restart=always\n\n  [Install]\n  WantedBy=multi-user.target\n  ```\n\n- systemdをリロードし、Jenkinsエージェントサービスを開始します：\n\n  ```bash\n  sudo systemctl daemon-reload\n  sudo systemctl start jenkins-agent\n  sudo systemctl enable jenkins-agent\n  ```"
+      }
+    },
+    {
+      "segment_id": "c7ab93a8",
+      "source_content": "## You're Done",
+      "source_content_hash": "dc146497f2e2562df8ec3f604024e77882ae11623fc2a1260623fa30c5fe06f5",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 完了です"
+      }
+    },
+    {
+      "segment_id": "9ede513a",
+      "source_content": "You're finished setting up Jenkins on your machine!",
+      "source_content_hash": "c0c5ba03a4c79dd1c0da5c7bd211feb2b1928b31266fee0d090f1155f6ffdb1c",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "これでJenkinsのセットアップが完了しました！"
+      }
+    },
+    {
+      "segment_id": "ceb05580",
+      "source_content": "<!-- Sources -->",
+      "source_content_hash": "4494bb095c897c283a22423ee5efc82db998c4872791a85cc207cdfd0d31ff25",
+      "node_type": "comment",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_ceb05580"
+      }
+    },
+    {
+      "segment_id": "333da9c3",
+      "source_content": "[Jenkins User Documentation]: https://www.jenkins.io/doc/#what-is-jenkins",
+      "source_content_hash": "3b3e6eb9c3e6e29bf60bc42a353687488acb4ab9d2c3a5810e085ded0518a377",
+      "node_type": "definition",
+      "translatable": true,
+      "translations": {
+        "ja": "[Jenkinsユーザードキュメント]: https://www.jenkins.io/doc/#what-is-jenkins"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/projects/devsecops-home-lab/installation-and-configuration/jenkins.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.155736+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "396e55457b04cd55f83f1e437cf476e7be09d4a9639728f06dc76b1dc1f10fa1"
+  }
+}

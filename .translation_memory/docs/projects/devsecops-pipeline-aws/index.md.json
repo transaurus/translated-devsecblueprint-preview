@@ -1,0 +1,292 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/projects/devsecops-pipeline-aws/index.md",
+  "source_file_content_hash": "9463da797e416ce42d4fd5d911b59b67e130fdbefb76575cc9e87b7b42300d9c",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: devsecops-pipeline-github-actions\ntitle: DevSecOps Pipeline - AWS\ndescription: Build a DevSecOps Pipeline within AWS!\nsidebar_position: 3\n---",
+      "source_content_hash": "d29007f45350a0c4757157e578c318b8141f655317223badbb2ef2247bdd1d99",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "3fbbcc07",
+      "source_content": "Author: [Damien Burks]",
+      "source_content_hash": "5ea0b7dea762d9db1deb5a12bbe8e41ef43190e41291691bb9f75859ac1ac1bf",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "著者: [Damien Burks]"
+      }
+    },
+    {
+      "segment_id": "775b7fa4",
+      "source_content": "<iframe\n  width=\"100%\"\n  height=\"500\"\n  src=\"https://www.youtube.com/embed/otleFroshZU?si=otleFroshZU\"\n  frameborder=\"0\"\n  allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\"\n  allowfullscreen\n></iframe>",
+      "source_content_hash": "9fd5b8c7ee4530e3afffe629dd668611e2e876d991f5a782ef59f3f238a72049",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_775b7fa4"
+      }
+    },
+    {
+      "segment_id": "aee0e40d",
+      "source_content": "## Know Before You Go",
+      "source_content_hash": "627fe71144a6012b8075cb26225277c38ef9b0abecf9e1281979bd73502075d9",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 開始前に知っておくべきこと"
+      }
+    },
+    {
+      "segment_id": "f5f6d2ce",
+      "source_content": "This project is a _little_ expense, and you will rack up a nice bill in AWS if you leave all your resources created. Therefore, I recommend that you **TEAR IT ALL DOWN** when you're done. **Do not leave your EKS cluster running, you'll be charged for it.**",
+      "source_content_hash": "62eea907e7770d42d4f666d9c4cb0c75204d3a1154adf0dc120902767c99cda1",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "このプロジェクトは少し費用がかかり、作成したリソースをすべて残しておくとAWSでかなりの請求が発生します。そのため、終了したら**すべて削除する**ことを強く推奨します。**EKSクラスターを実行したままにしないでください。料金が発生します。**"
+      }
+    },
+    {
+      "segment_id": "40f9552a",
+      "source_content": "## Prerequisities",
+      "source_content_hash": "ea4f42ae1ef8bcafa6f98d90817c5b5535cf4c1538b4076f1df41c7407aa98a8",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 前提条件"
+      }
+    },
+    {
+      "segment_id": "44d89370",
+      "source_content": "1. Before you begin this, you will want to have some knowledge of AWS services and how they work, as well as prior knowledge of Terraform. You can take a look at [Building Cloud DevSecOps Pipelines (In Theory)](../../blueprint/implementing-cloud-devsecops.md#other-infrastructure-as-code-iac-languages) for more information.\n1. You will also want to ensure that you have an AWS account created. You can go through the account creation process here: [AWS Account Creation Process](https://aws.amazon.com/resources/create-account/)\n1. Make sure you have the following installed on your local machine:\n   - [Python](https://www.python.org/downloads/)\n   - [Git](https://git-scm.com/downloads)\n   - [Docker](https://docs.docker.com/engine/install/)\n   - [Terraform CLI](https://developer.hashicorp.com/terraform/install)",
+      "source_content_hash": "e8695cdaecf769123f90a92f12c1b08f96b94f96a81285b8e6af743a93ffd6b6",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. 開始する前に、AWSサービスの動作に関する知識とTerraformの事前知識が必要です。詳細は[クラウドDevSecOpsパイプラインの構築（理論編）](../../blueprint/implementing-cloud-devsecops.md#other-infrastructure-as-code-iac-languages)を参照してください。\n1. AWSアカウントを作成済みであることを確認してください。アカウント作成プロセスはこちら：[AWSアカウント作成プロセス](https://aws.amazon.com/resources/create-account/)\n1. ローカルマシンに以下がインストールされていることを確認してください：\n   - [Python](https://www.python.org/downloads/)\n   - [Git](https://git-scm.com/downloads)\n   - [Docker](https://docs.docker.com/engine/install/)\n   - [Terraform CLI](https://developer.hashicorp.com/terraform/install)"
+      }
+    },
+    {
+      "segment_id": "0037ff70",
+      "source_content": "## Overview",
+      "source_content_hash": "7337f3d0aa29e9a82b8f1650b743a98eef90794631fa763a319686e69c546821",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 概要"
+      }
+    },
+    {
+      "segment_id": "bdc231b1",
+      "source_content": "So you've decided to go down the path of building your own Cloud Native DevSecOps pipeline within AWS? Well, hell... welcome! This is the one of my _favorite_ projects where I'm going to show you how to setup your own AWS pipeline using Terraform Cloud. Unlike the [DevSecOps Home Lab](../devsecops-home-lab/index.md), we're just focused on developing the pipeline and deploying an application into Elastic Kubernetes Service (EKS).",
+      "source_content_hash": "af99516cd175e72cfc2097bf755678e5c208f5cc3450e6ad9496856cb996e1ce",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "AWS内に独自のクラウドネイティブDevSecOpsパイプラインを構築する道を選んだのですか？ようこそ！これは私のお気に入りのプロジェクトの1つで、Terraform Cloudを使用してAWSパイプラインをセットアップする方法を紹介します。[DevSecOpsホームラボ](../devsecops-home-lab/index.md)とは異なり、パイプラインの開発とElastic Kubernetes Service（EKS）へのアプリケーションのデプロイに焦点を当てています。"
+      }
+    },
+    {
+      "segment_id": "97ae4a01",
+      "source_content": "Luckily for you all, you won't need to do anything. I've taken the liberty of developing all of the code for you. These are the two GitHub repositories that you need to look at before we get started:",
+      "source_content_hash": "c10035cd38f8bcfc73f4738b89cc5841ab6fc1bbf7b888a96e416f99a5b00965",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "幸いなことに、皆さんは何もする必要はありません。すべてのコードを事前に開発しておきました。開始前に確認すべき2つのGitHubリポジトリは以下の通りです："
+      }
+    },
+    {
+      "segment_id": "33808f76",
+      "source_content": "1. DevSecOps Pipeline: https://github.com/The-DevSec-Blueprint/aws-devsecops-pipeline\n1. FastAPI Application: https://github.com/The-DevSec-Blueprint/awsome-fastapi",
+      "source_content_hash": "a6b0691d043e6320527f365360f1ac21999f083e517eea21496437a2dc1e541b",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. DevSecOpsパイプライン: https://github.com/The-DevSec-Blueprint/aws-devsecops-pipeline\n1. FastAPIアプリケーション: https://github.com/The-DevSec-Blueprint/awsome-fastapi"
+      }
+    },
+    {
+      "segment_id": "8d04259b",
+      "source_content": "## Architecture Diagram",
+      "source_content_hash": "9d4f8ed26b9f7a754075291123e5c35ba70c275c3b8f38abb33c64bba3f53aca",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## アーキテクチャ図"
+      }
+    },
+    {
+      "segment_id": "95e9ba12",
+      "source_content": "![Architecture Diagram](/img/projects/devsecops-pipeline-aws/architecture.drawio.svg)",
+      "source_content_hash": "1518aa81fee495432e1bbb75b321bf37d82896130a8d252e7cc3712dc2d6d7e0",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "![アーキテクチャ図](/img/projects/devsecops-pipeline-aws/architecture.drawio.svg)"
+      }
+    },
+    {
+      "segment_id": "8bddee80",
+      "source_content": "### Architecture Breakdown",
+      "source_content_hash": "b81f8b1e999583f27abbd0eff572aa5c332f111587a08c934a4054264ac1a979",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "### アーキテクチャの概要"
+      }
+    },
+    {
+      "segment_id": "a9d49f92",
+      "source_content": "At a **VERY** high level, the architecture represents an automated CI/CD pipeline leveraging several AWS services to deploy containerized applications:",
+      "source_content_hash": "dec9996c9a5e3f6c6fbe08a4e45031a13075e09ac1562b6c69b19a0b754b852e",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "**非常に**高レベルで見ると、このアーキテクチャはコンテナ化されたアプリケーションをデプロイするために複数のAWSサービスを活用した自動化CI/CDパイプラインを表しています："
+      }
+    },
+    {
+      "segment_id": "40251870",
+      "source_content": "1. **AWS CodePipeline**: Manages the end-to-end flow of code changes, automating build, test, and deployment stages.\n2. **AWS CodeBuild**: Builds and tests the application code, generating deployable artifacts, and executing Security Scans with Snyk and Trivy.\n3. **Amazon S3**: Stores artifacts like build outputs and deployment files.\n4. **AWS Systems Manager (SSM) Parameter Store**: Securely manages configuration data and secrets used for Snyk.\n5. **Amazon EKS**: Serves as the deployment environment for containerized workloads, providing scalability and orchestration.",
+      "source_content_hash": "1f0330cb09b37b28e81904fc437b40f34ca7987c33a7528d5b248f8d87899dee",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **AWS CodePipeline**: コード変更のエンドツーエンドのフローを管理し、ビルド、テスト、デプロイの各ステージを自動化します。\n2. **AWS CodeBuild**: アプリケーションコードをビルドおよびテストし、デプロイ可能なアーティファクトを生成し、SnykとTrivyを使用してセキュリティスキャンを実行します。\n3. **Amazon S3**: ビルド出力やデプロイメントファイルなどのアーティファクトを保存します。\n4. **AWS Systems Manager (SSM) Parameter Store**: Snyk用の設定データとシークレットを安全に管理します。\n5. **Amazon EKS**: コンテナ化されたワークロードのデプロイメント環境として機能し、スケーラビリティとオーケストレーションを提供します。"
+      }
+    },
+    {
+      "segment_id": "b9aaa519",
+      "source_content": "**Flow Overview**:",
+      "source_content_hash": "4b928d8b950a1f1f31b5f9520f1aaa1fd12846da27455c792d5b87a433daccc5",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "**フローの概要**:"
+      }
+    },
+    {
+      "segment_id": "e3321a43",
+      "source_content": "- CodePipeline orchestrates the process.\n- CodeBuild validates, scans, and compiles the code while also interacting with SSM.\n- Artifacts are stored in S3.\n- Applications are deployed to the EKS cluster.",
+      "source_content_hash": "d2e9fb058532bb7c577a069cd7155d645d3d0909714e51666306d34d9491fdfd",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- CodePipelineがプロセスを調整します。\n- CodeBuildがコードを検証、スキャン、コンパイルし、SSMと連携します。\n- アーティファクトはS3に保存されます。\n- アプリケーションはEKSクラスターにデプロイされます。"
+      }
+    },
+    {
+      "segment_id": "8b2a52b1",
+      "source_content": "This architecture ensures automation, security, and scalability for modern DevSecOps workflows.",
+      "source_content_hash": "cda3d6c698e726cf3e26078cd8e72552ebae302ec7f0b97a94cf75a0ec41a39f",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "このアーキテクチャは、現代のDevSecOpsワークフローにおいて自動化、セキュリティ、スケーラビリティを確保します。"
+      }
+    },
+    {
+      "segment_id": "126950d7",
+      "source_content": "## What You’ll Learn",
+      "source_content_hash": "fdb8a8b24c6ab9a94199bab10b23a1b985c0e7e4e2a6d22142e6868a8f99cc2b",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 学べること"
+      }
+    },
+    {
+      "segment_id": "0bb95128",
+      "source_content": "By working through this guide, you’ll gain hands-on experience building and deploying a secure, cloud-native DevSecOps pipeline on AWS. Specifically, you will learn how to:",
+      "source_content_hash": "b9b9937813ac9c8b24cb888d108d619ed556b89276cc30e1602f6147f82395c4",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "このガイドを通じて、AWS上で安全なクラウドネイティブDevSecOpsパイプラインを構築・デプロイする実践的な経験を得られます。具体的には、以下の方法を学びます："
+      }
+    },
+    {
+      "segment_id": "a4bd3cfc",
+      "source_content": "- **Architect and Implement a Secure CI/CD Pipeline:**  \n  Understand how AWS CodePipeline, CodeBuild, S3, SSM Parameter Store, and EKS work together in an automated, end-to-end workflow.\n\n- **Integrate Security Scanning into the Pipeline:**  \n  Use tools like Snyk and Trivy to scan application code and container images for vulnerabilities before production deployment.\n\n- **Leverage Terraform for Infrastructure as Code (IaC):**  \n  Employ Terraform to provision and manage AWS resources consistently and at scale.\n\n- **Deploy a Containerized Application to Amazon EKS:**  \n  Gain confidence in running containerized workloads on Kubernetes with EKS, ensuring scalability and simplified orchestration.\n\n- **Securely Manage Configuration and Secrets:**  \n  Store and retrieve sensitive data using AWS Systems Manager Parameter Store, following security best practices throughout your pipeline.",
+      "source_content_hash": "6a509c10e0a672f02bc45214ac014af74ddad15dbaec9ffabb8f160819a2c004",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- **安全なCI/CDパイプラインの設計と実装:**  \n  AWS CodePipeline、CodeBuild、S3、SSM Parameter Store、EKSが連携して、自動化されたエンドツーエンドのワークフローを構築する方法を理解します。\n\n- **パイプラインへのセキュリティスキャンの統合:**  \n  SnykやTrivyなどのツールを使用して、本番環境へのデプロイ前にアプリケーションコードとコンテナイメージの脆弱性をスキャンします。\n\n- **Infrastructure as Code（IaC）におけるTerraformの活用:**  \n  Terraformを使用してAWSリソースを一貫性を持って大規模にプロビジョニングおよび管理します。\n\n- **コンテナ化されたアプリケーションのAmazon EKSへのデプロイ:**  \n  EKS上でコンテナ化されたワークロードを実行し、スケーラビリティと簡素化されたオーケストレーションを確保します。\n\n- **設定とシークレットの安全な管理:**  \n  AWS Systems Manager Parameter Storeを使用して機密データを保存および取得し、パイプライン全体でセキュリティのベストプラクティスに従います。"
+      }
+    },
+    {
+      "segment_id": "a1fa5396",
+      "source_content": "With all that being stated, **Please follow the order of the documents, otherwise you'll most likely run into errors and get lost.**",
+      "source_content_hash": "ec24ff2a11ff2d036136a32a4d508fbe8be6f46ba712167506cbfef85a669808",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "以上の点を踏まえ、**ドキュメントの順序に従って進めてください。そうしないと、エラーが発生したり、混乱したりする可能性があります。**"
+      }
+    },
+    {
+      "segment_id": "1c598ecd",
+      "source_content": "## Additional Reference Guides",
+      "source_content_hash": "d814aecdbb1356001bb87846156ad5208a5ce857a0b9241986e4486f0e279b61",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 追加参考ガイド"
+      }
+    },
+    {
+      "segment_id": "2547a6bb",
+      "source_content": "This section includes reference guides for you all just in case you get lost and the video doesn't help you:",
+      "source_content_hash": "06c425f324dd354267ea879bb467f276ed1f3b9332ab0ffdec8e3fb8af235e6e",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "このセクションには、迷った場合や動画が役に立たない場合に備えて、参考になるガイドを記載しています:"
+      }
+    },
+    {
+      "segment_id": "fa53a422",
+      "source_content": "| Name                                                                   | Link                                                                                                                 | Type                           |\n| ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------------------ |\n| Building a Cloud-Native DevSecOps Pipeline on AWS with Terraform Cloud | https://medium.com/@gregoryeast1/building-a-cloud-native-devsecops-pipeline-on-aws-with-terraform-cloud-28060c3d9896 | Blog written by [Gregory East] |",
+      "source_content_hash": "45e290e0cf62c54d81eb015e7e6680e93a8c02ae3e6aa6a22f67fb940ffe19a5",
+      "node_type": "table",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_fa53a422"
+      }
+    },
+    {
+      "segment_id": "174449f9",
+      "source_content": "[Gregory East]: https://medium.com/@gregoryeast1",
+      "source_content_hash": "395b09ee260363ce17ae090a3541d7e0365bfb16bfd429de3f740e7020923ae5",
+      "node_type": "definition",
+      "translatable": true,
+      "translations": {
+        "ja": "[Gregory East]: https://medium.com/@gregoryeast1"
+      }
+    },
+    {
+      "segment_id": "5fc22983",
+      "source_content": "[Damien Burks]: https://www.youtube.com/@damienjburks",
+      "source_content_hash": "7097815c6ac6c02cff2091f30ccf75b895bb53b20eda52fea9f0f673e9d0ed23",
+      "node_type": "definition",
+      "translatable": true,
+      "translations": {
+        "ja": "[Damien Burks]: https://www.youtube.com/@damienjburks"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/projects/devsecops-pipeline-aws/index.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.148106+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "9463da797e416ce42d4fd5d911b59b67e130fdbefb76575cc9e87b7b42300d9c"
+  }
+}

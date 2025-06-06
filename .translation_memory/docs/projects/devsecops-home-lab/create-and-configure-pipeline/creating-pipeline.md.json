@@ -1,0 +1,142 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/projects/devsecops-home-lab/create-and-configure-pipeline/creating-pipeline.md",
+  "source_file_content_hash": "7b6ed6ba7ebbe54a7c6767cbef06c2b1fd27681c79bf2a7cd83888f5213db371",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: create-jenkins-piepline\ntitle: Creating & Configuring Jenkins Pipeline\ndescription: A step-by-step guide to creating a Jenkins pipeline for OWASP Juice Shop using Gitea, SonarQube, and SSH keys.\nsidebar_position: 2\n---",
+      "source_content_hash": "b5f29a90217ec32deb9e93c10db329475f3d4f3e7f7190e0d274b6d872863654",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "cc3c868d",
+      "source_content": "## Step 1: Configure Access Token in Gitea",
+      "source_content_hash": "d637025140f7e89e5e7787e2f922fd895117f0c842678ee8a1a2a82623d81d23",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## ステップ1: Giteaでアクセストークンを設定する"
+      }
+    },
+    {
+      "segment_id": "4a5b6a68",
+      "source_content": "1. In Gitea, click on your user avatar at the top right, then select **Settings** > **Applications**.\n\n   ![Applications](/img/projects/devsecops-home-lab/create-configure-pipeline/gitea-manage-access-tokens.png)\n\n2. Enter a token name (e.g., `Jenkins`), set it to `Private`, and select all permissions as READ/WRITE. Click **Generate Token**.\n\n   ![Generate Token](/img/projects/devsecops-home-lab/create-configure-pipeline/gitea-configure-token-permissions.png)\n\n3. Copy the token and store it in a secure place. This token will be used for Jenkins authentication.",
+      "source_content_hash": "13ea2d961283bae74ac78aba2c0822058f77f20ba920ffb72866d3d15e5e8d3c",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. Giteaで、右上のユーザーアバターをクリックし、**設定** > **アプリケーション**を選択します。\n\n   ![アプリケーション](/img/projects/devsecops-home-lab/create-configure-pipeline/gitea-manage-access-tokens.png)\n\n2. トークン名（例: `Jenkins`）を入力し、`Private`に設定し、すべての権限をREAD/WRITEとして選択します。**トークンを生成**をクリックします。\n\n   ![トークンの生成](/img/projects/devsecops-home-lab/create-configure-pipeline/gitea-configure-token-permissions.png)\n\n3. トークンをコピーし、安全な場所に保管します。このトークンはJenkinsの認証に使用されます。"
+      }
+    },
+    {
+      "segment_id": "bc633244",
+      "source_content": "## Step 2: Install Required Plugins in Jenkins",
+      "source_content_hash": "c87e3f22e3f3b10a24837099d676931d670f4eab1c6c75ea83ababb937acc1db",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## ステップ2: Jenkinsに必要なプラグインをインストールする"
+      }
+    },
+    {
+      "segment_id": "da23c906",
+      "source_content": "1. Log into Jenkins. From the **Dashboard**, click **Manage Jenkins** > **Manage Plugins**.\n\n   ![Manage Plugins](/img/projects/devsecops-home-lab/create-configure-pipeline/jenkins-manage-plugins.png)\n\n2. Under **Available Plugins**, search for and install the following:\n\n   - **Gitea**\n   - **SonarQube Scanner**\n   - **Prometheus Metrics**\n\n   ![Install Plugins](/img/projects/devsecops-home-lab/create-configure-pipeline/jenkins-install-plugins.png)",
+      "source_content_hash": "df028a8da7e407cdc4a3d489f03a6371f9a97df5226fc13853a01d90b16eab21",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. Jenkinsにログインします。**ダッシュボード**から、**Jenkinsの管理** > **プラグインの管理**をクリックします。\n\n   ![プラグインの管理](/img/projects/devsecops-home-lab/create-configure-pipeline/jenkins-manage-plugins.png)\n\n2. **利用可能なプラグイン**で、以下を検索してインストールします:\n\n   - **Gitea**\n   - **SonarQube Scanner**\n   - **Prometheus Metrics**\n\n   ![プラグインのインストール](/img/projects/devsecops-home-lab/create-configure-pipeline/jenkins-install-plugins.png)"
+      }
+    },
+    {
+      "segment_id": "a1b3d8cb",
+      "source_content": "## Step 3: Create Jenkins Pipeline",
+      "source_content_hash": "576e3a7cacbf0b751763caece663ea5bb2443551abbccb1fdf753938fd09de49",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## ステップ3: Jenkinsパイプラインを作成する"
+      }
+    },
+    {
+      "segment_id": "7a2e981c",
+      "source_content": "1. From the Jenkins **Dashboard**, click **New Item**.\n\n   ![New Item](/img/projects/devsecops-home-lab/create-configure-pipeline/jenkins-dashboard.png)\n\n2. Select **Organization Folder** and name it (e.g., `OWASP Juice Shop Pipeline`).\n\n   ![Organization Folder](/img/projects/devsecops-home-lab/create-configure-pipeline/jenkins-organization-folder.png)\n\n3. Scroll down to **Repository Sources** and select **Gitea Organization**.\n\n   ![Repository Sources](/img/projects/devsecops-home-lab/create-configure-pipeline/jenkins-configure-gitea-pipeline.png)\n\n4. Under **Credentials**, click **Add**. Select the organization folder name, set the **Kind** to **Gitea Personal Access Token (PAT)**, and paste the token generated from Gitea.\n\n   ![Gitea PAT](/img/projects/devsecops-home-lab/create-configure-pipeline/jenkins-configure-gitea-pat.png)\n\n5. Set the **Owner** to your Gitea username, and then click **Apply** and **Save**.\n\n   ![Save Configuration](/img/projects/devsecops-home-lab/create-configure-pipeline/jenkins-config-gitea-organization.png)",
+      "source_content_hash": "af0ed22dda871f8d55849c10b923e638995b8468505cacec52ef127298aa39db",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. Jenkinsの**ダッシュボード**から、**新しいジョブ**をクリックします。\n\n   ![新しいジョブ](/img/projects/devsecops-home-lab/create-configure-pipeline/jenkins-dashboard.png)\n\n2. **Organization Folder**を選択し、名前を付けます（例: `OWASP Juice Shop Pipeline`）。\n\n   ![Organization Folder](/img/projects/devsecops-home-lab/create-configure-pipeline/jenkins-organization-folder.png)\n\n3. **Repository Sources**までスクロールし、**Gitea Organization**を選択します。\n\n   ![リポジトリソース](/img/projects/devsecops-home-lab/create-configure-pipeline/jenkins-configure-gitea-pipeline.png)\n\n4. **Credentials**で、**追加**をクリックします。Organization Folder名を選択し、**Kind**を**Gitea Personal Access Token (PAT)**に設定し、Giteaで生成したトークンを貼り付けます。\n\n   ![Gitea PAT](/img/projects/devsecops-home-lab/create-configure-pipeline/jenkins-configure-gitea-pat.png)\n\n5. **Owner**をGiteaのユーザー名に設定し、**適用**と**保存**をクリックします。\n\n   ![設定の保存](/img/projects/devsecops-home-lab/create-configure-pipeline/jenkins-config-gitea-organization.png)"
+      }
+    },
+    {
+      "segment_id": "2c1b51df",
+      "source_content": "## Step 4: Configure Webhook in Gitea",
+      "source_content_hash": "fb95460c8adbf0eb4b1a91b7434ea802fc58016b57bbfa28ee8a179da9ff1c71",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## ステップ4: GiteaでWebhookを設定する"
+      }
+    },
+    {
+      "segment_id": "e3321a43",
+      "source_content": "1. In Jenkins, go to **Manage Jenkins** > **Configure System**. Scroll down to **Gitea Servers** and add your Gitea server details.\n\n   ![Gitea Server](/img/projects/devsecops-home-lab/create-configure-pipeline/jenkins-config-gitea-server.png)\n\n   - **Discover branches**: Only branches filed as PRs or master/main branch.\n   - **Discover pull requests from origin**: Both the current pull request revision and the pull request merged with the current target branch revision.\n\n2. Click **Apply** and **Save**.\n\n3. In Gitea, navigate to the project, click on **Settings** > **Webhooks**.\n\n   ![Webhooks](/img/projects/devsecops-home-lab/create-configure-pipeline/gitea-config-webhook.png)\n\n4. Click **Add Webhook**, then select **Gitea**. Fill out the form:\n\n   - **URL**: `<http://localhost:8080/gitea-webhook/post>`\n   - **Method**: `POST`\n   - **Content Type**: `application/json`\n   - **Branch filter**: `*`\n\n   ![Add Webhook](/img/projects/devsecops-home-lab/create-configure-pipeline/gitea-add-webhook-jenkins.png)\n\n5. Click **Add Webhook** to save the configuration.",
+      "source_content_hash": "7454c69174dc61ce087e99e8274f081569e51b6c84da14c9c07644899f09c13d",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. Jenkinsで、**Jenkinsの管理** > **システム設定**に移動します。**Gitea Servers**までスクロールし、Giteaサーバーの詳細を追加します。\n\n   ![Giteaサーバー](/img/projects/devsecops-home-lab/create-configure-pipeline/jenkins-config-gitea-server.png)\n\n   - **ブランチを検出**: PRとして提出されたブランチまたはmaster/mainブランチのみ。\n   - **originからのプルリクエストを検出**: 現在のプルリクエストリビジョンと、現在のターゲットブランチリビジョンとマージされたプルリクエストの両方。\n\n2. **適用**と**保存**をクリックします。\n\n3. Giteaで、プロジェクトに移動し、**設定** > **Webhooks**をクリックします。\n\n   ![Webhooks](/img/projects/devsecops-home-lab/create-configure-pipeline/gitea-config-webhook.png)\n\n4. **Webhookを追加**をクリックし、**Gitea**を選択します。フォームに記入します:\n\n   - **URL**: `<http://localhost:8080/gitea-webhook/post>`\n   - **メソッド**: `POST`\n   - **コンテンツタイプ**: `application/json`\n   - **ブランチフィルター**: `*`\n\n   ![Webhookの追加](/img/projects/devsecops-home-lab/create-configure-pipeline/gitea-add-webhook-jenkins.png)\n\n5. **Webhookを追加**をクリックして設定を保存します。"
+      }
+    },
+    {
+      "segment_id": "8a9b6c26",
+      "source_content": "## Step 5: Configure SSH Keys",
+      "source_content_hash": "cf4de74014858abdfe137bcfb5db184ecdaf85278a0863e75ad2fc17805ec6b9",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## ステップ5: SSHキーを設定する"
+      }
+    },
+    {
+      "segment_id": "c142abbb",
+      "source_content": "1. On your local machine (DSB Hub), generate an SSH key pair:\n\n   ```bash\n   ssh-keygen -t rsa -b 4096 -C \"jenkins@dsb-hub.com\"\n   ```\n\n   ```plaintext\n   Generating public/private rsa key pair.\n   Enter file in which to save the key (/home/<your_username>/.ssh/id_rsa):\n   Enter passphrase (empty for no passphrase):\n   Enter same passphrase again:\n   Your identification has been saved in /home/<your_username>/.ssh/id_rsa\n   Your public key has been saved in /home/<your_username>/.ssh/id_rsa.pub\n   The key fingerprint is:\n   SHA256:iIitv6/AYHsTTND7ooLJtG0M2NZrOWMer7E0E6hZ8XI jenkins@dsb-hub.com\n   The key's randomart image is:\n   ```\n\n2. Copy the public key to your remote server:\n\n   ```bash\n   ssh-copy-id <your_username>@dsb-node-01.local\n   ```\n\n3. In Jenkins, go to **Manage Jenkins** > **Credentials** > **System** > **Global Credentials (unrestricted)**. Select **Add Credentials** and choose **SSH Username with private key**.\n\n   ![SSH Credentials](/img/projects/devsecops-home-lab/create-configure-pipeline/jenkins-config-ssh-username.png)\n\n4. Fill out the form and hit **Create** to store your SSH credentials.",
+      "source_content_hash": "b2efe767c23801a04d855af0e7668fa3d8f9d402cba4093d176f418a3d0996c8",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. ローカルマシン（DSB Hub）でSSHキーペアを生成します：\n\n   ```bash\n   ssh-keygen -t rsa -b 4096 -C \"jenkins@dsb-hub.com\"\n   ```\n\n   ```plaintext\n   Generating public/private rsa key pair.\n   Enter file in which to save the key (/home/<your_username>/.ssh/id_rsa):\n   Enter passphrase (empty for no passphrase):\n   Enter same passphrase again:\n   Your identification has been saved in /home/<your_username>/.ssh/id_rsa\n   Your public key has been saved in /home/<your_username>/.ssh/id_rsa.pub\n   The key fingerprint is:\n   SHA256:iIitv6/AYHsTTND7ooLJtG0M2NZrOWMer7E0E6hZ8XI jenkins@dsb-hub.com\n   The key's randomart image is:\n   ```\n\n2. 公開鍵をリモートサーバーにコピーします：\n\n   ```bash\n   ssh-copy-id <your_username>@dsb-node-01.local\n   ```\n\n3. Jenkinsで、**Manage Jenkins** > **Credentials** > **System** > **Global Credentials (unrestricted)**に移動します。**Add Credentials**を選択し、**SSH Username with private key**を選びます。\n\n   ![SSH Credentials](/img/projects/devsecops-home-lab/create-configure-pipeline/jenkins-config-ssh-username.png)\n\n4. フォームに必要事項を入力し、**Create**をクリックしてSSH認証情報を保存します。"
+      }
+    },
+    {
+      "segment_id": "ab39e8a7",
+      "source_content": "## Conclusion",
+      "source_content_hash": "be031d37bb75d96ef08ca9ec5b0e83bb6f91172f60d3c31a78feae8d7dc4a0b0",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## まとめ"
+      }
+    },
+    {
+      "segment_id": "d21af28f",
+      "source_content": "You've now successfully set up a Jenkins pipeline for the OWASP Juice Shop project with Gitea, SonarQube, and Docker integration. Your pipeline is configured to handle code quality checks, security scans, and deployments, ensuring that your application maintains a high standard throughout the development lifecycle.",
+      "source_content_hash": "c01b20f3c1f3bdf63751ca6020c0b914bfda3f4008898eff62ec74048753e0ed",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "これで、OWASP Juice ShopプロジェクトのJenkinsパイプラインをGitea、SonarQube、Dockerと統合してセットアップできました。このパイプラインは、コード品質チェック、セキュリティスキャン、デプロイメントを処理するように構成されており、アプリケーションが開発ライフサイクル全体を通じて高い標準を維持できるようになります。"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/projects/devsecops-home-lab/create-and-configure-pipeline/creating-pipeline.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.148835+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "7b6ed6ba7ebbe54a7c6767cbef06c2b1fd27681c79bf2a7cd83888f5213db371"
+  }
+}

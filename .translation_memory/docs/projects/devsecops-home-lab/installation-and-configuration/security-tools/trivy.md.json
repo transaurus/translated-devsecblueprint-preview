@@ -1,0 +1,112 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/projects/devsecops-home-lab/installation-and-configuration/security-tools/trivy.md",
+  "source_file_content_hash": "572686935db3b71fe1b5bbcc7796d1a2210df2ad95a3cacb3617210676cad483",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: install-config-trivy\ntitle: Trivy\nsidebar_position: 4\n---",
+      "source_content_hash": "38a4a7dce5ad3f613c0e6448f64c66518d60c2d3a661379b6f2dabdfbd6373ec",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "a703643c",
+      "source_content": "## Overview",
+      "source_content_hash": "7337f3d0aa29e9a82b8f1650b743a98eef90794631fa763a319686e69c546821",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 概要"
+      }
+    },
+    {
+      "segment_id": "cbf61009",
+      "source_content": "> This installation happens on the `dsb-hub`.",
+      "source_content_hash": "4e97ed73bdf09122b24991087c2a802e48ae15f31fa7d383dac6df74ebb87db1",
+      "node_type": "blockquote",
+      "translatable": true,
+      "translations": {
+        "ja": "> このインストールは `dsb-hub` 上で行われます。"
+      }
+    },
+    {
+      "segment_id": "8ac585fb",
+      "source_content": "According to [Trivy's GitHub Repository], Trivy is a comprehensive, easy-to-use open-source vulnerability scanner. It detects vulnerabilities in OS packages, container images, file systems, and Git repositories. Additionally, Trivy can identify configuration issues and hard-coded secrets, making it an essential tool for DevSecOps practices. This guide will walk you through the steps to install and configure Trivy on your system.",
+      "source_content_hash": "23e59ab7e114250c16de2180d024e03354838f3f6e4d32895b3b3583e931627c",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "[TrivyのGitHubリポジトリ]によると、Trivyは包括的で使いやすいオープンソースの脆弱性スキャナーです。OSパッケージ、コンテナイメージ、ファイルシステム、Gitリポジトリの脆弱性を検出します。さらに、Trivyは設定の問題やハードコードされたシークレットも検出できるため、DevSecOpsプラクティスにおいて不可欠なツールです。このガイドでは、システムにTrivyをインストールして設定する手順を説明します。"
+      }
+    },
+    {
+      "segment_id": "ba4f48ff",
+      "source_content": "## Installation Steps",
+      "source_content_hash": "176cd2c0cf80c3564adae3b72d2ad36ac95f9883c3d2b17da74d1dc605bb60b7",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## インストール手順"
+      }
+    },
+    {
+      "segment_id": "4269e691",
+      "source_content": "1. Configure and Install Package\n\n   - Install required packages and add the Trivy repository key:\n\n     ```bash\n     sudo apt-get install wget apt-transport-https gnupg\n     wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | gpg --dearmor | sudo tee /usr/share/keyrings/trivy.gpg > /dev/null\n     ```\n\n   - Add the Trivy repository to your sources list:\n\n     ```bash\n     echo \"deb [signed-by=/usr/share/keyrings/trivy.gpg] https://aquasecurity.github.io/trivy-repo/deb generic main\" | sudo tee -a /etc/apt/sources.list.d/trivy.list\n     ```\n\n   - Update your package list and install Trivy:\n\n     ```bash\n     sudo apt-get update\n     sudo apt-get install trivy\n     ```\n\n2. Check if Trivy is Installed Successfully\n\n   - Verify that Trivy is installed and running correctly by running the `trivy` command:\n\n     ```bash\n     trivy\n     ```\n\n   - You should see output similar to the following, which confirms that Trivy is installed and provides usage instructions:\n\n     ```text\n     Scanner for vulnerabilities in container images, file systems, and Git repositories, as well as for configuration issues and hard-coded secrets\n\n     Usage:\n       trivy [global flags] command [flags] target\n       trivy [command]\n\n     Examples:\n       # Scan a container image\n       $ trivy image python:3.4-alpine\n\n       # Scan a container image from a tar archive\n       $ trivy image --input ruby-3.1.tar\n\n       # Scan local filesystem\n       $ trivy fs .\n\n       # Run in server mode\n       $ trivy server\n\n     Scanning Commands:\n       config      Scan config files for misconfigurations\n       filesystem  Scan local filesystem\n       image       Scan a container image\n       kubernetes  [EXPERIMENTAL] Scan kubernetes cluster\n       repository  Scan a repository\n       rootfs      Scan rootfs\n       sbom        Scan SBOM for vulnerabilities and licenses\n       vm          [EXPERIMENTAL] Scan a virtual machine image\n\n     Management Commands:\n       module      Manage modules\n       plugin      Manage plugins\n       vex         [EXPERIMENTAL] VEX utilities\n\n     Utility Commands:\n       clean       Remove cached files\n       completion  Generate the autocompletion script for the specified shell\n       convert     Convert Trivy JSON report into a different format\n       help        Help about any command\n       server      Server mode\n       version     Print the version\n\n     Flags:\n           --cache-dir string          cache directory (default \"/home/damien/.cache/trivy\")\n       -c, --config string             config path (default \"trivy.yaml\")\n       -d, --debug                     debug mode\n       -f, --format string             version format (json)\n           --generate-default-config   write the default config to trivy-default.yaml\n       -h, --help                      help for trivy\n           --insecure                  allow insecure server connections\n       -q, --quiet                     suppress progress bar and log output\n           --timeout duration          timeout (default 5m0s)\n       -v, --version                   show version\n     ```",
+      "source_content_hash": "40aa47569f86bd624aaec2b2ce7cab2777d33458e0be96ccab74e0a697186ac7",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. パッケージの設定とインストール\n\n   - 必要なパッケージをインストールし、Trivyリポジトリのキーを追加します:\n\n     ```bash\n     sudo apt-get install wget apt-transport-https gnupg\n     wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | gpg --dearmor | sudo tee /usr/share/keyrings/trivy.gpg > /dev/null\n     ```\n\n   - Trivyリポジトリをソースリストに追加します:\n\n     ```bash\n     echo \"deb [signed-by=/usr/share/keyrings/trivy.gpg] https://aquasecurity.github.io/trivy-repo/deb generic main\" | sudo tee -a /etc/apt/sources.list.d/trivy.list\n     ```\n\n   - パッケージリストを更新し、Trivyをインストールします:\n\n     ```bash\n     sudo apt-get update\n     sudo apt-get install trivy\n     ```\n\n2. Trivyが正常にインストールされたか確認\n\n   - `trivy` コマンドを実行して、Trivyが正しくインストールされ動作していることを確認します:\n\n     ```bash\n     trivy\n     ```\n\n   - 以下のような出力が表示されれば、Trivyがインストールされており、使用方法が示されます:\n\n     ```text\n     コンテナイメージ、ファイルシステム、Gitリポジトリの脆弱性スキャナー、および設定の問題やハードコードされたシークレットを検出します\n\n     使用方法:\n       trivy [グローバルフラグ] コマンド [フラグ] ターゲット\n       trivy [コマンド]\n\n     例:\n       # コンテナイメージをスキャン\n       $ trivy image python:3.4-alpine\n\n       # tarアーカイブからコンテナイメージをスキャン\n       $ trivy image --input ruby-3.1.tar\n\n       # ローカルファイルシステムをスキャン\n       $ trivy fs .\n\n       # サーバーモードで実行\n       $ trivy server\n\n     スキャンコマンド:\n       config      設定ファイルの不備をスキャン\n       filesystem  ローカルファイルシステムをスキャン\n       image       コンテナイメージをスキャン\n       kubernetes  [実験的] Kubernetesクラスタをスキャン\n       repository  リポジトリをスキャン\n       rootfs      rootfsをスキャン\n       sbom        SBOMの脆弱性とライセンスをスキャン\n       vm          [実験的] 仮想マシンイメージをスキャン\n\n     管理コマンド:\n       module      モジュールを管理\n       plugin      プラグインを管理\n       vex         [実験的] VEXユーティリティ\n\n     ユーティリティコマンド:\n       clean       キャッシュファイルを削除\n       completion  指定されたシェルの自動補完スクリプトを生成\n       convert     Trivy JSONレポートを別の形式に変換\n       help        コマンドのヘルプを表示\n       server      サーバーモード\n       version     バージョンを表示\n\n     フラグ:\n           --cache-dir string          キャッシュディレクトリ (デフォルト \"/home/damien/.cache/trivy\")\n       -c, --config string             設定パス (デフォルト \"trivy.yaml\")\n       -d, --debug                     デバッグモード\n       -f, --format string             バージョンフォーマット (json)\n           --generate-default-config   デフォルト設定をtrivy-default.yamlに書き出し\n       -h, --help                      trivyのヘルプを表示\n           --insecure                  安全でないサーバー接続を許可\n       -q, --quiet                     プログレスバーとログ出力を抑制\n           --timeout duration          タイムアウト (デフォルト 5m0s)\n       -v, --version                   バージョンを表示\n     ```"
+      }
+    },
+    {
+      "segment_id": "94145a94",
+      "source_content": "## You're Done",
+      "source_content_hash": "dc146497f2e2562df8ec3f604024e77882ae11623fc2a1260623fa30c5fe06f5",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 完了"
+      }
+    },
+    {
+      "segment_id": "2838eb68",
+      "source_content": "Trivy is now installed and ready to be used for scanning vulnerabilities in container images, file systems, and more. With Trivy, you can ensure that your applications are secure and free from known vulnerabilities before deploying them to production.",
+      "source_content_hash": "aa89759fcea2562d34d9b64b195013a30be1b2b6c9c98ef6699e8d8bf801e2ca",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "Trivyがインストールされ、コンテナイメージやファイルシステムなどの脆弱性スキャンに使用できるようになりました。Trivyを使用することで、アプリケーションを本番環境にデプロイする前に、既知の脆弱性がない安全な状態であることを確認できます。"
+      }
+    },
+    {
+      "segment_id": "1aa2773e",
+      "source_content": "<!-- Sources -->",
+      "source_content_hash": "4494bb095c897c283a22423ee5efc82db998c4872791a85cc207cdfd0d31ff25",
+      "node_type": "comment",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_1aa2773e"
+      }
+    },
+    {
+      "segment_id": "ac00658a",
+      "source_content": "[Trivy's GitHub Repository]: https://github.com/aquasecurity/trivy",
+      "source_content_hash": "6a3d09f1e6666d0eb6573f59cbe9186da5e1b3b5f1cefc2a5ff13e15071b90d2",
+      "node_type": "definition",
+      "translatable": true,
+      "translations": {
+        "ja": "[TrivyのGitHubリポジトリ]: https://github.com/aquasecurity/trivy"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/projects/devsecops-home-lab/installation-and-configuration/security-tools/trivy.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.155417+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "572686935db3b71fe1b5bbcc7796d1a2210df2ad95a3cacb3617210676cad483"
+  }
+}

@@ -1,0 +1,322 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/projects/devsecops-home-lab/create-and-configure-pipeline/creating-repository.md",
+  "source_file_content_hash": "e5367601bef0469deef08c75a7ecd2a99185ea75319ab91390bff7d854d5e46b",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: create-repository-pipeline\ntitle: Setting Up Repository And Pipeline\ndescription: A guide to setting up the OWASP Juice Shop project with Sonar Scanning, Gitea, and Jenkins.\nsidebar_position: 1\n---",
+      "source_content_hash": "4ba9c4cb3a29250b86cf2243118cc4ded6a3993ad507868b1709061ac30bc18e",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "cc3c868d",
+      "source_content": "## Overview",
+      "source_content_hash": "7337f3d0aa29e9a82b8f1650b743a98eef90794631fa763a319686e69c546821",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 概要"
+      }
+    },
+    {
+      "segment_id": "7e5c5a39",
+      "source_content": "In this section of the guide, you will learn how to set up a Jenkins pipeline for the OWASP Juice Shop project, integrating it with Gitea for version control, SonarQube for static code analysis, and Docker for containerization. The process includes cloning the codebase, configuring access tokens in Gitea, installing necessary Jenkins plugins, creating a Jenkins pipeline, and setting up webhooks and SSH keys for secure communication between your systems. By the end of this guide, your pipeline will be fully automated to handle code quality checks, security scans, and deployments.",
+      "source_content_hash": "f6e7e9becd9fef9578df85fb7df40968e104d63291f38427d0108812b5cf4553",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "このガイドのセクションでは、OWASP Juice ShopプロジェクトのJenkinsパイプラインを設定する方法を学びます。バージョン管理にはGitea、静的コード解析にはSonarQube、コンテナ化にはDockerを統合します。このプロセスには、コードベースのクローン、Giteaでのアクセストークンの設定、必要なJenkinsプラグインのインストール、Jenkinsパイプラインの作成、システム間の安全な通信のためのウェブフックとSSHキーの設定が含まれます。このガイドの最後には、コード品質チェック、セキュリティスキャン、デプロイを自動的に処理する完全に自動化されたパイプラインが完成します。"
+      }
+    },
+    {
+      "segment_id": "9fcbdce9",
+      "source_content": "## Prerequisites",
+      "source_content_hash": "bbd3d4949a6f237efd8d4ff5c7c5f30d968e7a989ad12f3d7dcef69c98053912",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 前提条件"
+      }
+    },
+    {
+      "segment_id": "ad8fd492",
+      "source_content": "Before starting, ensure that you have the following:",
+      "source_content_hash": "ce7bb811c0c844e1decc680a457007ac411aca6fbf8ad6380de8697fd0503b7d",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "開始前に、以下を確認してください："
+      }
+    },
+    {
+      "segment_id": "4ddf6ae7",
+      "source_content": "- Access to a Gitea instance\n- Jenkins set up with required plugins (e.g., Git, SonarQube, Docker, etc.)\n- A SonarQube instance\n- Docker installed on your machine",
+      "source_content_hash": "86af54e075a09525c2f6341035f27edc34621437319d62abd32a41dbf91b433f",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- Giteaインスタンスへのアクセス\n- 必要なプラグイン（Git、SonarQube、Dockerなど）がインストールされたJenkins\n- SonarQubeインスタンス\n- マシンにインストールされたDocker"
+      }
+    },
+    {
+      "segment_id": "418617bd",
+      "source_content": "## Step 1: Clone the Codebase",
+      "source_content_hash": "c8b2bed10db3f5ef38138d4bb867bf389eeba08cfea9bb794876fafeacbcfdb3",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## ステップ1: コードベースのクローン"
+      }
+    },
+    {
+      "segment_id": "2fdadb08",
+      "source_content": "On your local machine, clone the juice-shop-sonarscanning repository:",
+      "source_content_hash": "a1887fd1dbf3b574c35f6feb85475a4cea549c80597e3dd3985f69eb993232ad",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "ローカルマシンで、juice-shop-sonarscanningリポジトリをクローンします："
+      }
+    },
+    {
+      "segment_id": "3569d545",
+      "source_content": "```bash\ngit clone https://github.com/The-DevSec-Blueprint/juice-shop-sonarscanning.git\n```",
+      "source_content_hash": "bf7fe61d0e27e61dfd3c39f152f84bc1b0cc781bd3e91a2fb96c8be63bf9acf4",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_3569d545"
+      }
+    },
+    {
+      "segment_id": "f2f30ae8",
+      "source_content": "## Step 2: Create a New Project in Gitea",
+      "source_content_hash": "87889dfc9ad670b093199bc77a574ca95f8b6d30d6dcc58854294552ed77a5c9",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## ステップ2: Giteaで新しいプロジェクトを作成"
+      }
+    },
+    {
+      "segment_id": "c6dea11f",
+      "source_content": "1. Log into your Gitea instance and navigate to create a new repository.\n\n   ![Create New Project](/img/projects/devsecops-home-lab/create-configure-pipeline/gitea-create-repository.png)\n\n2. Fill out the necessary information:\n\n   - **Repository name**: `owasp-juice-shop`\n   - **Visibility**: `public`\n   - **Description**: _(Optional)_\n   - **Default branch**: `master`\n\n   ![Repository Details](/img/projects/devsecops-home-lab/create-configure-pipeline/gitea-repo-details.png)\n\n3. Click on the **Create Repository** button.\n\n4. Confirm that the repository has been created successfully.\n\n   ![Repository Created](/img/projects/devsecops-home-lab/create-configure-pipeline/gitea-create-project.png)",
+      "source_content_hash": "d5f26a0d6adae63beabbcb94ac34723b11f1aa11e94df2163fb610a60f837c68",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. Giteaインスタンスにログインし、新しいリポジトリを作成します。\n\n   ![新しいプロジェクトの作成](/img/projects/devsecops-home-lab/create-configure-pipeline/gitea-create-repository.png)\n\n2. 必要な情報を入力します：\n\n   - **リポジトリ名**: `owasp-juice-shop`\n   - **可視性**: `public`\n   - **説明**: （オプション）\n   - **デフォルトブランチ**: `master`\n\n   ![リポジトリ詳細](/img/projects/devsecops-home-lab/create-configure-pipeline/gitea-repo-details.png)\n\n3. **リポジトリを作成**ボタンをクリックします。\n\n4. リポジトリが正常に作成されたことを確認します。\n\n   ![リポジトリ作成完了](/img/projects/devsecops-home-lab/create-configure-pipeline/gitea-create-project.png)"
+      }
+    },
+    {
+      "segment_id": "6d28a77c",
+      "source_content": "## Step 3: Point the Local Repository to Gitea",
+      "source_content_hash": "0c8f4e7b2c11c867afca0d4fd3ac18d85ce77865ecb64af8f6d134c295f08b37",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## ステップ3: ローカルリポジトリをGiteaにポイント"
+      }
+    },
+    {
+      "segment_id": "f7ef78f9",
+      "source_content": "In your local `juice-shop-sonarscanning` directory, update the git origin to point to your new Gitea repository:",
+      "source_content_hash": "6aec41025ffd4fb1b6d3ec21d73bd5372374016eba0808f2d10930c0dcd2a5c0",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "ローカルの`juice-shop-sonarscanning`ディレクトリで、gitのoriginを新しいGiteaリポジトリに更新します："
+      }
+    },
+    {
+      "segment_id": "3ce8f045",
+      "source_content": "```bash\ncd juice-shop-sonarscanning/\ngit remote remove origin\ngit remote add origin http://<your_gitea_server_ip>/<your_username>/owasp-juice-shop.git\ngit push -u origin master\n```",
+      "source_content_hash": "147a8923dffe2150c7b8d220acae0a468ba898d5b6550d3f8cc572d3cf869cd5",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_3ce8f045"
+      }
+    },
+    {
+      "segment_id": "e912d935",
+      "source_content": "## Step 4: Authorize Your Application",
+      "source_content_hash": "dc02e073fec50d3f2193e75bbf0ca6ded49f394a8561903700897835727d4cfe",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## ステップ4: アプリケーションの認証"
+      }
+    },
+    {
+      "segment_id": "8b2a52b1",
+      "source_content": "After pushing your code, Gitea might prompt you to authorize your application.",
+      "source_content_hash": "bbc0fe4413f00ad71165d202c644a84e7dac909bbb47191bb69b2aeadc8da917",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "コードをプッシュした後、Giteaがアプリケーションの認証を求める場合があります。"
+      }
+    },
+    {
+      "segment_id": "5dae11e3",
+      "source_content": "![Authorize Application](/img/projects/devsecops-home-lab/create-configure-pipeline/gitea-authorize-application.png)",
+      "source_content_hash": "b91b157462919775c085842ce0b0856980cda0e521282a9abbc8d8ac844ca24f",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "![アプリケーションの認証](/img/projects/devsecops-home-lab/create-configure-pipeline/gitea-authorize-application.png)"
+      }
+    },
+    {
+      "segment_id": "a5a4323e",
+      "source_content": "## Step 5: Confirm the Changes",
+      "source_content_hash": "60d08528945f768cd17ae718baafca19e204473a9b31aadbd4c2cb09e5f4ab0d",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## ステップ5: 変更の確認"
+      }
+    },
+    {
+      "segment_id": "657c2b20",
+      "source_content": "Ensure that your changes have been pushed to the Gitea repository.",
+      "source_content_hash": "4d851ef84d452c320ec0828f18f098aa00de310a9ebd9360da226c8dbe2bb686",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "変更がGiteaリポジトリにプッシュされたことを確認します。"
+      }
+    },
+    {
+      "segment_id": "e7772088",
+      "source_content": "![Changes Confirmed](/img/projects/devsecops-home-lab/create-configure-pipeline/gitea-repo-populated.png)",
+      "source_content_hash": "6e29eb60101d6fd755dfbcea51efe4e364d236df2094e02ac2137bb3b912c399",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "![変更確認完了](/img/projects/devsecops-home-lab/create-configure-pipeline/gitea-repo-populated.png)"
+      }
+    },
+    {
+      "segment_id": "d422fb13",
+      "source_content": "## Step 6: Remove GitHub Workflows Directory",
+      "source_content_hash": "31b1c2e45f8587a658bab87ed2cc9ab0ed484cc7ae1ebd959fa123ce97a4996b",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## ステップ6: GitHubワークフローディレクトリの削除"
+      }
+    },
+    {
+      "segment_id": "f01228d3",
+      "source_content": "Remove the GitHub workflows directory from the repository:",
+      "source_content_hash": "ac7fac35186babff69196a2c7630584330685b699ed8b8c9e8f369c68a8bd3da",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "リポジトリからGitHubワークフローディレクトリを削除します："
+      }
+    },
+    {
+      "segment_id": "c808e01e",
+      "source_content": "```bash\nrm -rf .github/workflows\ngit add .\ngit commit -m \"removing workflows\"\ngit push\n```",
+      "source_content_hash": "0b3fe209d6c652c62c4e60ca9e3b52187db5ff03caad6f194dbf4d79aad45497",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_c808e01e"
+      }
+    },
+    {
+      "segment_id": "a4bf4268",
+      "source_content": "## Step 7: Create Jenkinsfile for CI/CD Pipeline",
+      "source_content_hash": "516b4d6921ebdf60c5202a5f6cec973388999a2091d0fbf989d0cc6b2537aebf",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## ステップ7: CI/CDパイプライン用のJenkinsfileを作成"
+      }
+    },
+    {
+      "segment_id": "ec619944",
+      "source_content": "Create a `Jenkinsfile` in the root directory of your repository with the following content:",
+      "source_content_hash": "4ddc29f80b8130f65fe0e17df2d3e96ba99bdfb84e8f13423bfb696ce6f3754b",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "リポジトリのルートディレクトリに以下の内容で`Jenkinsfile`を作成します："
+      }
+    },
+    {
+      "segment_id": "26f7c825",
+      "source_content": "```groovy\npipeline {\n    agent any\n\n    environment {\n       SONAR_TOKEN = credentials('sonar-analysis')\n       SONAR_PROJECT_KEY = 'owasp-juice-shop'\n       DOCKER_IMAGE_NAME = 'owasp-juice-shop'\n       NEXUS_DOCKER_REGISTRY = '<your_dsb_hub_ip_address>:8082'\n       NEXUS_DOCKER_PUSH_INDEX = '<your_dsb_hub_ip_address>:8083'\n       NEXUS_DOCKER_PUSH_PATH = 'repository/docker-host'\n    }\n\n    stages {\n        stage('Clone') {\n            steps {\n                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'Gitea PAT', url: 'http://<your_dsb_hub_ip_address>/<your_username>/owasp-juice-shop.git']])\n            }\n        }\n        stage('Build') {\n            steps {\n                sh 'docker build -t ${DOCKER_IMAGE_NAME}:${BUILD_NUMBER} .'\n            }\n        }\n        stage('Security Scan'){\n            parallel {\n                stage('Sonar Scan') {\n                    steps {\n                        script {\n                            try{\n                                withSonarQubeEnv(installationName: 'Sonar Server', credentialsId: 'sonar-analysis') {\n                                    sh '''\n                                    docker run --rm \\\n                                    -e SONAR_HOST_URL=\"${SONAR_HOST_URL}\" \\\n                                    -e SONAR_TOKEN=\"${SONAR_TOKEN}\" \\\n                                    -v \"$(pwd):/usr/src\" \\\n                                    sonarsource/sonar-scanner-cli \\\n                                    -Dsonar.projectKey=\"${SONAR_PROJECT_KEY}\" \\\n                                    -Dsonar.qualitygate.wait=true \\\n                                    -Dsonar.sources=.\n                                    '''\n                                }\n                            } catch (Exception e) {\n                                // Handle the error\n                                echo \"Quality Qate check has failed: ${e}\"\n                                currentBuild.result = 'UNSTABLE' // Mark the build as unstable instead of failing\n                            }\n                        }\n                    }\n                }\n                stage('Security Scan') {\n                    steps {\n                        sh '''\n                            trivy image --severity HIGH,CRITICAL ${DOCKER_IMAGE_NAME}:${BUILD_NUMBER}\n                        '''\n                    }\n                }\n            }\n        }\n        stage('Publish') {\n            steps {\n                script {\n                    withCredentials([usernamePassword(credentialsId: 'nexus', passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USERNAME')]) {\n                        sh \"\"\"\n                        docker login ${NEXUS_DOCKER_PUSH_INDEX} -u $NEXUS_USERNAME -p $NEXUS_PASSWORD\n                        docker tag ${DOCKER_IMAGE_NAME}:${BUILD_NUMBER} ${NEXUS_DOCKER_PUSH_INDEX}/${NEXUS_DOCKER_PUSH_PATH}/${DOCKER_IMAGE_NAME}:latest\n                        docker push ${NEXUS_DOCKER_PUSH_INDEX}/${NEXUS_DOCKER_PUSH_PATH}/${DOCKER_IMAGE_NAME}:latest\n                        \"\"\"\n                    }\n                }\n            }\n        }\n        stage('Deploy') {\n            agent { label 'dsb-node-01' }\n            steps {\n                script {\n                        echo 'Deploying to DSB Node 01'\n                        // Port 3000 is already in use, use 6000 for this application\n                        sh '''\n                        docker pull ${NEXUS_DOCKER_PUSH_INDEX}/${NEXUS_DOCKER_PUSH_PATH}/${DOCKER_IMAGE_NAME}:latest\n                        docker stop ${DOCKER_IMAGE_NAME} || true\n                        docker rm ${DOCKER_IMAGE_NAME} || true\n                        docker run -d --name ${DOCKER_IMAGE_NAME} -p 8084:3000 ${NEXUS_DOCKER_PUSH_INDEX}/${NEXUS_DOCKER_PUSH_PATH}/${DOCKER_IMAGE_NAME}:latest\n                        '''\n                }\n            }\n        }\n    }\n    post {\n        always {\n            cleanWs()\n        }\n    }\n}\n```",
+      "source_content_hash": "064e0dc86f8f317e6125864105f00c10a24ef7eb15d9ee9b3d81f953a419d90f",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_26f7c825"
+      }
+    },
+    {
+      "segment_id": "fe25bd72",
+      "source_content": "This pipeline performs the following steps:",
+      "source_content_hash": "e6e1daf4945134b1514cc6f621b34ed56b2929598df6ae5ba9e9bc5abbe1dbc6",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "このパイプラインは以下のステップを実行します："
+      }
+    },
+    {
+      "segment_id": "81826f21",
+      "source_content": "1. **Clone the Repository**: Pulls the `owasp-juice-shop` project from a Gitea repository.\n2. **Build the Application**: Builds a Docker image of the application and tags it with the build number.\n3. **Run Security Scans**:\n   - **SonarQube**: Analyzes code quality and enforces a quality gate.\n   - **Trivy**: Scans the Docker image for vulnerabilities (HIGH and CRITICAL).\n4. **Publish to Nexus**: Tags and pushes the built Docker image to a Nexus Docker registry.\n5. **Deploy**: Pulls the latest Docker image from Nexus and deploys it to a specific server, replacing any existing instance.\n6. **Cleanup**: Cleans up the workspace after the build.",
+      "source_content_hash": "a3961aaafac7ba69602652065747b634f99c19876dc953dafe8c4b8107dff638",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **リポジトリのクローン**: Giteaリポジトリから`owasp-juice-shop`プロジェクトをプルします。\n2. **アプリケーションのビルド**: アプリケーションのDockerイメージをビルドし、ビルド番号でタグ付けします。\n3. **セキュリティスキャンの実行**:\n   - **SonarQube**: コード品質を分析し、品質ゲートを適用します。\n   - **Trivy**: Dockerイメージの脆弱性（HIGHおよびCRITICAL）をスキャンします。\n4. **Nexusへの公開**: ビルドされたDockerイメージにタグを付け、Nexus Dockerレジストリにプッシュします。\n5. **デプロイ**: Nexusから最新のDockerイメージをプルし、特定のサーバーにデプロイして既存のインスタンスを置き換えます。\n6. **クリーンアップ**: ビルド後にワークスペースをクリーンアップします。"
+      }
+    },
+    {
+      "segment_id": "6fad5db5",
+      "source_content": "This ensures that the application is built, scanned, pushed to the registry, and deployed securely and automatically.",
+      "source_content_hash": "8d6b531ae92a1ea462927865ea2a9b3fa815480341e012f5c9190fb2dbdb863b",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "これにより、アプリケーションがビルドされ、スキャンされ、レジストリにプッシュされ、安全かつ自動的にデプロイされることが保証されます。"
+      }
+    },
+    {
+      "segment_id": "dfa23ddf",
+      "source_content": "## Conclusion",
+      "source_content_hash": "be031d37bb75d96ef08ca9ec5b0e83bb6f91172f60d3c31a78feae8d7dc4a0b0",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 結論"
+      }
+    },
+    {
+      "segment_id": "f2c67ca5",
+      "source_content": "By following these steps, you've successfully set up the OWASP Juice Shop project with Sonar Scanning on Gitea and Jenkins. Your CI/CD pipeline is now ready to ensure code quality and security throughout the development process.",
+      "source_content_hash": "519b036212ae225170fa083726fe8e319d5f0edeed194384fe13f5a3ff2b51b7",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "これらの手順に従うことで、OWASP Juice ShopプロジェクトをGiteaとJenkins上でSonar Scanningと共にセットアップすることに成功しました。CI/CDパイプラインが準備され、開発プロセス全体を通じてコード品質とセキュリティが確保されるようになりました。"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/projects/devsecops-home-lab/create-and-configure-pipeline/creating-repository.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.145881+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "e5367601bef0469deef08c75a7ecd2a99185ea75319ab91390bff7d854d5e46b"
+  }
+}

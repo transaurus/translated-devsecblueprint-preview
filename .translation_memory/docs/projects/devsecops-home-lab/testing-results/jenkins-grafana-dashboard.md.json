@@ -1,0 +1,122 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/projects/devsecops-home-lab/testing-results/jenkins-grafana-dashboard.md",
+  "source_file_content_hash": "60968d38fd16b8ae065927330dc06628d41f0fb2611f7f97ca99f43bd1afc6d9",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: install-grafana-jenkins-dashboard\ntitle: Installing a Grafana Dashboard for Jenkins\nsidebar_position: 2\n---",
+      "source_content_hash": "80851322bfdf88635214f193e88a36c50b7d20926cb2f58a3c2c7e749d8773ff",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "a703643c",
+      "source_content": "## Overview",
+      "source_content_hash": "7337f3d0aa29e9a82b8f1650b743a98eef90794631fa763a319686e69c546821",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 概要"
+      }
+    },
+    {
+      "segment_id": "53eaf0e1",
+      "source_content": "This installation process is for setting up a Jenkins performance and health overview dashboard in Grafana for monitoring purposes.",
+      "source_content_hash": "6a1c640a12c361febd69818d24cb7281adef09cc22c4b9e26d6d20d3ae6e0459",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "このインストールプロセスは、監視目的でGrafanaにJenkinsのパフォーマンスとヘルス概要ダッシュボードを設定するためのものです。"
+      }
+    },
+    {
+      "segment_id": "8a5f6a7b",
+      "source_content": "## Prerequisites",
+      "source_content_hash": "bbd3d4949a6f237efd8d4ff5c7c5f30d968e7a989ad12f3d7dcef69c98053912",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 前提条件"
+      }
+    },
+    {
+      "segment_id": "730c423c",
+      "source_content": "1. **Find the Dashboard:**\n\n   - Browse various Jenkins-related Grafana dashboards [here](https://grafana.com/grafana/dashboards/?search=jenkins).\n\n2. **Import the Jenkins Performance and Health Overview Dashboard:**\n\n   - The specific dashboard can be found [here](https://grafana.com/grafana/dashboards/9964-jenkins-performance-and-health-overview/).\n\n3. **Import the Dashboard:**\n\n   - Download or copy the dashboard JSON from the provided link.\n   - In Grafana, navigate to the dashboards section.\n   - Click on **Import**.\n   - Paste the JSON code or upload the JSON file.\n   - Complete the import process.\n\n   ![Dashboard Image](/img/projects/devsecops-home-lab/testing-results/grafana-import-dashboard.png)",
+      "source_content_hash": "d24be8ff20d8b465673f1f2917e8eb8265b531704ad86b750e074d05f9cb677b",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **ダッシュボードの検索:**\n\n   - [こちら](https://grafana.com/grafana/dashboards/?search=jenkins)からJenkins関連のGrafanaダッシュボードを閲覧できます。\n\n2. **Jenkinsパフォーマンスとヘルス概要ダッシュボードのインポート:**\n\n   - 特定のダッシュボードは[こちら](https://grafana.com/grafana/dashboards/9964-jenkins-performance-and-health-overview/)から見つけることができます。\n\n3. **ダッシュボードのインポート:**\n\n   - 提供されたリンクからダッシュボードのJSONをダウンロードまたはコピーします。\n   - Grafanaでダッシュボードセクションに移動します。\n   - **インポート**をクリックします。\n   - JSONコードを貼り付けるか、JSONファイルをアップロードします。\n   - インポートプロセスを完了します。\n\n   ![ダッシュボード画像](/img/projects/devsecops-home-lab/testing-results/grafana-import-dashboard.png)"
+      }
+    },
+    {
+      "segment_id": "48847fd4",
+      "source_content": "## Installation Steps",
+      "source_content_hash": "176cd2c0cf80c3564adae3b72d2ad36ac95f9883c3d2b17da74d1dc605bb60b7",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## インストール手順"
+      }
+    },
+    {
+      "segment_id": "cd471e4e",
+      "source_content": "1. **Access Grafana:**\n\n   - Open your Grafana instance in a web browser.\n\n2. **Import the Dashboard:**\n\n   - Go to the **Dashboards** section.\n   - Click on the **Import** button.\n   - Either paste the JSON code or upload the JSON file you obtained earlier.\n   - Follow the prompts to complete the import.",
+      "source_content_hash": "daf6095710cd0357c5a9147cd7e0a786eabb9c4faa1147a12168443ae59185c2",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **Grafanaへのアクセス:**\n\n   - WebブラウザでGrafanaインスタンスを開きます。\n\n2. **ダッシュボードのインポート:**\n\n   - **ダッシュボード**セクションに移動します。\n   - **インポート**ボタンをクリックします。\n   - 事前に取得したJSONコードを貼り付けるか、JSONファイルをアップロードします。\n   - プロンプトに従ってインポートを完了します。"
+      }
+    },
+    {
+      "segment_id": "54268405",
+      "source_content": "## Configuration Steps",
+      "source_content_hash": "46b73969bd7ae342f27c4c5abce80a42600ba1c0846396c70ac16f4b181acd52",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 設定手順"
+      }
+    },
+    {
+      "segment_id": "824626b3",
+      "source_content": "1. **Customize the Dashboard:**\n\n   - Once imported, you can customize the dashboard to fit your specific monitoring needs.\n\n1. **Save the Configuration:**\n\n   - Ensure that any changes made to the dashboard are saved.",
+      "source_content_hash": "578b17d8bd1efc5db1b4b63938c11fe951fde981f6a50c125c790bcb9311c4fa",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **ダッシュボードのカスタマイズ:**\n\n   - インポート後、特定の監視ニーズに合わせてダッシュボードをカスタマイズできます。\n\n1. **設定の保存:**\n\n   - ダッシュボードに加えた変更を必ず保存してください。"
+      }
+    },
+    {
+      "segment_id": "60410af6",
+      "source_content": "## Conclusion",
+      "source_content_hash": "be031d37bb75d96ef08ca9ec5b0e83bb6f91172f60d3c31a78feae8d7dc4a0b0",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 結論"
+      }
+    },
+    {
+      "segment_id": "b9aaa519",
+      "source_content": "Your Grafana dashboard for Jenkins performance and health overview is now set up and ready for use!",
+      "source_content_hash": "bb4d6e98b4bf8aed8d80d0ed67042f2f5a12440fe0157cc8bc68f7cf6bb6cf4f",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "Jenkinsのパフォーマンスとヘルス概要用のGrafanaダッシュボードが設定され、使用準備が整いました！"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/projects/devsecops-home-lab/testing-results/jenkins-grafana-dashboard.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.150046+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "60968d38fd16b8ae065927330dc06628d41f0fb2611f7f97ca99f43bd1afc6d9"
+  }
+}

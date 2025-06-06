@@ -1,0 +1,232 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/projects/devsecops-pipeline-aws/code-breakdown/devsecops-infra.md",
+  "source_file_content_hash": "8e392282169b63da6c587ae53e701cb115e131e18bc2d5fb4a4c31d532aa8b68",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: devsecops-terraform-code\ntitle: DevSecOps Terraform Code - Explained\nsidebar_position: 1\n---",
+      "source_content_hash": "4c06b0acad5947aa30d8ec847b1d35ee27d3a132055e99b24c8be1612391645f",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "a703643c",
+      "source_content": "## Overview",
+      "source_content_hash": "7337f3d0aa29e9a82b8f1650b743a98eef90794631fa763a319686e69c546821",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 概要"
+      }
+    },
+    {
+      "segment_id": "53eaf0e1",
+      "source_content": "With our environments configured and secrets created, it's time to dive into the Terraform code that defines the DevSecOps pipeline infrastructure. This guide provides a detailed explanation of the critical components so you can fully understand how the system works.",
+      "source_content_hash": "dba20bbe627f33dda84be7d4cdd0f7a467f67b4732ae0f76f72750632acaba8d",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "環境設定とシークレットの作成が完了したら、DevSecOpsパイプラインのインフラストラクチャを定義するTerraformコードについて詳しく見ていきましょう。このガイドでは、システムの動作を完全に理解できるよう、重要なコンポーネントについて詳細に説明します。"
+      }
+    },
+    {
+      "segment_id": "8a5f6a7b",
+      "source_content": "## Code Overview",
+      "source_content_hash": "b16dad6ee4c709d190a542be8e3022a22fa660e2726a9b6732d32c55f9ebb333",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## コード概要"
+      }
+    },
+    {
+      "segment_id": "180bddb1",
+      "source_content": "All relevant code is located in the `terraform` folder, which contains two interconnected Terraform workspaces:",
+      "source_content_hash": "6e9c28c1123853207e4a50831288c83369ee368aff9fd6e9801486106ff2f4f1",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "関連するコードはすべて`terraform`フォルダにあり、相互接続された2つのTerraformワークスペースで構成されています:"
+      }
+    },
+    {
+      "segment_id": "4269e691",
+      "source_content": "1. **EKS Cluster**\n2. **Pipelines**",
+      "source_content_hash": "1e86036f77ddce3d7205314c8d175a2431dac1c67bb5da71dddacacb4188ba10",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **EKSクラスター**\n2. **パイプライン**"
+      }
+    },
+    {
+      "segment_id": "d350c018",
+      "source_content": "### EKS Cluster Workspace",
+      "source_content_hash": "7674afb7744039e94e78e28dd9d39566a4cc7a11d4fa57b4a71cc97d0a2418a9",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "### EKSクラスター ワークスペース"
+      }
+    },
+    {
+      "segment_id": "1acb9a05",
+      "source_content": "This workspace provisions an Elastic Kubernetes Service (EKS) cluster, including node groups and essential cluster resources. While smaller in scope compared to the Pipelines workspace, it lays the foundation for Kubernetes-based deployments. Check out the codebase [here](https://github.com/The-DevSec-Blueprint/aws-devsecops-pipeline/tree/main/terraform/eks-cluster).",
+      "source_content_hash": "98295c9f890512d1212ad5c8cca9b293714e3df5f1a26841abd9bf31e2fee2c4",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "このワークスペースでは、Elastic Kubernetes Service（EKS）クラスター、ノードグループ、および必須のクラスターリソースをプロビジョニングします。パイプラインのワークスペースと比べて範囲は小さいですが、Kubernetesベースのデプロイメントの基盤となります。コードベースは[こちら](https://github.com/The-DevSec-Blueprint/aws-devsecops-pipeline/tree/main/terraform/eks-cluster)で確認できます。"
+      }
+    },
+    {
+      "segment_id": "da23c906",
+      "source_content": "- **Files**:\n  - `main.tf`: Defines the EKS cluster, node groups, networking components, and default subnets.\n  - `variables.tf`: Configures input variables, including cluster name, region, and node specifications.\n  - `outputs.tf`: Outputs critical information such as the EKS cluster name and endpoint.",
+      "source_content_hash": "73a50b946de5b5fb1c648ab41f38e349eb0376b781652d7326b2108462e9b37c",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- **ファイル**:\n  - `main.tf`: EKSクラスター、ノードグループ、ネットワークコンポーネント、デフォルトサブネットを定義\n  - `variables.tf`: クラスター名、リージョン、ノード仕様などの入力変数を設定\n  - `outputs.tf`: EKSクラスター名やエンドポイントなどの重要な情報を出力"
+      }
+    },
+    {
+      "segment_id": "fa430ad4",
+      "source_content": "### Pipelines Workspace",
+      "source_content_hash": "dfaa84630b7ebbdf093fe71abc683f23c6774836bd61fe810e176767faaf8bce",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "### パイプライン ワークスペース"
+      }
+    },
+    {
+      "segment_id": "4b1d2d7d",
+      "source_content": "This workspace contains the infrastructure for setting up CI/CD pipelines. While the folder includes several files, the `main.tf` file is the core component. Check out the codebase [here](https://github.com/The-DevSec-Blueprint/aws-devsecops-pipeline/tree/main/terraform/eks-cluster). Below are the key elements explained in detail:",
+      "source_content_hash": "4bf53abe1f1672bb39896f23dcd94a8802aa6b9062a4f2c8734d62b7092fa8da",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "このワークスペースには、CI/CDパイプラインを設定するためのインフラストラクチャが含まれています。フォルダには複数のファイルがありますが、`main.tf`ファイルが中核となります。コードベースは[こちら](https://github.com/The-DevSec-Blueprint/aws-devsecops-pipeline/tree/main/terraform/eks-cluster)で確認できます。以下に、詳細な主要要素を説明します:"
+      }
+    },
+    {
+      "segment_id": "48847fd4",
+      "source_content": "#### GitHub Connection Configuration",
+      "source_content_hash": "134b82330dd8566c158167bae501fb36b825c687765ba94c38a4159f9fbaa770",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "#### GitHub接続設定"
+      }
+    },
+    {
+      "segment_id": "cd471e4e",
+      "source_content": "- **Resource**: `aws_codestarconnections_connection`\n- **Purpose**:\n  - Establishes a secure connection between AWS CodePipeline and a GitHub repository.\n  - Utilizes a `random_id` resource to generate a unique connection name for traceability.\n  - Configures the provider type as \"GitHub.\"",
+      "source_content_hash": "84bfd987d470b86b1daa52dc30c5e255567478f928c0994f11ab76c60728526b",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- **リソース**: `aws_codestarconnections_connection`\n- **目的**:\n  - AWS CodePipelineとGitHubリポジトリ間の安全な接続を確立\n  - トレーサビリティのため、`random_id`リソースを使用して一意の接続名を生成\n  - プロバイダタイプを\"GitHub\"として設定"
+      }
+    },
+    {
+      "segment_id": "62a6890b",
+      "source_content": "#### Default S3 Bucket Configuration",
+      "source_content_hash": "42d73cb9fe6ea4000a479d0ab9db1bd43920cc614c0704c3950828e9c4d4a8d3",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "#### デフォルトS3バケット設定"
+      }
+    },
+    {
+      "segment_id": "8a01ee7b",
+      "source_content": "- **Module**: `default_bucket`\n- **Purpose**:\n  - Provisions an S3 bucket for storing CodePipeline artifacts.\n  - Standardizes bucket naming conventions using variables.\n  - Ensures secure and centralized storage for build and deployment artifacts.",
+      "source_content_hash": "c5bc245652bb5039a3ff3e15d69e2ea4946a193a2908b1b9d26ab3acd1d83d2f",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- **モジュール**: `default_bucket`\n- **目的**:\n  - CodePipelineアーティファクトを保存するためのS3バケットをプロビジョニング\n  - 変数を使用してバケット命名規則を標準化\n  - ビルドおよびデプロイメントアーティファクトの安全で一元化されたストレージを確保"
+      }
+    },
+    {
+      "segment_id": "f44c1398",
+      "source_content": "#### EKS Cluster Configuration",
+      "source_content_hash": "e745b624ab72157de162316c767451dcfb4dff10ebce925eb852d1f812669ce9",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "#### EKSクラスター設定"
+      }
+    },
+    {
+      "segment_id": "6773b78b",
+      "source_content": "- **Module**: `cluster_auth`\n- **Purpose**:\n  - Manages authentication and RBAC settings for the EKS cluster.\n  - Grants CodeBuild IAM roles permission to interact with the cluster by associating them with the `system:masters` group.\n  - Adds an IAM user (\"your_name\") with administrative privileges to the cluster. You will want to replace this with the user name for the account.",
+      "source_content_hash": "ac0ef70d9426bfcf1a3d24f5290ab1c592c69f3b8e841998b02dd9bae67a0761",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- **モジュール**: `cluster_auth`\n- **目的**:\n  - EKSクラスターの認証およびRBAC設定を管理\n  - CodeBuild IAMロールに`system:masters`グループを関連付けることで、クラスターとの連携を許可\n  - クラスターに管理権限を持つIAMユーザー（\"your_name\"）を追加（この部分は実際のアカウント名に置き換える必要があります）"
+      }
+    },
+    {
+      "segment_id": "af52d59d",
+      "source_content": "#### FastAPI Pipeline Configuration",
+      "source_content_hash": "6b36a3873eb88b6837510be7fae648ae6c2ea1242ae5fb5eca5f144ed84f170f",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "#### FastAPIパイプライン設定"
+      }
+    },
+    {
+      "segment_id": "36ab8340",
+      "source_content": "- **Module**: `awsome_fastapi_pipeline`\n- **Purpose**:\n  - Establishes a CI/CD pipeline for the \"AWSOME FastAPI\" project.\n  - Leverages the GitHub connection to pull source code from the repository.\n  - Integrates the pipeline with the S3 bucket and EKS cluster for seamless deployments.",
+      "source_content_hash": "18289a8e0063875eb10a59d08198d9405d3ff005cb647adc4b3e5f856744f8fc",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- **モジュール**: `awsome_fastapi_pipeline`\n- **目的**:\n  - \"AWSOME FastAPI\"プロジェクトのCI/CDパイプラインを構築\n  - GitHub接続を活用してリポジトリからソースコードを取得\n  - S3バケットとEKSクラスターと統合し、シームレスなデプロイメントを実現"
+      }
+    },
+    {
+      "segment_id": "9e95fc4a",
+      "source_content": "#### Key Pipeline Parameters",
+      "source_content_hash": "05f2c2fa7dfe26bcec8dae134ff09c8f7161d22a71806780f871339405b7f0e3",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "#### 主要パイプラインパラメータ"
+      }
+    },
+    {
+      "segment_id": "35f6931b",
+      "source_content": "- **GitHub Integration**:\n  - Dynamically links the GitHub connection ARN to CodePipeline.\n  - Configures repository details:\n    - Repository: `The-DevSec-Blueprint/awsome-fastapi`\n    - Branch: `main`\n- **Build and Deployment**:\n  - Buildspec: Located at `buildspecs/awsome-fastapi/build.yml`.\n  - Deployspec: Located at `buildspecs/awsome-fastapi/deploy.yml`.\n  - Build environment:\n    - Compute type: `BUILD_GENERAL1_SMALL`\n    - Image: `aws/codebuild/standard:5.0`\n    - Environment type: `LINUX_CONTAINER`\n    - Privileged mode enabled for containerized builds.\n- **Security Scanning**:\n  - Integrates Snyk for vulnerability scanning with `SNYK_ORG_ID` and `SNYK_TOKEN` variables.",
+      "source_content_hash": "483605532f63bac07df97610cbf25d492044d5f17441b7d981089d71aa986d9e",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- **GitHub統合**:\n  - GitHub接続ARNをCodePipelineに動的にリンク\n  - リポジトリ詳細を設定:\n    - リポジトリ: `The-DevSec-Blueprint/awsome-fastapi`\n    - ブランチ: `main`\n- **ビルドとデプロイメント**:\n  - Buildspec: `buildspecs/awsome-fastapi/build.yml`に配置\n  - Deployspec: `buildspecs/awsome-fastapi/deploy.yml`に配置\n  - ビルド環境:\n    - コンピュートタイプ: `BUILD_GENERAL1_SMALL`\n    - イメージ: `aws/codebuild/standard:5.0`\n    - 環境タイプ: `LINUX_CONTAINER`\n    - コンテナ化ビルドのため特権モードを有効化\n- **セキュリティスキャン**:\n  - Snykを統合し、`SNYK_ORG_ID`と`SNYK_TOKEN`変数を使用して脆弱性スキャンを実施"
+      }
+    },
+    {
+      "segment_id": "463ed165",
+      "source_content": "By understanding the purpose and structure of these Terraform configurations, you'll have a clearer picture of how the DevSecOps pipeline functions, from provisioning infrastructure to enabling secure and automated CI/CD workflows.",
+      "source_content_hash": "2d9ef56e027f22eaee8a7b40d42f2fd6e9fe335acec2fcf4d3707df9e62ce08b",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "これらのTerraform構成の目的と構造を理解することで、インフラストラクチャのプロビジョニングから安全で自動化されたCI/CDワークフローの実現まで、DevSecOpsパイプラインがどのように機能するかについて、より明確な全体像を把握できるようになります。"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/projects/devsecops-pipeline-aws/code-breakdown/devsecops-infra.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.143976+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "8e392282169b63da6c587ae53e701cb115e131e18bc2d5fb4a4c31d532aa8b68"
+  }
+}

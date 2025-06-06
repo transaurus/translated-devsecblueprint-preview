@@ -1,0 +1,72 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/projects/index.md",
+  "source_file_content_hash": "9a3f7ab803148946b6be5f9ab0efc9bbe71f0bc901b5c167f3c6a0f30bcef619",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: projects\ntitle: Projects\ndescription: A curated list of DevSecOps projects to enhance your technical skills and experience.\nsidebar_position: 9\n---",
+      "source_content_hash": "34bcc236fca8b081f5410142c888c7aeb5a01b17f4e1feee4007c7aeece26c5c",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "cc3c868d",
+      "source_content": "## Purpose",
+      "source_content_hash": "b8abb0502b2e5eabf3d1897be030442198f634793c1d63b5ce6b1cc1b4005f34",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 目的"
+      }
+    },
+    {
+      "segment_id": "7e5c5a39",
+      "source_content": "Welcome to the **Projects** section - my most favorite part of the blueprint. This is where you'll be able to get the hands-on experience that's designed to helping you elevate your skills and knowledge.",
+      "source_content_hash": "e0e73f717f7a7de7252d1479881b81dd6278268b3feb251e8aae17818d531d36",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "**プロジェクト**セクションへようこそ。これはブループリントの中で私が最も好きな部分です。ここでは、スキルと知識を向上させるために設計された実践的な経験を得ることができます。"
+      }
+    },
+    {
+      "segment_id": "8d66f911",
+      "source_content": "Whether you're looking to build your expertise or tackle real-world challenges, these projects offer you the opportunity to apply what you've learned in a practical, impactful way.",
+      "source_content_hash": "8dded6e287d05da7ac853c094fdca1ac144723e85cb3901a11fd8453ce93ff23",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "専門知識を構築したい場合でも、現実世界の課題に取り組みたい場合でも、これらのプロジェクトは学んだことを実践的かつ有意義な方法で適用する機会を提供します。"
+      }
+    },
+    {
+      "segment_id": "70153c6e",
+      "source_content": "## List of Projects",
+      "source_content_hash": "461e2eac7d6b998b5f2be4b586b7ae77f043889fa6b7a73de8049c80918b90e6",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## プロジェクト一覧"
+      }
+    },
+    {
+      "segment_id": "60e4ab9d",
+      "source_content": "| Title                                                                       | Description                                                                                                                                                                                                                                                                                                  | Author                                                |\n| --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------- |\n| [DevSecOps Home Lab](./devsecops-home-lab/)                                 | This comprehensive tutorial guides you through setting up your own home lab using a variety of tools. It's a real-world solution you can implement at home or in the cloud and will provide you with the skills needed to perform in a DevSecOps role.                                                       | [Damien Burks](https://www.youtube.com/@damienjburks) |\n| [DevSecOps Pipeline - Amazon Web Services (AWS)](./devsecops-pipeline-aws/) | This tutorial guides you thruogh setting up a cloud-native DevSecOps piepline within AWS. It's a real-world solution (technically) you can implement that will expose you and give you cloud experience for a AWS DevSecOps role, along with some software engineering and scripting experience with Python. | [Damien Burks](https://www.youtube.com/@damienjburks) |",
+      "source_content_hash": "30d7951f72b27b4ace71b209172741612b118aaf0a4897babf57697bea802d56",
+      "node_type": "table",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_60e4ab9d"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/projects/index.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.146289+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "9a3f7ab803148946b6be5f9ab0efc9bbe71f0bc901b5c167f3c6a0f30bcef619"
+  }
+}

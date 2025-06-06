@@ -1,0 +1,152 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/projects/devsecops-home-lab/installation-and-configuration/app-proxy.md",
+  "source_file_content_hash": "25065a50e6c0f2a7be72e259f3cec145629fa0df10f3d25d60b1335c258957d2",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: config-app-proxy\ntitle: Nginx Reverse Proxy\nsidebar_position: 5\n---",
+      "source_content_hash": "de2d418d91405fc1e8ca659fc8025027f233a52bb0c9433e3aee7efcb7c58020",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "a703643c",
+      "source_content": "## Overview",
+      "source_content_hash": "7337f3d0aa29e9a82b8f1650b743a98eef90794631fa763a319686e69c546821",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 概要"
+      }
+    },
+    {
+      "segment_id": "cbf61009",
+      "source_content": "> This installation will happen on the `dsb-node-01`.",
+      "source_content_hash": "fbf7e72a3c7de67ff9aad02bf3a3e77aa0ea43a5ff99a2ea8e6c5475d4b065fa",
+      "node_type": "blockquote",
+      "translatable": true,
+      "translations": {
+        "ja": "> このインストールは `dsb-node-01` で行われます。"
+      }
+    },
+    {
+      "segment_id": "8ac585fb",
+      "source_content": "In this guide, we will set up a reverse proxy for your application using Nginx. This will allow you to manage incoming traffic more effectively and forward requests to your application running on a different port.",
+      "source_content_hash": "d8f0cef4bb79e71de96a44916d0df10a29785d9be8681bb22468b4cea65e7094",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "このガイドでは、Nginxを使用してアプリケーションのリバースプロキシを設定する方法を説明します。これにより、着信トラフィックをより効果的に管理し、別のポートで動作しているアプリケーションにリクエストを転送できるようになります。"
+      }
+    },
+    {
+      "segment_id": "ba4f48ff",
+      "source_content": "## Installation Steps",
+      "source_content_hash": "176cd2c0cf80c3564adae3b72d2ad36ac95f9883c3d2b17da74d1dc605bb60b7",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## インストール手順"
+      }
+    },
+    {
+      "segment_id": "4269e691",
+      "source_content": "1. **Install Nginx**",
+      "source_content_hash": "e85fd0419bacc0501b6531a59fc51408549708996763486879bd1491dfd4d313",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **Nginxのインストール**"
+      }
+    },
+    {
+      "segment_id": "42ad8e83",
+      "source_content": "To begin, you need to install Nginx on your server. This can be done using the following command:",
+      "source_content_hash": "71c844f6a5a1b6a9a354a422b1859ce0271467b790141f02032d767762b0011f",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "まず、サーバーにNginxをインストールする必要があります。これは以下のコマンドで行えます："
+      }
+    },
+    {
+      "segment_id": "940e34e3",
+      "source_content": "```bash\nsudo apt install nginx\n```",
+      "source_content_hash": "bd4a1756e2d350a73269a47a8754a6f666ec140c127da8fa0e7453f9e32e384a",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_940e34e3"
+      }
+    },
+    {
+      "segment_id": "2fdadb08",
+      "source_content": "This command will install Nginx along with any required dependencies.",
+      "source_content_hash": "106c325d8b9d7aaddfc7968d6a3cae94d02021b5381df6de658b987065059413",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "このコマンドは、Nginxと必要な依存関係をインストールします。"
+      }
+    },
+    {
+      "segment_id": "ed7dde9c",
+      "source_content": "## Configuration Steps",
+      "source_content_hash": "46b73969bd7ae342f27c4c5abce80a42600ba1c0846396c70ac16f4b181acd52",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 設定手順"
+      }
+    },
+    {
+      "segment_id": "a76548f8",
+      "source_content": "After installing Nginx, you need to configure it to act as a reverse proxy for your application.",
+      "source_content_hash": "71ed7ca91551220f3e282cc873dae1413448cdc85ff118561b9da54eb1013b0c",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "Nginxのインストール後、アプリケーションのリバースプロキシとして機能するように設定する必要があります。"
+      }
+    },
+    {
+      "segment_id": "77bf3ec9",
+      "source_content": "1. **Remove Default Configuration:**\n\n   First, unlink the default Nginx configuration file to avoid any conflicts:\n\n   ```bash\n   sudo unlink /etc/nginx/sites-enabled/default\n   ```\n\n2. **Create a New Configuration File:**\n\n   Next, create a new configuration file specifically for your reverse proxy setup:\n\n   ```bash\n   sudo nano /etc/nginx/sites-available/reverse-proxy\n   ```\n\n   In the file that opens, paste the following configuration:\n\n   ```nginx\n   server {\n       listen 80;\n       server_name localhost;\n\n       location / {\n           client_max_body_size 1000M;\n           proxy_pass http://127.0.0.1:8080;\n           proxy_set_header Host $host;\n           proxy_set_header X-Real-IP $remote_addr;\n           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\n           proxy_set_header X-Forwarded-Proto $scheme;\n       }\n   }\n   ```\n\n   This configuration tells Nginx to listen on port 80 (the default HTTP port) and forward all incoming traffic to your application running on `http://127.0.0.1:8080`. It also sets various headers that can be useful for your application's logging and security purposes.\n\n3. **Enable the New Configuration:**\n\n   Activate the new reverse proxy configuration by creating a symbolic link to the `sites-enabled` directory:\n\n   ```bash\n   sudo ln -s /etc/nginx/sites-available/reverse-proxy /etc/nginx/sites-enabled/\n   ```\n\n4. **Restart Nginx:**\n\n   Finally, restart Nginx to apply the new configuration:\n\n   ```bash\n   sudo systemctl restart nginx\n   ```",
+      "source_content_hash": "26f1fba99a959ff540ea34f9c1f0f586fddaa94983b1d32163c1263cecc30c16",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **デフォルト設定の削除:**\n\n   まず、競合を避けるためにデフォルトのNginx設定ファイルのリンクを解除します：\n\n   ```bash\n   sudo unlink /etc/nginx/sites-enabled/default\n   ```\n\n2. **新しい設定ファイルの作成:**\n\n   次に、リバースプロキシ設定用の新しい設定ファイルを作成します：\n\n   ```bash\n   sudo nano /etc/nginx/sites-available/reverse-proxy\n   ```\n\n   開いたファイルに、以下の設定を貼り付けます：\n\n   ```nginx\n   server {\n       listen 80;\n       server_name localhost;\n\n       location / {\n           client_max_body_size 1000M;\n           proxy_pass http://127.0.0.1:8080;\n           proxy_set_header Host $host;\n           proxy_set_header X-Real-IP $remote_addr;\n           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;\n           proxy_set_header X-Forwarded-Proto $scheme;\n       }\n   }\n   ```\n\n   この設定は、Nginxにポート80（デフォルトのHTTPポート）でリッスンし、すべての着信トラフィックを `http://127.0.0.1:8080` で動作しているアプリケーションに転送するように指示します。また、アプリケーションのロギングやセキュリティ目的で有用なさまざまなヘッダーを設定します。\n\n3. **新しい設定の有効化:**\n\n   `sites-enabled` ディレクトリへのシンボリックリンクを作成して、新しいリバースプロキシ設定を有効にします：\n\n   ```bash\n   sudo ln -s /etc/nginx/sites-available/reverse-proxy /etc/nginx/sites-enabled/\n   ```\n\n4. **Nginxの再起動:**\n\n   最後に、新しい設定を適用するためにNginxを再起動します：\n\n   ```bash\n   sudo systemctl restart nginx\n   ```"
+      }
+    },
+    {
+      "segment_id": "b936dd6a",
+      "source_content": "## You're Done",
+      "source_content_hash": "dc146497f2e2562df8ec3f604024e77882ae11623fc2a1260623fa30c5fe06f5",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 完了です"
+      }
+    },
+    {
+      "segment_id": "a5c5772a",
+      "source_content": "You've setup and configured the Nginx reverse proxy!",
+      "source_content_hash": "17d498bb29435ca69220cf907ff38a9e2d93ad0b7c83bddfcbd4c12bd4085f8a",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "Nginxリバースプロキシの設定が完了しました！"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/projects/devsecops-home-lab/installation-and-configuration/app-proxy.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.152775+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "25065a50e6c0f2a7be72e259f3cec145629fa0df10f3d25d60b1335c258957d2"
+  }
+}

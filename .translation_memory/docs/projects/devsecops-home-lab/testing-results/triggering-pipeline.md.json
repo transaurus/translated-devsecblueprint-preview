@@ -1,0 +1,62 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/projects/devsecops-home-lab/testing-results/triggering-pipeline.md",
+  "source_file_content_hash": "f0c57c01758fb0bc66289b371afbfbad97168200b6dde06ffe9fb9b514f53d00",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: testing-pipeline\ntitle: Triggering Jenkins Pipeline\nsidebar_position: 1\n---",
+      "source_content_hash": "73483eb7f639edd0f3c723d04e7b590bc7546c43b29c26feb67f3bd3aee14b5d",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "a703643c",
+      "source_content": "## Triggering the OWASP Juice Shop Pipeline in Jenkins",
+      "source_content_hash": "9bf3a52cd657174e0524728378876853a60da6019f3bb6fbc58f7fdf532dbebf",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## JenkinsでのOWASP Juice Shopパイプラインのトリガー方法"
+      }
+    },
+    {
+      "segment_id": "abcf54e3",
+      "source_content": "1. Log into Jenkins\n\n   - Start by logging into your Jenkins server using your credentials.\n\n2. Navigate to the OWASP Juice Shop Pipeline\n\n   - From the Jenkins Dashboard, locate and select the **OWASP Juice Shop** pipeline from your list of projects.\n\n3. Select the Master Branch\n\n   - Inside the pipeline project, click on the **master** branch to view its details and available actions.\n\n4. Trigger the Pipeline Build\n\n   - Click the **Build Now** button to manually trigger the pipeline build for the master branch.\n\n5. Monitor the Pipeline Execution\n\n   - As the pipeline runs, you can monitor the execution of each stage in real-time. Jenkins will display logs and outputs for each step, allowing you to track the progress.\n\n6. Verify the Deployment\n\n   - Once the pipeline has successfully completed, verify the deployment by opening a web browser and navigating to:\n\n     ```bash\n     http://<your_ip_address>:8084/\n     ```\n\n   - The OWASP Juice Shop application should be accessible at this URL, confirming that the deployment was successful.\n\n7. Automate Pipeline Triggers\n\n   - Note that your Gitea repository should be configured to automatically trigger this Jenkins pipeline whenever a commit is made to the master branch. This ensures continuous integration and deployment for your project.",
+      "source_content_hash": "36ab3d88f3e1daad09dc9e0b282106015c406e16ddde93dbdc8d738555d3817e",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. Jenkinsにログイン\n\n   - まず、Jenkinsサーバーに認証情報を使用してログインします。\n\n2. OWASP Juice Shopパイプラインに移動\n\n   - Jenkinsダッシュボードから、プロジェクト一覧にある**OWASP Juice Shop**パイプラインを選択します。\n\n3. マスターブランチを選択\n\n   - パイプラインプロジェクト内で、**master**ブランチをクリックして詳細と利用可能なアクションを表示します。\n\n4. パイプラインビルドをトリガー\n\n   - **Build Now**ボタンをクリックして、マスターブランチのパイプラインビルドを手動でトリガーします。\n\n5. パイプライン実行の監視\n\n   - パイプラインが実行されると、各ステージの実行をリアルタイムで監視できます。Jenkinsは各ステップのログと出力を表示し、進捗を追跡できます。\n\n6. デプロイの確認\n\n   - パイプラインが正常に完了したら、Webブラウザを開いて以下のURLにアクセスし、デプロイを確認します:\n\n     ```bash\n     http://<your_ip_address>:8084/\n     ```\n\n   - OWASP Juice ShopアプリケーションがこのURLでアクセス可能になっているはずで、デプロイが成功したことを確認します。\n\n7. パイプライントリガーの自動化\n\n   - Giteaリポジトリは、マスターブランチにコミットが行われるたびにこのJenkinsパイプラインを自動的にトリガーするように設定されている必要があります。これにより、プロジェクトの継続的インテグレーションとデプロイが保証されます。"
+      }
+    },
+    {
+      "segment_id": "06c0f776",
+      "source_content": "## Conclusion",
+      "source_content_hash": "be031d37bb75d96ef08ca9ec5b0e83bb6f91172f60d3c31a78feae8d7dc4a0b0",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## まとめ"
+      }
+    },
+    {
+      "segment_id": "aa1e7006",
+      "source_content": "Congratulations! Your Jenkins pipeline is now set up and working. You’ve successfully triggered, monitored, and verified a build and deployment for the OWASP Juice Shop application.\n1",
+      "source_content_hash": "5cc08802be7dc81afb67f0e34ea8e3c90a2b0a498ddccc1494eb1783d1fdcc74",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "おめでとうございます！Jenkinsパイプラインが正常にセットアップされ、動作しています。OWASP Juice Shopアプリケーションのビルドとデプロイをトリガーし、監視し、確認することに成功しました。\n1"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/projects/devsecops-home-lab/testing-results/triggering-pipeline.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.149725+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "f0c57c01758fb0bc66289b371afbfbad97168200b6dde06ffe9fb9b514f53d00"
+  }
+}

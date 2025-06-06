@@ -1,0 +1,212 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/projects/devsecops-home-lab/installation-and-configuration/monitoring-tools/node-exporter.md",
+  "source_file_content_hash": "578c21a5ea5271686b0ba976c4c6226272674be08a3f5dbc00e63cc5c3afb9d1",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: install-config-node-exporter\ntitle: Node Exporter\nsidebar_position: 2\n---",
+      "source_content_hash": "1c6deb2e9655f4d897554c7dafad7a2fdedffbe5298ee69a828d2fb40fb36301",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "a703643c",
+      "source_content": "## Overview",
+      "source_content_hash": "7337f3d0aa29e9a82b8f1650b743a98eef90794631fa763a319686e69c546821",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 概要"
+      }
+    },
+    {
+      "segment_id": "cbf61009",
+      "source_content": "> This installation happens on the `dsb-node-01`.",
+      "source_content_hash": "b17ef05dfd9bab5ec5cf15335e7d51d2259b249219462cd2563b6cf579e3e1ee",
+      "node_type": "blockquote",
+      "translatable": true,
+      "translations": {
+        "ja": "> このインストールは `dsb-node-01` 上で行われます。"
+      }
+    },
+    {
+      "segment_id": "8ac585fb",
+      "source_content": "According to [Prometheus' Website], Node Exporter is an essential tool for monitoring the hardware and OS-level metrics of your Linux systems. It is part of the Prometheus ecosystem and is widely used to gather metrics such as CPU usage, memory usage, disk I/O, and more.",
+      "source_content_hash": "0f188489ca8a56c88947b3cb80bf3bb82788f672f994d157cc8eb057f7a9799e",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "[Prometheus' Website]によると、Node ExporterはLinuxシステムのハードウェアおよびOSレベルのメトリクスを監視するための必須ツールです。Prometheusエコシステムの一部であり、CPU使用率、メモリ使用量、ディスクI/Oなどのメトリクスを収集するために広く使用されています。"
+      }
+    },
+    {
+      "segment_id": "ba4f48ff",
+      "source_content": "## Installation Steps",
+      "source_content_hash": "176cd2c0cf80c3564adae3b72d2ad36ac95f9883c3d2b17da74d1dc605bb60b7",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## インストール手順"
+      }
+    },
+    {
+      "segment_id": "4269e691",
+      "source_content": "1. Create Necessary Directories",
+      "source_content_hash": "2021e4e1027b32ace002ed6ee6935ec09cd5bc3bdf5ba3de1b5d5bcd13377350",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. 必要なディレクトリを作成"
+      }
+    },
+    {
+      "segment_id": "42ad8e83",
+      "source_content": "First, navigate to your `apps` directory and create a new directory for Node Exporter:",
+      "source_content_hash": "959c9a50183beac46f4d539df813da9104d103dc2b59ec63469f9733219c0c5d",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "まず、`apps`ディレクトリに移動し、Node Exporter用の新しいディレクトリを作成します："
+      }
+    },
+    {
+      "segment_id": "940e34e3",
+      "source_content": "```bash\ncd ~/apps\nmkdir node-exporter\n```",
+      "source_content_hash": "832bcb6b2c577bdaf3be41a02b8d37014707c73b7b470c32c768f352968c77d7",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_940e34e3"
+      }
+    },
+    {
+      "segment_id": "8cf6d045",
+      "source_content": "1. Create Docker Compose File",
+      "source_content_hash": "7ee151076b5089dce8b28a1eceea23780e5f1d84ba2f03c7b01215705f159a81",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. Docker Composeファイルを作成"
+      }
+    },
+    {
+      "segment_id": "ccc88b4c",
+      "source_content": "Navigate to the `node-exporter` directory and create a `docker-compose.yml` file:",
+      "source_content_hash": "7ea2d6d0e71602a22443bacae10dc384a445bf970a522a7e2964bcd65da73089",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "`node-exporter`ディレクトリに移動し、`docker-compose.yml`ファイルを作成します："
+      }
+    },
+    {
+      "segment_id": "15a1fd96",
+      "source_content": "```bash\ncd ~/apps/node-exporter\ntouch docker-compose.yml\n```",
+      "source_content_hash": "1631ac0429934d88eca079c8b1a24f97b3a0211d046cae7c3a92240b1a3f1595",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_15a1fd96"
+      }
+    },
+    {
+      "segment_id": "cd471e4e",
+      "source_content": "1. Configure Docker Compose File",
+      "source_content_hash": "6e983febae2b7e2476fda0fec3783189b2284bc10429c0a82bb5417a22e71be7",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. Docker Composeファイルを設定"
+      }
+    },
+    {
+      "segment_id": "bdc231b1",
+      "source_content": "Edit the `docker-compose.yml` file and add the following configuration:",
+      "source_content_hash": "47a11c4b6d8d4aefedbbe3cfb9e74f137c116470e090827e18935754b7cd13af",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "`docker-compose.yml`ファイルを編集し、以下の設定を追加します："
+      }
+    },
+    {
+      "segment_id": "be2d5397",
+      "source_content": "```yaml\nversion: '3.8'\n\nservices:\n  node-exporter:\n    image: quay.io/prometheus/node-exporter:latest\n    container_name: node-exporter\n    restart: unless-stopped\n    network_mode: \"host\"\n    pid: \"host\"\n    volumes:\n      - /proc:/host/proc:ro\n      - /sys:/host/sys:ro\n      - /:/rootfs:ro\n    command:\n      - '--path.procfs=/host/proc'\n      - '--path.sysfs=/host/sys'\n      - '--collector.filesystem.ignored-mount-points=\"^/(sys|proc|dev|host|etc)($$|/)\"'\n    network_mode: host\n```",
+      "source_content_hash": "d1f08080be7ca41e5840bd26b8ad45e4497e48c6756e16df8c0261ac4d62dc7f",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_be2d5397"
+      }
+    },
+    {
+      "segment_id": "e3321a43",
+      "source_content": "1. Deploy Node Exporter",
+      "source_content_hash": "1bacb96398c391f77a3d3742f01a84dfaeceef02e37beef5a678fde3e52a8323",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. Node Exporterをデプロイ"
+      }
+    },
+    {
+      "segment_id": "40158b4b",
+      "source_content": "Finally, use Docker Compose to deploy Node Exporter:",
+      "source_content_hash": "c7303e86e5d69184267b66b6501bf1f37be63649deb83047db1b7f96823a0ec8",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "最後に、Docker Composeを使用してNode Exporterをデプロイします："
+      }
+    },
+    {
+      "segment_id": "3adc0ceb",
+      "source_content": "```bash\ndocker-compose up -d\n```",
+      "source_content_hash": "c006e4c270559a4d23d6af53b381187a8754316cde7f04f1c995fff192d67ed1",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_3adc0ceb"
+      }
+    },
+    {
+      "segment_id": "8c6d7ee7",
+      "source_content": "## You're Done",
+      "source_content_hash": "dc146497f2e2562df8ec3f604024e77882ae11623fc2a1260623fa30c5fe06f5",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 完了"
+      }
+    },
+    {
+      "segment_id": "0ef04e20",
+      "source_content": "<!-- Sources -->",
+      "source_content_hash": "4494bb095c897c283a22423ee5efc82db998c4872791a85cc207cdfd0d31ff25",
+      "node_type": "comment",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_0ef04e20"
+      }
+    },
+    {
+      "segment_id": "d9ad5a33",
+      "source_content": "[Prometheus' Website]: https://prometheus.io/docs/guides/node-exporter/",
+      "source_content_hash": "52b18671d54a5bad5a587aa23dfcf991a70d70276ee5bfd27640b6d26e6150e0",
+      "node_type": "definition",
+      "translatable": true,
+      "translations": {
+        "ja": "[Prometheus' Website]: https://prometheus.io/docs/guides/node-exporter/"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/projects/devsecops-home-lab/installation-and-configuration/monitoring-tools/node-exporter.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.148578+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "578c21a5ea5271686b0ba976c4c6226272674be08a3f5dbc00e63cc5c3afb9d1"
+  }
+}

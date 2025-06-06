@@ -1,0 +1,152 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/projects/devsecops-home-lab/installation-and-configuration/monitoring-tools/grafana.md",
+  "source_file_content_hash": "130a73e8137f4369e18a9ef4cd7aca828267f1bc990eeb0814848ac4fc510619",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: install-config-grafana\ntitle: Grafana\nsidebar_position: 4\n---",
+      "source_content_hash": "e8521c12106e87550ef333243cdc4d632b3467f1595daf873cc3eeb3888a333d",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "a703643c",
+      "source_content": "## Overview",
+      "source_content_hash": "7337f3d0aa29e9a82b8f1650b743a98eef90794631fa763a319686e69c546821",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 概要"
+      }
+    },
+    {
+      "segment_id": "cbf61009",
+      "source_content": "> This installation happens on the `dsb-node-01`.",
+      "source_content_hash": "b17ef05dfd9bab5ec5cf15335e7d51d2259b249219462cd2563b6cf579e3e1ee",
+      "node_type": "blockquote",
+      "translatable": true,
+      "translations": {
+        "ja": "> このインストールは `dsb-node-01` 上で行われます。"
+      }
+    },
+    {
+      "segment_id": "8ac585fb",
+      "source_content": "According to [Grafana's Website], Grafana is an open-source platform for monitoring and observability. It allows you to query, visualize, alert on, and understand your metrics no matter where they are stored. Grafana provides a powerful and elegant way to create, explore, and share dashboards that integrate data from various sources, making it an essential tool for DevOps teams to monitor their infrastructure, applications, and services in real time.",
+      "source_content_hash": "5ca8a4991d996ab31c8ad88b51164d64441898fe78de0d59efeec8e0784ce9d9",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "[Grafanaの公式ウェブサイト]によると、Grafanaは監視と可観測性のためのオープンソースプラットフォームです。メトリクスがどこに保存されていても、それらをクエリ、可視化、アラート設定し、理解することを可能にします。Grafanaは、さまざまなソースからのデータを統合したダッシュボードを作成、探索、共有するための強力でエレガントな方法を提供し、DevOpsチームがインフラストラクチャ、アプリケーション、サービスをリアルタイムで監視するための必須ツールとなっています。"
+      }
+    },
+    {
+      "segment_id": "ba4f48ff",
+      "source_content": "## Prerequisites",
+      "source_content_hash": "bbd3d4949a6f237efd8d4ff5c7c5f30d968e7a989ad12f3d7dcef69c98053912",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 前提条件"
+      }
+    },
+    {
+      "segment_id": "4269e691",
+      "source_content": "1. **Install Docker**\n\n   - Install Docker using Snap:\n\n     ```bash\n     sudo snap install docker\n     ```\n\n2. **Create Docker Group and Add User to It**\n\n   - Create a Docker group and add your user to it:\n\n     ```bash\n     sudo groupadd docker\n     sudo usermod -aG docker $USER\n     sudo reboot\n     ```",
+      "source_content_hash": "b0a1389b16ece2a3da6d0f3ae986d3a76a5c78d789c266be0dc6c64e0d7d4970",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **Dockerのインストール**\n\n   - Snapを使用してDockerをインストールします:\n\n     ```bash\n     sudo snap install docker\n     ```\n\n2. **Dockerグループの作成とユーザーの追加**\n\n   - Dockerグループを作成し、ユーザーを追加します:\n\n     ```bash\n     sudo groupadd docker\n     sudo usermod -aG docker $USER\n     sudo reboot\n     ```"
+      }
+    },
+    {
+      "segment_id": "0037ff70",
+      "source_content": "## Installation Steps",
+      "source_content_hash": "176cd2c0cf80c3564adae3b72d2ad36ac95f9883c3d2b17da74d1dc605bb60b7",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## インストール手順"
+      }
+    },
+    {
+      "segment_id": "fc8eadc3",
+      "source_content": "1. **Create a Docker-Compose File for Grafana**\n\n   - Create the necessary directories and Docker-Compose file:\n\n     ```bash\n     mkdir -p ~/apps/grafana\n     touch ~/apps/grafana/docker-compose.yml\n     ```\n\n2. **Copy and Save the Docker-Compose Configuration**\n\n   - Use the following configuration in your `docker-compose.yml` file:\n\n     ```yaml\n     version: \"3.7\"\n\n     services:\n       grafana:\n         image: grafana/grafana:latest\n         container_name: grafana\n         ports:\n           - \"3000:3000\"\n         environment:\n           - GF_SECURITY_ADMIN_PASSWORD=your_admin_password\n           - GF_SECURITY_ADMIN_USER=your_admin_user\n         volumes:\n           - grafana_data:/var/lib/grafana\n         restart: always\n         network_mode: host\n\n     volumes:\n       grafana_data:\n     ```\n\n   - Open the file with nano or your preferred text editor and paste the configuration:\n\n     ```bash\n     nano ~/apps/grafana/docker-compose.yml\n     ```\n\n   - Save and close the file.\n\n3. **Run Grafana with Docker-Compose**\n\n   - Navigate to the Grafana directory and run the container:\n\n     ```bash\n     cd ~/apps/grafana\n     docker-compose up -d\n     ```\n\n4. **Confirm Grafana is Running**\n\n   - Check if Grafana is up and running by visiting `http://localhost:3000` in your web browser.\n\n   ![Grafana Login](/img/projects/devsecops-home-lab/installation-and-configuration/grafana-login-dashboard.png)",
+      "source_content_hash": "ce2012320acc651cb53d740cf2c5d7386252224324f61b425b8ca9ac3eb88c47",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **Grafana用のDocker-Composeファイルの作成**\n\n   - 必要なディレクトリとDocker-Composeファイルを作成します:\n\n     ```bash\n     mkdir -p ~/apps/grafana\n     touch ~/apps/grafana/docker-compose.yml\n     ```\n\n2. **Docker-Compose設定のコピーと保存**\n\n   - `docker-compose.yml` ファイルに以下の設定を使用します:\n\n     ```yaml\n     version: \"3.7\"\n\n     services:\n       grafana:\n         image: grafana/grafana:latest\n         container_name: grafana\n         ports:\n           - \"3000:3000\"\n         environment:\n           - GF_SECURITY_ADMIN_PASSWORD=your_admin_password\n           - GF_SECURITY_ADMIN_USER=your_admin_user\n         volumes:\n           - grafana_data:/var/lib/grafana\n         restart: always\n         network_mode: host\n\n     volumes:\n       grafana_data:\n     ```\n\n   - nanoまたはお好みのテキストエディタでファイルを開き、設定を貼り付けます:\n\n     ```bash\n     nano ~/apps/grafana/docker-compose.yml\n     ```\n\n   - ファイルを保存して閉じます。\n\n3. **Docker-ComposeでGrafanaを実行**\n\n   - Grafanaディレクトリに移動し、コンテナを実行します:\n\n     ```bash\n     cd ~/apps/grafana\n     docker-compose up -d\n     ```\n\n4. **Grafanaの動作確認**\n\n   - ウェブブラウザで `http://localhost:3000` にアクセスし、Grafanaが起動していることを確認します。\n\n   ![Grafanaログイン](/img/projects/devsecops-home-lab/installation-and-configuration/grafana-login-dashboard.png)"
+      }
+    },
+    {
+      "segment_id": "bd30d33e",
+      "source_content": "## Configuration Steps",
+      "source_content_hash": "46b73969bd7ae342f27c4c5abce80a42600ba1c0846396c70ac16f4b181acd52",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 設定手順"
+      }
+    },
+    {
+      "segment_id": "023197ab",
+      "source_content": "1. **Log into the Dashboard**\n\n   - Use your admin username and password to log into the Grafana dashboard.\n\n   ![Grafana Dashboard](/img/projects/devsecops-home-lab/installation-and-configuration/grafana-admin-pass-login.png)\n\n2. **Update Admin Username**\n\n   - Click on your profile and update the admin username.\n\n   ![Update Username](/img/projects/devsecops-home-lab/installation-and-configuration/grafana-profile-config.png)\n\n3. **Update Admin Password**\n\n   - Change your password for enhanced security.\n\n   ![Update Password](/img/projects/devsecops-home-lab/installation-and-configuration/grafana-change-admin-pass.png)",
+      "source_content_hash": "e93533a874b070c9c0634edfd7581a30b3749809feee23e8480cfe98fd41462c",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **ダッシュボードへのログイン**\n\n   - 管理者ユーザー名とパスワードを使用してGrafanaダッシュボードにログインします。\n\n   ![Grafanaダッシュボード](/img/projects/devsecops-home-lab/installation-and-configuration/grafana-admin-pass-login.png)\n\n2. **管理者ユーザー名の更新**\n\n   - プロファイルをクリックし、管理者ユーザー名を更新します。\n\n   ![ユーザー名の更新](/img/projects/devsecops-home-lab/installation-and-configuration/grafana-profile-config.png)\n\n3. **管理者パスワードの更新**\n\n   - セキュリティ強化のため、パスワードを変更します。\n\n   ![パスワードの更新](/img/projects/devsecops-home-lab/installation-and-configuration/grafana-change-admin-pass.png)"
+      }
+    },
+    {
+      "segment_id": "722e4930",
+      "source_content": "## You're Done",
+      "source_content_hash": "dc146497f2e2562df8ec3f604024e77882ae11623fc2a1260623fa30c5fe06f5",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 完了"
+      }
+    },
+    {
+      "segment_id": "3c19e221",
+      "source_content": "You’ve successfully installed and configured Grafana on your system.",
+      "source_content_hash": "dd54ee3408933fbc0ba926c1052b0beb733e6fa6764b8d6fc1d0b152ca5d198a",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "システムにGrafanaを正常にインストールおよび設定しました。"
+      }
+    },
+    {
+      "segment_id": "dec8a265",
+      "source_content": "<!-- Sources -->",
+      "source_content_hash": "4494bb095c897c283a22423ee5efc82db998c4872791a85cc207cdfd0d31ff25",
+      "node_type": "comment",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_dec8a265"
+      }
+    },
+    {
+      "segment_id": "66bbb915",
+      "source_content": "[Grafana's Website]: https://grafana.com/docs/grafana/latest/getting-started/what-is-grafana/",
+      "source_content_hash": "3b551792b9f394e1420e209854e015649778104e292a95959ba15f4434567491",
+      "node_type": "definition",
+      "translatable": true,
+      "translations": {
+        "ja": "[Grafanaの公式ウェブサイト]: https://grafana.com/docs/grafana/latest/getting-started/what-is-grafana/"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/projects/devsecops-home-lab/installation-and-configuration/monitoring-tools/grafana.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.155174+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "130a73e8137f4369e18a9ef4cd7aca828267f1bc990eeb0814848ac4fc510619"
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/blueprint/implementing-app-devsecops.md",
+  "source_file_content_hash": "31cb1918df216b65df7e9d405ea8b9eb5b5a13915e1049aacdb69a48d5808ac1",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: implementing-app-devsecops-pipelines\ntitle: Building Application DevSecOps Pipelines (In Theory)\ndescription: Building DevSecOps Pipelines In Theory\nsidebar_position: 5\n---",
+      "source_content_hash": "93b8965c34a500047cebd2cdc67d4030d2ee639c6090b4370036a95bb610d6b6",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "3fbbcc07",
+      "source_content": "Author: [Damien Burks]",
+      "source_content_hash": "5ea0b7dea762d9db1deb5a12bbe8e41ef43190e41291691bb9f75859ac1ac1bf",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "著者: [Damien Burks]"
+      }
+    },
+    {
+      "segment_id": "1cc03ec8",
+      "source_content": "## Introduction",
+      "source_content_hash": "d753efbab681fa4da82470d9a83b1c202de58f92fd498e77a269c1163bc4714b",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## はじめに"
+      }
+    },
+    {
+      "segment_id": "8d66f911",
+      "source_content": "I want you to always remember: A well-designed DevSecOps pipeline follows the Secure Software Development Life Cycle (SSDLC). Rather than treating security as a separate or final step (SDLC), a DevSecOps pipeline embeds security into every aspect of development, testing, and deployment.",
+      "source_content_hash": "75ec3fc9e81aaf610095102613f52391622b9574016b0bc426bd3445656a94e7",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "常に心に留めておいてほしいことがあります。適切に設計されたDevSecOpsパイプラインは、Secure Software Development Life Cycle（SSDLC）に従います。セキュリティを独立した最終ステップ（SDLC）として扱うのではなく、DevSecOpsパイプラインでは、開発、テスト、デプロイのあらゆる側面にセキュリティを組み込んでいます。"
+      }
+    },
+    {
+      "segment_id": "ad8fd492",
+      "source_content": "In this section, I'll outline the critical stages a DevSecOps pipeline _should_ have, which will for just application deployment cases.",
+      "source_content_hash": "dbb87d09cd07574224ca2a14d5344cf0c92d78b822ad7613807bad5216ab7c1e",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "このセクションでは、DevSecOpsパイプラインが持つべき重要なステージを概説します。これらはアプリケーションデプロイメントの場合に焦点を当てています。"
+      }
+    },
+    {
+      "segment_id": "cbe57f9d",
+      "source_content": "## Stages of a DevSecOps Pipeline",
+      "source_content_hash": "94359745f1db52055b3df68471e88565fb575c75bbdafb99376c8e6bf2b501fa",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## DevSecOpsパイプラインのステージ"
+      }
+    },
+    {
+      "segment_id": "39b3772c",
+      "source_content": "So, I've decided to use Jenkins compared to any other solution, because it's the one that I'm most familiar with. I personally think Jenkinsfile are easiest to read compared to GitLab Runners and GitHub/Gitea Actions files. Therefore, I highly advise you to go through this documentation how to write a Jenkinsfile: [Using A Jenkinsfile](https://www.jenkins.io/doc/book/pipeline/jenkinsfile/)",
+      "source_content_hash": "62973bf5bee8fa145bf820eeea28ffd66c2cb907e9b9177b60b14a12dab8bc7e",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "私は他のソリューションと比較してJenkinsを使用することを決めました。なぜなら、私が最も慣れ親しんでいるからです。個人的には、JenkinsfileはGitLab RunnerやGitHub/Gitea Actionsのファイルよりも読みやすいと考えています。そのため、Jenkinsfileの書き方に関するこのドキュメントを読むことを強くお勧めします: [Using A Jenkinsfile](https://www.jenkins.io/doc/book/pipeline/jenkinsfile/)"
+      }
+    },
+    {
+      "segment_id": "1acb9a05",
+      "source_content": "Usually, a **Jenkins pipeline** for DevSecOps typically involves the a variety of stages to build, test, scan, and deploy your application. The outline listed below is sudo code, with an small explanation in each stage to follow:",
+      "source_content_hash": "da46c0dae97fb3c47137150384cfa1c1217f0573be749fc3ab94681cc375993c",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "通常、DevSecOpsのための**Jenkinsパイプライン**には、アプリケーションをビルド、テスト、スキャン、デプロイするためのさまざまなステージが含まれます。以下にリストしたアウトラインは擬似コードで、各ステージに簡単な説明が続きます:"
+      }
+    },
+    {
+      "segment_id": "9eee5787",
+      "source_content": "```groovy\npipeline {\n    agent any\n\n    stages {\n        stage('Checkout Code') {\n            steps {\n                // Checking out code from Git repository (like GitHub, Gitea, GitLab, etc.)\n                checkout scm\n            }\n        }\n\n        stage('Build') {\n            steps {\n                // Example: Building the application\n                // Could also include containerizing the application as well\n            }\n        }\n\n        stage('Run Application Tests') {\n            // Example: Running unit tests, acceptance tests, integration tests\n            // It's usually best to do these in parallel to save time on builds :)\n            parallel {\n                stage('Unit Test'){\n                    steps {\n                    }\n                }\n                stage('Acceptance Test'){\n                    steps {\n                    }\n                }\n                stage('Integration Test'){\n                    steps {\n                    }\n                }\n            }\n        }\n\n        stage('Security Scanning') {\n            parallel {\n                stage('SAST Scanning'){\n                    steps {\n                        // This stage will run SAST Scanning tests against your code base.\n                    }\n                }\n                stage('DAST Scanning'){\n                    steps {\n                        // This stage will run DAST scans against your running application.\n                        // You'll want to ensure you run your app locally and run the solution against it.\n                    }\n                }\n                stage('Container Scanning'){\n                    steps {\n                        // This stage would be dependant whether or not you're deploying\n                        // a container to Kubernetes or Docker Swarm (or just plain old Docker).\n                    }\n                }\n                stage('Dependency Scanning') {\n                    steps {\n                        // This stage will check your dependencies of you applicatino and\n                        // log any vulnerabilities.\n                    }\n                }\n            }\n        }\n\n        stage('Deploy') {\n            steps {\n                // Lastly, we will deploy your application. This could to any\n                // environment you want.\n            }\n        }\n    }\n\n    post {\n        always {\n            // Example: Archiving reports and test results\n            archiveArtifacts artifacts: '**/target/*.jar', allowEmptyArchive: true\n            junit '**/target/test-*.xml'\n\n            // Best practice - clean up the workspaces after it's all said an done.\n            // Don't be that guy...\n            cleanWs()\n        }\n    }\n}\n```",
+      "source_content_hash": "796ec2bfed695d565ee105af806cec1b4b269dcad393d9e7aa55ff52b5edc818",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_9eee5787"
+      }
+    },
+    {
+      "segment_id": "56bc971f",
+      "source_content": "## Security Tools To Integrate Into CI/CD Pipelines",
+      "source_content_hash": "9f0d93bbcba46da1596ee576719c5423b082ea461fd2792c93f6cfc6b8ba7bdf",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## CI/CDパイプラインに統合するセキュリティツール"
+      }
+    },
+    {
+      "segment_id": "0801d969",
+      "source_content": "If you're trying to figure out what CI/CD and security tools you should use (aside from Jenkins), and you want to understand CI/CD in more detail, I have some resources for you outlined below.",
+      "source_content_hash": "626a138b2ec36cce20a1a98e6ca08a43c847e70ace1221662d1ea88ed74908f5",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "Jenkins以外にどのCI/CDおよびセキュリティツールを使用すべきか悩んでいる場合、またはCI/CDについてより詳細に理解したい場合、以下のリソースを用意しています。"
+      }
+    },
+    {
+      "segment_id": "575ea78e",
+      "source_content": "| **Tool Name**                                                             | **Description**                                                                                             | **Category**               |\n| ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | -------------------------- |\n| [SonarQube](https://www.sonarqube.org/)                                   | One of the most popular SAST tools, SonarQube analyzes code quality and security across multiple languages. | SAST                       |\n| [Semgrep](https://semgrep.dev/)                                           | A fast and flexible static analysis tool for identifying security vulnerabilities in source code.           | SAST                       |\n| [Bandit](https://bandit.readthedocs.io/en/latest/)                        | Popular Python-focused SAST tool for identifying security issues in Python codebases.                       | SAST                       |\n| [OWASP Dependency-Check](https://owasp.org/www-project-dependency-check/) | A widely-used tool that checks for known vulnerabilities in project dependencies.                           | SAST                       |\n| [OWASP ZAP](https://owasp.org/www-project-zap/)                           | One of the most popular DAST tools, ZAP identifies security vulnerabilities in running web applications.    | DAST                       |\n| [Arachni](https://www.arachni-scanner.com/)                               | A modular DAST scanner that is widely used for testing modern web applications.                             | DAST                       |\n| [Nikto](https://github.com/sullo/nikto)                                   | A highly popular DAST tool that scans web servers for vulnerabilities and misconfigurations.                | DAST                       |\n| [Trivy](https://github.com/aquasecurity/trivy)                            | A comprehensive vulnerability scanner for containers and cloud-native applications.                         | Container & Cloud Security |\n| [Anchore Engine](https://github.com/anchore/anchore-engine)               | Open-source tool for scanning container images for vulnerabilities and enforcing security policies.         | Container Security         |\n| [Clair](https://github.com/quay/clair)                                    | A popular open-source tool for scanning vulnerabilities in Docker and OCI container images.                 | Container Security         |",
+      "source_content_hash": "7001ba1425ea1a89bc3967ae68a9ec35c0a0da9755bf71716b56c5a979e998f5",
+      "node_type": "table",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_575ea78e"
+      }
+    },
+    {
+      "segment_id": "23b96cc0",
+      "source_content": "## Additional Resources",
+      "source_content_hash": "10f87178f164c035ecfa7770143db68c2c8a7dfbbddfd5278bdeb0733b121288",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 追加リソース"
+      }
+    },
+    {
+      "segment_id": "8fcdd6d4",
+      "source_content": "To learn about more tools and such that you should use to help you build out your pipelines, check out this amazing resource created by Marek Šottl: [Ultimate DevSecOps Library](https://github.com/sottlmarek/DevSecOps?tab=readme-ov-file#ultimate-devsecops-library)",
+      "source_content_hash": "249197db8269d85f0b899d79e076ae6fc5d916df7e6c05395a671b10df863a1a",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "パイプライン構築に役立つさらに多くのツールについて学ぶには、Marek Šottlが作成したこの素晴らしいリソースをチェックしてください: [Ultimate DevSecOps Library](https://github.com/sottlmarek/DevSecOps?tab=readme-ov-file#ultimate-devsecops-library)"
+      }
+    },
+    {
+      "segment_id": "c35e5786",
+      "source_content": "### Books",
+      "source_content_hash": "344b2af65af2d2dbb34da9412ec763f8a8e36a23588aa8fc42195ea9ec6a23bf",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "### 書籍"
+      }
+    },
+    {
+      "segment_id": "71b314cb",
+      "source_content": "| **Book Name**                                                                                                                 | **Author**                                              | **Link**                          |\n| ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- | --------------------------------- |\n| Continuous Delivery with Docker and Jenkins - Second Edition: Create secure applications by building complete CI/CD pipelines | Rafal Leszko                                            | [Amazon](https://amzn.to/3Oaw7M0) |\n| Using Docker: Developing and Deploying Software with Containers                                                               | Adrian Mouat                                            | [Amazon](https://amzn.to/3UVl2SS) |\n| Agile Application Security: Enabling Security in a Continuous Delivery Pipeline                                               | Laura Bell, Michael Brunton-Spall, Rich Smith, Jim Bird | [Amazon](https://amzn.to/3AKNwrx) |",
+      "source_content_hash": "013da55150d7c3eef987f72a4a05325d041c4b0b622964e6ef5b8d577b2e3bf1",
+      "node_type": "table",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_71b314cb"
+      }
+    },
+    {
+      "segment_id": "31e045cc",
+      "source_content": "<!-- Links -->",
+      "source_content_hash": "25f54153c0d0e0dac3bb699044aa9b88a8a71752b65c898e921cc72c327d285a",
+      "node_type": "comment",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_31e045cc"
+      }
+    },
+    {
+      "segment_id": "d270bc96",
+      "source_content": "[Damien Burks]: https://www.youtube.com/@damienjburks",
+      "source_content_hash": "7097815c6ac6c02cff2091f30ccf75b895bb53b20eda52fea9f0f673e9d0ed23",
+      "node_type": "definition",
+      "translatable": true,
+      "translations": {
+        "ja": "[Damien Burks]: https://www.youtube.com/@damienjburks"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/blueprint/implementing-app-devsecops.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.151824+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "31cb1918df216b65df7e9d405ea8b9eb5b5a13915e1049aacdb69a48d5808ac1"
+  }
+}

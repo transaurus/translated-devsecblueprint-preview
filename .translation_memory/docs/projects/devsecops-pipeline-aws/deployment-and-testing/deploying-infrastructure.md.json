@@ -1,0 +1,182 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/projects/devsecops-pipeline-aws/deployment-and-testing/deploying-infrastructure.md",
+  "source_file_content_hash": "f6862a490139908c3a1e04ec118ccc5a8023f5d7cf11a3ccb53e2b55f792fa0d",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: deploying-infrastructure-code\ntitle: Deploying and Configuring Your DevSecOps Pipeline\nsidebar_position: 1\n---",
+      "source_content_hash": "1f1ba5ee78019001f4ddf0e8d7e65a7bf788f7c0b968016fbc82ae67209c2aaa",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "a703643c",
+      "source_content": "## Overview",
+      "source_content_hash": "7337f3d0aa29e9a82b8f1650b743a98eef90794631fa763a319686e69c546821",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 概要"
+      }
+    },
+    {
+      "segment_id": "53eaf0e1",
+      "source_content": "We've finally reached the stage where we deploy our infrastructure using Terraform Cloud. This guide will walk you through creating, configuring, and deploying the necessary DevSecOps pipelines for your project.",
+      "source_content_hash": "9a7eaee88e2372ac4a1432cb22a1eb72febddca2a96e75aa240917cd94c0d41f",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "ここまで来て、ようやくTerraform Cloudを使用してインフラストラクチャをデプロイする段階に到達しました。このガイドでは、プロジェクトに必要なDevSecOpsパイプラインを作成、設定、デプロイする手順を説明します。"
+      }
+    },
+    {
+      "segment_id": "8a5f6a7b",
+      "source_content": "## Configuration Steps",
+      "source_content_hash": "46b73969bd7ae342f27c4c5abce80a42600ba1c0846396c70ac16f4b181acd52",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 設定手順"
+      }
+    },
+    {
+      "segment_id": "ba4f48ff",
+      "source_content": "### Terraform Cloud Setup",
+      "source_content_hash": "a74953498e00524cb7ea639654ae5956b22dc75ce7a3d9ab256a9bd67bdd8a9a",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "### Terraform Cloudのセットアップ"
+      }
+    },
+    {
+      "segment_id": "4269e691",
+      "source_content": "1. Log into Terraform Cloud and select the **DSB organization**.\n2. Click the **New** button to create a new project. Provide a name and description as needed.\n3. Navigate to **Workspace**, select the project you created, and click **Continue**.\n4. Choose **CLI-Driven Workflow** (required for GitHub Actions).\n5. Enter the workspace name as `dsb-aws-devsecops-eks-cluster`. Add an optional description and click **Create**.\n6. Repeat the same steps for another workspace named `dsb-aws-devsecops-pipelines`.",
+      "source_content_hash": "110ce967cef7d5ff154c4963f71e61c9d25d130e2b68b77686c6a84c67cda492",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. Terraform Cloudにログインし、**DSB組織**を選択します。\n2. **新規作成**ボタンをクリックして新しいプロジェクトを作成します。必要に応じて名前と説明を入力します。\n3. **ワークスペース**に移動し、作成したプロジェクトを選択して**続行**をクリックします。\n4. **CLI駆動ワークフロー**を選択します（GitHub Actionsに必要です）。\n5. ワークスペース名を`dsb-aws-devsecops-eks-cluster`と入力します。任意の説明を追加し、**作成**をクリックします。\n6. 同じ手順を繰り返して、`dsb-aws-devsecops-pipelines`という名前の別のワークスペースを作成します。"
+      }
+    },
+    {
+      "segment_id": "2df4f75f",
+      "source_content": "At the end of this process, you should have two workspaces created. Here’s an example of how they should appear in your organization (without the Run Status applied):",
+      "source_content_hash": "39cbd725921836ececc9dbaee96b1a530aab1ebeb3f517d8203eb53c80fb5ef6",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "このプロセスの最後には、2つのワークスペースが作成されているはずです。以下は、組織内での表示例です（実行ステータスは適用されていません）："
+      }
+    },
+    {
+      "segment_id": "98cfbd53",
+      "source_content": "![Workspaces Overview](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image.png)",
+      "source_content_hash": "60b4250dc7e67adb02c6aad96bce85300b6ddef800b473c67a2c771b1fdf8bd1",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "![ワークスペース概要](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image.png)"
+      }
+    },
+    {
+      "segment_id": "79b2d0b9",
+      "source_content": "#### Configuring Secrets in Terraform Cloud",
+      "source_content_hash": "d098afc4501826bf7794b13bc087c29ec855aa05915711ae68553398cb742b66",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "#### Terraform Cloudでのシークレットの設定"
+      }
+    },
+    {
+      "segment_id": "1d13125b",
+      "source_content": "1. Navigate to the `dsb-aws-devsecops-pipelines` workspace and select **Variables**.\n\n   ![Workspace Variables](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image-1.png)\n\n2. Under **Workspace Variables**, create two sensitive variables:\n\n   - `SNYK_ORG_ID`\n   - `SNYK_TOKEN`\n\n   Populate these variables with the respective values. The final setup should resemble this:\n   ![Configured Variables](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image-2.png)",
+      "source_content_hash": "0fd352505f1e26d99a8105df56fbf1f22fe889dc1846c5f02b8c4b874e6a2eb0",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. `dsb-aws-devsecops-pipelines`ワークスペースに移動し、**変数**を選択します。\n\n   ![ワークスペース変数](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image-1.png)\n\n2. **ワークスペース変数**で、以下の2つの機密変数を作成します：\n\n   - `SNYK_ORG_ID`\n   - `SNYK_TOKEN`\n\n   これらの変数にそれぞれの値を入力します。最終的な設定は以下のようになります：\n   ![設定済み変数](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image-2.png)"
+      }
+    },
+    {
+      "segment_id": "782c902a",
+      "source_content": "### Deploying Changes via GitHub Actions",
+      "source_content_hash": "286d508aad0d2ffcbca4365df31edb41ef54a1fafe8324c409256a7a43516a3c",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "### GitHub Actionsを使用した変更のデプロイ"
+      }
+    },
+    {
+      "segment_id": "50746522",
+      "source_content": "With the workspaces configured, you can now deploy changes using GitHub Actions.",
+      "source_content_hash": "7918df8e4e6eec7c633bf08074881e2a6051d617809cbade3ab66806dbdac385",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "ワークスペースが設定されたので、GitHub Actionsを使用して変更をデプロイできます。"
+      }
+    },
+    {
+      "segment_id": "aa83231c",
+      "source_content": "1. Log into GitHub and open your forked project: `aws-devsecops-pipelines`.\n2. Navigate to **Actions** and click on `.github/workflows/main.yml`.\n   ![Workflow File](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image-3.png)\n3. On the right-hand side, select the **Run Workflow** dropdown and click **Run Workflow**. This triggers the pipeline to:\n\n   - Checkout the repository.\n   - Plan and apply changes in Terraform Cloud.\n   - Deploy the EKS Cluster and DevSecOps pipeline for `AWSOME-FastAPI`.\n\n   > **Note**: This process may take around 30 minutes. Feel free to step away during this time as the EKS Cluster creation is time-intensive.\n\n4. Confirm that the plans have been applied successfully. You should see successful builds in both GitHub and Terraform Cloud. Example results are shown below:\n\n   **GitHub Pipeline Execution**:\n   ![GitHub Execution Results](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image-4.png)\n\n   **Terraform Cloud Deployment**:\n   ![Terraform Deployment Results](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image-5.png)\n\n   **AWS Overview**:\n   ![AWS Overview](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image-6.png)",
+      "source_content_hash": "d708497d446f190978752774c475b22ac7612a641161a3ccb482a799d353fafa",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. GitHubにログインし、フォークしたプロジェクト`aws-devsecops-pipelines`を開きます。\n2. **Actions**に移動し、`.github/workflows/main.yml`をクリックします。\n   ![ワークフローファイル](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image-3.png)\n3. 右側の**Run Workflow**ドロップダウンを選択し、**Run Workflow**をクリックします。これにより、パイプラインがトリガーされ、以下の処理が行われます：\n\n   - リポジトリをチェックアウトします。\n   - Terraform Cloudで変更を計画および適用します。\n   - EKSクラスターと`AWSOME-FastAPI`のDevSecOpsパイプラインをデプロイします。\n\n   > **注記**: このプロセスには約30分かかる場合があります。EKSクラスターの作成には時間がかかるため、この間は離れていても構いません。\n\n4. プランが正常に適用されたことを確認します。GitHubとTerraform Cloudの両方で成功したビルドが表示されるはずです。以下は結果の例です：\n\n   **GitHubパイプライン実行**:\n   ![GitHub実行結果](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image-4.png)\n\n   **Terraform Cloudデプロイメント**:\n   ![Terraformデプロイメント結果](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image-5.png)\n\n   **AWS概要**:\n   ![AWS概要](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image-6.png)"
+      }
+    },
+    {
+      "segment_id": "8c6d7ee7",
+      "source_content": "### Configuring and Testing CodeStar Connection",
+      "source_content_hash": "cd7f91d88d09ad01f3c2b798b9ee39833e64a2b1b3116ff7fb2847e8d9564f27",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "### CodeStar接続の設定とテスト"
+      }
+    },
+    {
+      "segment_id": "06e24cc0",
+      "source_content": "With your infrastructure deployed, the next step is configuring the CodeStar Connection to link AWS with GitHub. This ensures automatic detection and deployment of changes to your Python project, `AWSOME-FastAPI`.",
+      "source_content_hash": "1b80d0ccef3631534f5ef16a772e7821be97d9e281a80098b525f694638ee087",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "インフラストラクチャがデプロイされたので、次のステップはAWSとGitHubをリンクするCodeStar接続を設定することです。これにより、Pythonプロジェクト`AWSOME-FastAPI`への変更が自動的に検出およびデプロイされます。"
+      }
+    },
+    {
+      "segment_id": "af7d8a35",
+      "source_content": "1. Navigate to the **CodePipeline Dashboard** in AWS.\n2. Click **Settings > Connections** and select the `dsb-github-connection` name. Its status will likely be `Pending`, which explains why the pipeline is in a `failed` state. The connection needs to be `Active`.\n\n   ![Pending Connection](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image-7.png)\n\n3. Click **Update Pending Connection**. A browser pop-up will appear.\n4. Click **Install a New App**.\n\n   ![Install App](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image-8.png)\n\n5. Select your GitHub username to install the AWS Connector for GitHub.\n\n   ![Select GitHub Username](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image-9.png)\n\n6. Once redirected back to the Connect to GitHub dashboard, click **Connect**. The connection status should now display as `Available`.\n\n   ![Available Connection](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image-10.png)",
+      "source_content_hash": "d6485c64de4d6b3e777ca8e9905a12496a6a5e4f9ac924baa05f1f93c3fff8ac",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. AWSの**CodePipelineダッシュボード**に移動します。\n2. **設定 > 接続**をクリックし、`dsb-github-connection`という名前を選択します。ステータスはおそらく`保留中`になっており、これがパイプラインが`失敗`状態になっている理由です。接続は`有効`である必要があります。\n\n   ![保留中の接続](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image-7.png)\n\n3. **保留中の接続を更新**をクリックします。ブラウザのポップアップが表示されます。\n4. **新しいアプリをインストール**をクリックします。\n\n   ![アプリのインストール](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image-8.png)\n\n5. GitHubユーザー名を選択して、GitHub用AWSコネクタをインストールします。\n\n   ![GitHubユーザー名の選択](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image-9.png)\n\n6. GitHub接続ダッシュボードにリダイレクトされたら、**接続**をクリックします。接続ステータスが`利用可能`と表示されるはずです。\n\n   ![利用可能な接続](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image-10.png)"
+      }
+    },
+    {
+      "segment_id": "2547a6bb",
+      "source_content": "With these steps completed, your pipeline is fully operational and ready to detect and deploy changes from your GitHub repository.",
+      "source_content_hash": "3566fcbb9e344d3fdda5393d37dd0ea9ab39dcb9f5441f06e6fbfaf4a6ee4a9e",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "これらの手順を完了すると、パイプラインは完全に動作可能な状態になり、GitHubリポジトリからの変更を検出してデプロイできるようになります。"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/projects/devsecops-pipeline-aws/deployment-and-testing/deploying-infrastructure.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.147069+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "f6862a490139908c3a1e04ec118ccc5a8023f5d7cf11a3ccb53e2b55f792fa0d"
+  }
+}

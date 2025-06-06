@@ -1,0 +1,122 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/projects/devsecops-home-lab/installation-and-configuration/nexus.md",
+  "source_file_content_hash": "730120ff3ad076e935cf5799f7429eee6ce2282addc68feea6654060b3845ee7",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: install-config-nexus\ntitle: Nexus\nsidebar_position: 4\n---",
+      "source_content_hash": "64125610e96731c19b53d6ee689a67cac7114670615e77092c1657f4b1649bc7",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "a703643c",
+      "source_content": "## Overview",
+      "source_content_hash": "7337f3d0aa29e9a82b8f1650b743a98eef90794631fa763a319686e69c546821",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 概要"
+      }
+    },
+    {
+      "segment_id": "cbf61009",
+      "source_content": "> This installation happens on the `dsb-hub`.",
+      "source_content_hash": "4e97ed73bdf09122b24991087c2a802e48ae15f31fa7d383dac6df74ebb87db1",
+      "node_type": "blockquote",
+      "translatable": true,
+      "translations": {
+        "ja": "> このインストールは `dsb-hub` 上で行われます。"
+      }
+    },
+    {
+      "segment_id": "8ac585fb",
+      "source_content": "[Nexus Repository Manager](https://www.sonatype.com/products/sonatype-nexus-oss) is a tool for managing components and build artifacts across various formats like Docker, Maven, and npm. We are using Docker Compose to install Nexus to avoid conflicts with SonarQube's JDK requirements. Nexus will be used to manage Docker images, allowing us to proxy images from Docker Hub, cache them locally, and securely manage retrieval.",
+      "source_content_hash": "edb0785f25962c6a7b564090515cb08d88214683d491dd40f45c5ecb38a54d39",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "[Nexus Repository Manager](https://www.sonatype.com/products/sonatype-nexus-oss) は、Docker、Maven、npm など様々な形式のコンポーネントやビルド成果物を管理するツールです。SonarQube の JDK 要件との競合を避けるため、Docker Compose を使用して Nexus をインストールします。Nexus は Docker イメージの管理に使用され、Docker Hub からのイメージプロキシ、ローカルキャッシュ、安全な取得管理を可能にします。"
+      }
+    },
+    {
+      "segment_id": "ba4f48ff",
+      "source_content": "## Installation Steps",
+      "source_content_hash": "176cd2c0cf80c3564adae3b72d2ad36ac95f9883c3d2b17da74d1dc605bb60b7",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## インストール手順"
+      }
+    },
+    {
+      "segment_id": "4269e691",
+      "source_content": "1. **Create a new directory for Nexus:**\n\n   ```bash\n   mkdir -p apps/nexus/nexus-data\n   sudo chown -R 200 apps/nexus/nexus-data\n   ```\n\n2. **Create the Docker Compose YAML file:**\n\n   ```bash\n   cd apps/nexus\n   touch docker-compose.yml\n   ```\n\n3. **Add the following content to the `docker-compose.yml`:**\n\n   ```yaml\n   version: \"3\"\n   services:\n     nexus:\n       image: sonatype/nexus3\n       restart: always\n       volumes:\n         - \"./nexus-data:/nexus-data\"\n       ports:\n         - \"8081:8081\"\n         - \"8082:8082\"\n         - \"8085:8085\"\n   volumes:\n     nexus-data:\n       driver: local\n   ```\n\n4. **Run the application:**\n\n   ```bash\n   docker compose up -d\n   ```\n\n5. **Confirm that the application is up and running by visiting:**\n\n   ```text\n   http://your-ip-address:8081\n   ```",
+      "source_content_hash": "c279b63ddf7dce84ce21bb437773052f58fe5e138a06d265f588840f0c8b4b36",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **Nexus用の新しいディレクトリを作成:**\n\n   ```bash\n   mkdir -p apps/nexus/nexus-data\n   sudo chown -R 200 apps/nexus/nexus-data\n   ```\n\n2. **Docker Compose YAMLファイルを作成:**\n\n   ```bash\n   cd apps/nexus\n   touch docker-compose.yml\n   ```\n\n3. **`docker-compose.yml` に以下の内容を追加:**\n\n   ```yaml\n   version: \"3\"\n   services:\n     nexus:\n       image: sonatype/nexus3\n       restart: always\n       volumes:\n         - \"./nexus-data:/nexus-data\"\n       ports:\n         - \"8081:8081\"\n         - \"8082:8082\"\n         - \"8085:8085\"\n   volumes:\n     nexus-data:\n       driver: local\n   ```\n\n4. **アプリケーションを実行:**\n\n   ```bash\n   docker compose up -d\n   ```\n\n5. **以下のURLにアクセスしてアプリケーションが起動していることを確認:**\n\n   ```text\n   http://your-ip-address:8081\n   ```"
+      }
+    },
+    {
+      "segment_id": "40158b4b",
+      "source_content": "![Nexus is live](/img/projects/devsecops-home-lab/installation-and-configuration/nexus-initial-view.png)",
+      "source_content_hash": "78cbb002e3bc767737346bc246891cd9ebc3955b0e16202267698558dd3d0eb9",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "![Nexusが起動中](/img/projects/devsecops-home-lab/installation-and-configuration/nexus-initial-view.png)"
+      }
+    },
+    {
+      "segment_id": "c431704b",
+      "source_content": "## Configuration Steps",
+      "source_content_hash": "46b73969bd7ae342f27c4c5abce80a42600ba1c0846396c70ac16f4b181acd52",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 設定手順"
+      }
+    },
+    {
+      "segment_id": "158e1f5d",
+      "source_content": "1. **Click the \"Sign In\" button and locate the admin password:**\n\n   ```bash\n   cat nexus-data/admin.password\n   ```\n\n   ![Admin Password](/img/projects/devsecops-home-lab/installation-and-configuration/nexus-found-admin-pw.png)\n\n2. **Use the password to log in and complete the initial setup:**\n\n   - Change your password.\n   - Enable anonymous access if desired.\n\n   ![Login](/img/projects/devsecops-home-lab/installation-and-configuration/nexus-change-admin-pw.png)\n\n3. **As admin, navigate to the UI and create a new repository:**\n   ![Create Repository](/img/projects/devsecops-home-lab/installation-and-configuration/nexus-create-repository.png)\n\n4. **For the new repository, choose \"Docker proxy\" and input the following information:**\n\n   1. Name: `docker-proxy`\n   2. Remote Storage Proxy URL: `https://registry.hub.docker.com`\n   3. Docker Index: `Docker Hub`\n   4. Enable anonymous pulls.\n   5. Set HTTP to `8082`.\n\n5. **Create a local user with the username `nx-anonymous` and complete the setup:**\n\n   ![Create User](/img/projects/devsecops-home-lab/installation-and-configuration/nexus-create-user.png)",
+      "source_content_hash": "b74fda010bcfadeb1ccd5293c6447d47610709497bf60e8603f4bb5901b0cb7f",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **「Sign In」ボタンをクリックし、管理者パスワードを確認:**\n\n   ```bash\n   cat nexus-data/admin.password\n   ```\n\n   ![管理者パスワード](/img/projects/devsecops-home-lab/installation-and-configuration/nexus-found-admin-pw.png)\n\n2. **パスワードを使用してログインし、初期設定を完了:**\n\n   - パスワードを変更\n   - 必要に応じて匿名アクセスを有効化\n\n   ![ログイン](/img/projects/devsecops-home-lab/installation-and-configuration/nexus-change-admin-pw.png)\n\n3. **管理者としてUIに移動し、新しいリポジトリを作成:**\n   ![リポジトリ作成](/img/projects/devsecops-home-lab/installation-and-configuration/nexus-create-repository.png)\n\n4. **新しいリポジトリで「Docker proxy」を選択し、以下の情報を入力:**\n\n   1. 名前: `docker-proxy`\n   2. リモートストレージプロキシURL: `https://registry.hub.docker.com`\n   3. Dockerインデックス: `Docker Hub`\n   4. 匿名プルを有効化\n   5. HTTPを `8082` に設定\n\n5. **ユーザー名 `nx-anonymous` でローカルユーザーを作成し、設定を完了:**\n\n   ![ユーザー作成](/img/projects/devsecops-home-lab/installation-and-configuration/nexus-create-user.png)"
+      }
+    },
+    {
+      "segment_id": "f6b04a59",
+      "source_content": "## You're Done",
+      "source_content_hash": "dc146497f2e2562df8ec3f604024e77882ae11623fc2a1260623fa30c5fe06f5",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 完了"
+      }
+    },
+    {
+      "segment_id": "a311e967",
+      "source_content": "You've successfully set up your Nexus server.",
+      "source_content_hash": "f16980107a7e895a84d78a24a455ee4ce654813f02f31e6fbf2a38ee6ede2e39",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "Nexusサーバーのセットアップが正常に完了しました。"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/projects/devsecops-home-lab/installation-and-configuration/nexus.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.152516+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "730120ff3ad076e935cf5799f7429eee6ce2282addc68feea6654060b3845ee7"
+  }
+}

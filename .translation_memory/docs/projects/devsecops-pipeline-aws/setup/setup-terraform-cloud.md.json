@@ -1,0 +1,62 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/projects/devsecops-pipeline-aws/setup/setup-terraform-cloud.md",
+  "source_file_content_hash": "cf7b7ba8491ec5a5d29a0905d6715642533cb9b46f61a7942e92f6358726dc90",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: setup-terraform-cloud\ntitle: Setting Up Terraform Cloud\nsidebar_position: 3\n---",
+      "source_content_hash": "7ff5aa70e14f62c400a820d7dca3802b71dcf68c9856d4631ec33ee6cc3d782b",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "a703643c",
+      "source_content": "## Overview",
+      "source_content_hash": "7337f3d0aa29e9a82b8f1650b743a98eef90794631fa763a319686e69c546821",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 概要"
+      }
+    },
+    {
+      "segment_id": "53eaf0e1",
+      "source_content": "Terraform Cloud is an essential tool that simplifies infrastructure management and will quickly become a key part of your workflow. If you’re unfamiliar with Terraform, it’s highly recommended that you take some time to study it before proceeding. This guide will walk you through creating a Terraform Cloud account and setting up your first organization.",
+      "source_content_hash": "642f7dd449f0d67c6db01928fc09b5943d4b886ff48f1e25d9b78ba1f9471742",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "Terraform Cloudはインフラストラクチャ管理を簡素化する必須ツールであり、すぐにワークフローの重要な一部となるでしょう。Terraformに不慣れな場合は、先に進む前に時間を取って学習することを強くお勧めします。このガイドでは、Terraform Cloudアカウントの作成と最初の組織の設定について説明します。"
+      }
+    },
+    {
+      "segment_id": "8a5f6a7b",
+      "source_content": "## Creating Your Account and Organization",
+      "source_content_hash": "e1ef65658c294dd9a149eb89cfd7a589265d85e5faf41954b4aadebfdec19fed",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## アカウントと組織の作成"
+      }
+    },
+    {
+      "segment_id": "730c423c",
+      "source_content": "1. Navigate to the [Terraform Cloud Sign-Up Page](https://app.terraform.io/public/signup/account).\n2. Click **Continue with HCP account** to proceed with registration.\n3. Select **Sign Up** at the bottom of the page, then click **Continue with GitHub** to link your account.\n\n   > **Note:** If you are redirected back to the sign-in page, click **Continue with HCP** and then choose **Sign in with GitHub**.\n\n4. Once logged in, you should arrive at the Terraform Cloud dashboard. If the \"DSB\" organization is not already created, it will appear empty:\n   ![Terraform Cloud Dashboard](/img/projects/devsecops-pipeline-aws/setup/image-4.png)\n\n5. Click **Create Organization**, and for the organization name, enter **DSB**. You can rename this organization later as needed after configuring the code.",
+      "source_content_hash": "937034504fdfb16069c3408113b1283fb1e02aad809223e33ffa4abff0c79653",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. [Terraform Cloudサインアップページ](https://app.terraform.io/public/signup/account)にアクセスします。\n2. **Continue with HCP account**をクリックして登録を進めます。\n3. ページ下部の**Sign Up**を選択し、**Continue with GitHub**をクリックしてアカウントを連携します。\n\n   > **注:** サインインページにリダイレクトされた場合は、**Continue with HCP**をクリックし、**Sign in with GitHub**を選択してください。\n\n4. ログイン後、Terraform Cloudダッシュボードに移動します。\"DSB\"組織がまだ作成されていない場合、空の状態で表示されます：\n   ![Terraform Cloudダッシュボード](/img/projects/devsecops-pipeline-aws/setup/image-4.png)\n\n5. **Create Organization**をクリックし、組織名として**DSB**を入力します。コードの設定後、必要に応じてこの組織名を変更できます。"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/projects/devsecops-pipeline-aws/setup/setup-terraform-cloud.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.147565+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "cf7b7ba8491ec5a5d29a0905d6715642533cb9b46f61a7942e92f6358726dc90"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/projects/devsecops-pipeline-aws/setup/creating-deployment-role.md",
+  "source_file_content_hash": "3e67fdc8f9e4ece0c5e77102be02c1def19a666a0fd6d10efafb04c70f849708",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: configuring-deployment-user\ntitle: Configuring Deployment User/Role in AWS\nsidebar_position: 4\n---",
+      "source_content_hash": "bc55da3cc175e118203d32c044ede43a37e4c21f2c337ec0381a65244ae529ba",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "a703643c",
+      "source_content": "## Overview",
+      "source_content_hash": "7337f3d0aa29e9a82b8f1650b743a98eef90794631fa763a319686e69c546821",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 概要"
+      }
+    },
+    {
+      "segment_id": "53eaf0e1",
+      "source_content": "This guide will help you set up an IAM user in AWS that Terraform can assume to deploy infrastructure changes. By this stage, you should already have an AWS account ready for deployment.",
+      "source_content_hash": "6883a6e0472a56aab4c88648006e42a92c5155d8e5b5cdeb34f42f8bd7322882",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "このガイドでは、Terraformがインフラストラクチャ変更をデプロイするために使用するIAMユーザーをAWSに設定する方法を説明します。この段階では、すでにデプロイ用のAWSアカウントが準備されている必要があります。"
+      }
+    },
+    {
+      "segment_id": "8a5f6a7b",
+      "source_content": "## Creating and Configuring an IAM User",
+      "source_content_hash": "316f8395b6e434d35b405112a1de3d722666624803253e0f80d2887146d401c1",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## IAMユーザーの作成と設定"
+      }
+    },
+    {
+      "segment_id": "730c423c",
+      "source_content": "1. Log in to your AWS account.\n2. Navigate to the **IAM Dashboard** and select **Users**, then click **Create User**.\n3. Enter a **User Name** and click **Next**.\n4. Under **Permissions**, select **Attach Policies Directly**, choose the **AdministratorAccess** policy, and click **Next**:\n\n   ![Attach Policies Directly](/img/projects/devsecops-pipeline-aws/setup/image-3.png)\n\n5. Click **Create User** to finalize the setup and proceed to the user's dashboard:\n\n   ![User Dashboard](/img/projects/devsecops-pipeline-aws/setup/image-5.png)\n\n6. On the right-hand side, click **Create Access Key** and follow these steps:\n   1. **Use Case:** Select **CLI**, then confirm.\n   2. Add a description for the access key and click **Create Access Key**.\n   3. Click **Download CSV File** and save it in a secure location. These credentials will be required later.",
+      "source_content_hash": "17deded66c071fd34833f19b673565e434e928e9f728f7ac4ac0a491495ba9f1",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. AWSアカウントにログインします。\n2. **IAMダッシュボード**に移動し、**ユーザー**を選択してから**ユーザーの作成**をクリックします。\n3. **ユーザー名**を入力し、**次へ**をクリックします。\n4. **アクセス許可**で、**ポリシーを直接アタッチ**を選択し、**AdministratorAccess**ポリシーを選択してから**次へ**をクリックします：\n\n   ![ポリシーの直接アタッチ](/img/projects/devsecops-pipeline-aws/setup/image-3.png)\n\n5. **ユーザーの作成**をクリックして設定を完了し、ユーザーダッシュボードに進みます：\n\n   ![ユーザーダッシュボード](/img/projects/devsecops-pipeline-aws/setup/image-5.png)\n\n6. 右側の**アクセスキーの作成**をクリックし、以下の手順に従います：\n   1. **ユースケース:** **CLI**を選択し、確認します。\n   2. アクセスキーの説明を追加し、**アクセスキーの作成**をクリックします。\n   3. **CSVファイルのダウンロード**をクリックし、安全な場所に保存します。これらの認証情報は後で必要になります。"
+      }
+    },
+    {
+      "segment_id": "4b1d2d7d",
+      "source_content": "With these steps completed, your IAM user is set up and ready to be used for Terraform deployments.",
+      "source_content_hash": "c33eac0e6d98a5965a7c2545b9ebe090e88474495f7d580505f2cae760a14540",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "これらの手順が完了すると、IAMユーザーが設定され、Terraformデプロイメントに使用できるようになります。"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/projects/devsecops-pipeline-aws/setup/creating-deployment-role.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.148355+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "3e67fdc8f9e4ece0c5e77102be02c1def19a666a0fd6d10efafb04c70f849708"
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/projects/devsecops-pipeline-aws/deployment-and-testing/executing-pipeline-results.md",
+  "source_file_content_hash": "b06e872ce7ea491659d9507338f3de807b6e5fda51fac9e9bd7febd4b5b55d70",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: executing-pipeline\ntitle: Running the Pipeline and Analyzing Outputs\nsidebar_position: 2\n---",
+      "source_content_hash": "80bf2a74407772913dd4a57cfedff8936c02965d25c9a62d44d93f13da382bb9",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "a703643c",
+      "source_content": "## Overview",
+      "source_content_hash": "7337f3d0aa29e9a82b8f1650b743a98eef90794631fa763a319686e69c546821",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 概要"
+      }
+    },
+    {
+      "segment_id": "53eaf0e1",
+      "source_content": "With the infrastructure deployed and verified, the next step is to execute the pipeline and analyze its outputs. This guide will walk you through running the pipeline, reviewing security scan results, and testing the deployed application.",
+      "source_content_hash": "54787360da8308fee2306788ea923049d74301353b895ed3a5b2d0e03032bbb5",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "インフラストラクチャのデプロイと検証が完了したら、次のステップはパイプラインを実行し、その出力を分析することです。このガイドでは、パイプラインの実行方法、セキュリティスキャン結果の確認、デプロイされたアプリケーションのテスト方法について説明します。"
+      }
+    },
+    {
+      "segment_id": "8a5f6a7b",
+      "source_content": "## Running the Pipeline",
+      "source_content_hash": "1b60254acfb84de9bbb89aad4b130c702ec178a3b401adb7a0226e47ad5cab4b",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## パイプラインの実行"
+      }
+    },
+    {
+      "segment_id": "730c423c",
+      "source_content": "1. Open the **CodePipeline Dashboard** and navigate to the `awsome-fastapi` pipeline. Click the pipeline name.\n   ![Pipeline Dashboard](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image-11.png)\n2. Click **Release Change**, then confirm by clicking **Release**. This action triggers the pipeline to:\n\n   - Pull the latest code from the GitHub repository.\n   - Build the project.\n   - Run tests and security scans.\n   - Deploy the application into the EKS Cluster.\n\n   > **Note**: The pipeline process may take 10-30 minutes to complete. Use this time to take a break and return once it finishes.",
+      "source_content_hash": "79f381ca4fea8f86f0b1547b96560ef59e12f9f2d18176e36a35675b784670da",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **CodePipeline ダッシュボード**を開き、`awsome-fastapi`パイプラインに移動します。パイプライン名をクリックしてください。\n   ![パイプライン ダッシュボード](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image-11.png)\n2. **Release Change**をクリックし、続いて**Release**をクリックして確認します。この操作により、パイプラインが以下の処理を実行します：\n\n   - GitHubリポジトリから最新のコードを取得。\n   - プロジェクトのビルド。\n   - テストとセキュリティスキャンの実行。\n   - EKSクラスターへのアプリケーションのデプロイ。\n\n   > **注**: パイプラインの処理には10〜30分かかる場合があります。この時間を利用して休憩し、完了後に戻ってきてください。"
+      }
+    },
+    {
+      "segment_id": "95b38f97",
+      "source_content": "## Reviewing Results",
+      "source_content_hash": "4a3df4d612ae1b23ac5b5dc164420a296a008e1e96bbf266c1f5ceeca6c91a25",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 結果の確認"
+      }
+    },
+    {
+      "segment_id": "ccc88b4c",
+      "source_content": "After the pipeline completes, review the results of the security scans. Below are examples from Snyk and Trivy:",
+      "source_content_hash": "c97164a5789f7a977640252c8ccb75a574840fac62d54757373747da9c044d96",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "パイプラインが完了したら、セキュリティスキャンの結果を確認します。以下はSnykとTrivyの結果の例です："
+      }
+    },
+    {
+      "segment_id": "d9172fa4",
+      "source_content": "![Snyk Results](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image-12.png)",
+      "source_content_hash": "9b0d1ec1e97ed9b47872707408ccd8106c2d6d9308e4bc090404ee81e58f512c",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "![Snyk 結果](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image-12.png)"
+      }
+    },
+    {
+      "segment_id": "22ae2175",
+      "source_content": "> **Snyk Results**",
+      "source_content_hash": "844fa117a8f7ff0e6bc6b477efd47109c9bbc6143abc0c17f6ac79bdc3ad04fa",
+      "node_type": "blockquote",
+      "translatable": true,
+      "translations": {
+        "ja": "> **Snyk 結果**"
+      }
+    },
+    {
+      "segment_id": "73ab96a3",
+      "source_content": "![Trivy Results](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image-13.png)",
+      "source_content_hash": "945df0a1993f9cc4723e0bd27c312ae0a4a77330ccdb2aacde177c7179168ebc",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "![Trivy 結果](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image-13.png)"
+      }
+    },
+    {
+      "segment_id": "35042e83",
+      "source_content": "> **Trivy Results**",
+      "source_content_hash": "2c86b497c7ec056bac3f96c301ef87055d9dd7d5f0058ed0535b507b3cdb7191",
+      "node_type": "blockquote",
+      "translatable": true,
+      "translations": {
+        "ja": "> **Trivy 結果**"
+      }
+    },
+    {
+      "segment_id": "7a2e981c",
+      "source_content": "- The Trivy scan results are extensive and might be challenging to address comprehensively. Focus on the most critical issues first.\n- If you want the pipeline to fail for certain vulnerabilities, you can configure the `buildspec.yml` file in the `AWSOME-FastAPI` repository accordingly.\n\n  > **Note**: Vulnerabilities may evolve over time, so periodic reviews and updates are essential.",
+      "source_content_hash": "2abf396d9c19823bf3250d45a2b42744ef8fa974c904710090e12638612b8a15",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- Trivyのスキャン結果は広範で、包括的に対処するのが難しい場合があります。まずは最も重大な問題に焦点を当ててください。\n- 特定の脆弱性でパイプラインを失敗させたい場合は、`AWSOME-FastAPI`リポジトリの`buildspec.yml`ファイルを適宜設定できます。\n\n  > **注**: 脆弱性は時間とともに変化するため、定期的なレビューと更新が重要です。"
+      }
+    },
+    {
+      "segment_id": "9f9e64f5",
+      "source_content": "## Testing the API Application",
+      "source_content_hash": "9c8d1496e70aceda77dee1ea125f793a17472574a3ddfde437c9d6c089ab8d8c",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## APIアプリケーションのテスト"
+      }
+    },
+    {
+      "segment_id": "bdfae007",
+      "source_content": "1. Open the **EKS Clusters Dashboard** and select the `dsb-devsecops-cluster`.\n2. Under **Resources**, navigate to **Service and Networking > Services** and locate the `awsome-fastapi` service. This will display the following screen:\n   ![Service Dashboard](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image-14.png)\n\n3. Copy the provided URL and paste it into your web browser. It should resemble the following:",
+      "source_content_hash": "72f1cb0d907bd846c2b979536eecf30b34ddbe7d29ef1cea1bcb380e247c22ff",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **EKSクラスター ダッシュボード**を開き、`dsb-devsecops-cluster`を選択します。\n2. **リソース**の下で、**サービスとネットワーキング > サービス**に移動し、`awsome-fastapi`サービスを探します。以下の画面が表示されます：\n   ![サービス ダッシュボード](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image-14.png)\n\n3. 提供されたURLをコピーし、ウェブブラウザに貼り付けます。以下のような画面が表示されるはずです："
+      }
+    },
+    {
+      "segment_id": "229d6705",
+      "source_content": "```text\nhttp://aacbaaa4740274a1a83351e8723871d7-2065184365.us-east-1.elb.amazonaws.com/\n```",
+      "source_content_hash": "472916886c1a5ec170f57ce4956984dcbba675ca4f293c531afdd250508d4a96",
+      "node_type": "code",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_229d6705"
+      }
+    },
+    {
+      "segment_id": "98d26038",
+      "source_content": "![API Application](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image-15.png)",
+      "source_content_hash": "02db1aee117c98cd9611b564239539a3718feb7e776d3c926547a1159d9af306",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "![APIアプリケーション](/img/projects/devsecops-pipeline-aws/deployment-and-testing/image-15.png)"
+      }
+    },
+    {
+      "segment_id": "af52d59d",
+      "source_content": "## Conclusion",
+      "source_content_hash": "be031d37bb75d96ef08ca9ec5b0e83bb6f91172f60d3c31a78feae8d7dc4a0b0",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 結論"
+      }
+    },
+    {
+      "segment_id": "4d52a261",
+      "source_content": "Congratulations! You’ve successfully completed this project. Remember to tear down your resources in Terraform Cloud to avoid unnecessary charges. By doing so, you ensure cost efficiency and maintain a clean environment.",
+      "source_content_hash": "0b6d49763ac673a6133c47e230c211c66d6adbb146704e5bfc4403e0be935e35",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "おめでとうございます！このプロジェクトを無事に完了しました。不要な料金を避けるため、Terraform Cloudでリソースを削除することを忘れないでください。これにより、コスト効率を維持し、クリーンな環境を保つことができます。"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/projects/devsecops-pipeline-aws/deployment-and-testing/executing-pipeline-results.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.153817+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "b06e872ce7ea491659d9507338f3de807b6e5fda51fac9e9bd7febd4b5b55d70"
+  }
+}

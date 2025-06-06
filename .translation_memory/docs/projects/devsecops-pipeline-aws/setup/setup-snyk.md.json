@@ -1,0 +1,92 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/projects/devsecops-pipeline-aws/setup/setup-snyk.md",
+  "source_file_content_hash": "050b77f318ffe9cccaf1c68e3facef81e657ead7d39ce4bbbd14cf2c5d4aa98d",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: setup-snyk\ntitle: Setting Up Snyk Account\nsidebar_position: 2\n---",
+      "source_content_hash": "3cbc83393eea4b4b9fb6a2ed08e07a54c6c062d61ec95baebec48ae076f45cec",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "a703643c",
+      "source_content": "## Overview",
+      "source_content_hash": "7337f3d0aa29e9a82b8f1650b743a98eef90794631fa763a319686e69c546821",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 概要"
+      }
+    },
+    {
+      "segment_id": "53eaf0e1",
+      "source_content": "This guide will help you create a Snyk account and generate the required token and organization ID for scanning purposes. If you're following along with the video, this document covers the steps that were not detailed due to time constraints.",
+      "source_content_hash": "5bbac127e01b53169946d886084462b8e184b35894532552bd47d0fd9193e604",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "このガイドでは、Snykアカウントの作成と、スキャン用に必要なトークンおよび組織IDの生成方法を説明します。動画に沿って進めている場合、このドキュメントでは時間の都合で詳細が省かれた手順をカバーしています。"
+      }
+    },
+    {
+      "segment_id": "8a5f6a7b",
+      "source_content": "## Account Creation Process",
+      "source_content_hash": "3f43f3dd8d6ecf4f524b400b2db2ca2fa328859cbd24b416898206f6f4cc26d8",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## アカウント作成プロセス"
+      }
+    },
+    {
+      "segment_id": "730c423c",
+      "source_content": "1. Navigate to the [Snyk Sign-Up Page](https://app.snyk.io/login).\n2. Sign up using the **GitHub** option and follow the prompts to create your account.\n\n   > **Note:** The sign-up process is straightforward and does not require a credit card initially.\n\n3. Once registration is complete, you will be redirected to your Snyk dashboard:\n\n   ![Snyk Dashboard](/img/projects/devsecops-pipeline-aws/setup/image.png)",
+      "source_content_hash": "ebac2c9f71c7f4001015831e9e8f1926ae8d39ed4d77ab76e26cd4d9d58bc75e",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. [Snykサインアップページ](https://app.snyk.io/login)にアクセスします。\n2. **GitHub**オプションを使用してサインアップし、プロンプトに従ってアカウントを作成します。\n\n   > **注:** サインアッププロセスはシンプルで、最初の段階ではクレジットカードは不要です。\n\n3. 登録が完了すると、Snykダッシュボードにリダイレクトされます:\n\n   ![Snykダッシュボード](/img/projects/devsecops-pipeline-aws/setup/image.png)"
+      }
+    },
+    {
+      "segment_id": "63622bf0",
+      "source_content": "## Obtaining Tokens and Organization ID",
+      "source_content_hash": "4f50ff60a4153ded85351517f201b8871e84a87a92e867bb37f35177dcfb043f",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## トークンと組織IDの取得"
+      }
+    },
+    {
+      "segment_id": "8cf6d045",
+      "source_content": "1. Click on your name at the bottom-left corner of the page and select **Account Settings**.\n2. In the **General** section, locate the **Auth Token** field. Click **Generate** to create a token and make note of it. This token will be required later for integration.\n\n   ![Generate Auth Token](/img/projects/devsecops-pipeline-aws/setup/image-1.png)\n\n3. Navigate to the **Settings** page, scroll down to find the **Organization ID**, and note this ID as well. You’ll need it for configuring your environment.\n\n   ![Organization ID](/img/projects/devsecops-pipeline-aws/setup/image-2.png)",
+      "source_content_hash": "f6cd65e9137622e908ba06fe4658bd978a24a61fe43a16bd150d6f3fe157b080",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. ページの左下にある自分の名前をクリックし、**アカウント設定**を選択します。\n2. **一般**セクションで、**Auth Token**フィールドを見つけます。**生成**をクリックしてトークンを作成し、メモしておきます。このトークンは後で統合時に必要になります。\n\n   ![Auth Tokenの生成](/img/projects/devsecops-pipeline-aws/setup/image-1.png)\n\n3. **設定**ページに移動し、下にスクロールして**Organization ID**を見つけ、このIDもメモしておきます。環境設定時に必要になります。\n\n   ![Organization ID](/img/projects/devsecops-pipeline-aws/setup/image-2.png)"
+      }
+    },
+    {
+      "segment_id": "4daf5cdd",
+      "source_content": "With these steps completed, your Snyk account is ready to use!",
+      "source_content_hash": "df4bcd7311f92c7c8f9ca39e9642f42b7f17aec20476d913c413e216ea587d41",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "これらの手順が完了すると、Snykアカウントの準備は完了です！"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/projects/devsecops-pipeline-aws/setup/setup-snyk.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.150492+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "050b77f318ffe9cccaf1c68e3facef81e657ead7d39ce4bbbd14cf2c5d4aa98d"
+  }
+}

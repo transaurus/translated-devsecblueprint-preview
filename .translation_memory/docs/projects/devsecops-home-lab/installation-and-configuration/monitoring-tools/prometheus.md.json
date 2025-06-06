@@ -1,0 +1,132 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/projects/devsecops-home-lab/installation-and-configuration/monitoring-tools/prometheus.md",
+  "source_file_content_hash": "5b205d56333ce262d6e9be66ba983989bfde1f6e57dc42975bc2ee70645e8c23",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: install-config-prometheus\ntitle: Prometheus\nsidebar_position: 4\n---",
+      "source_content_hash": "902caa4f5192394c412968cb30c9a8545ca742c4d59ea6581979584179ec4de9",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "a703643c",
+      "source_content": "## Overview",
+      "source_content_hash": "7337f3d0aa29e9a82b8f1650b743a98eef90794631fa763a319686e69c546821",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 概要"
+      }
+    },
+    {
+      "segment_id": "cbf61009",
+      "source_content": "> This installation happens on the `dsb-node-01`.",
+      "source_content_hash": "b17ef05dfd9bab5ec5cf15335e7d51d2259b249219462cd2563b6cf579e3e1ee",
+      "node_type": "blockquote",
+      "translatable": true,
+      "translations": {
+        "ja": "> このインストールは `dsb-node-01` 上で行われます。"
+      }
+    },
+    {
+      "segment_id": "8ac585fb",
+      "source_content": "According to [Prometheus' Website], Prometheus is an open-source systems monitoring and alerting toolkit originally built at SoundCloud. It is designed for reliability and scalability, collecting metrics from configured targets at given intervals, evaluating rule expressions, displaying the results, and triggering alerts if needed. This guide will walk you through the steps to install and configure Prometheus using Docker Compose on your system.",
+      "source_content_hash": "163b04824ac9af4b2259daa6c4e93a5c7367ab82c8590ebf9238bbd3a4ed674f",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "[PrometheusのWebサイト]によると、PrometheusはSoundCloudで最初に開発されたオープンソースのシステム監視およびアラートツールキットです。信頼性と拡張性を考慮して設計されており、設定されたターゲットから定期的にメトリクスを収集し、ルール式を評価し、結果を表示し、必要に応じてアラートをトリガーします。このガイドでは、Docker Composeを使用してシステムにPrometheusをインストールおよび設定する手順を説明します。"
+      }
+    },
+    {
+      "segment_id": "ba4f48ff",
+      "source_content": "## Prerequisites",
+      "source_content_hash": "bbd3d4949a6f237efd8d4ff5c7c5f30d968e7a989ad12f3d7dcef69c98053912",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 前提条件"
+      }
+    },
+    {
+      "segment_id": "4269e691",
+      "source_content": "1. **Install Docker**\n\n   - Install Docker using Snap:\n\n     ```bash\n     sudo snap install docker\n     ```\n\n2. **Create Docker Group and Add User to It**\n\n   - Create a Docker group and add your user to it:\n\n     ```bash\n     sudo groupadd docker\n     sudo usermod -aG docker $USER\n     sudo reboot\n     ```",
+      "source_content_hash": "b0a1389b16ece2a3da6d0f3ae986d3a76a5c78d789c266be0dc6c64e0d7d4970",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **Dockerのインストール**\n\n   - Snapを使用してDockerをインストールします:\n\n     ```bash\n     sudo snap install docker\n     ```\n\n2. **Dockerグループの作成とユーザーの追加**\n\n   - Dockerグループを作成し、ユーザーを追加します:\n\n     ```bash\n     sudo groupadd docker\n     sudo usermod -aG docker $USER\n     sudo reboot\n     ```"
+      }
+    },
+    {
+      "segment_id": "0037ff70",
+      "source_content": "## Installation Steps",
+      "source_content_hash": "176cd2c0cf80c3564adae3b72d2ad36ac95f9883c3d2b17da74d1dc605bb60b7",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## インストール手順"
+      }
+    },
+    {
+      "segment_id": "fc8eadc3",
+      "source_content": "1. Create a Docker-Compose File for Prometheus\n\n   - Create the necessary directories and Docker Compose file:\n\n     ```bash\n     mkdir -p ~/apps/prometheus\n     touch ~/apps/prometheus/docker-compose.yml\n     ```\n\n2. Copy and Save the Docker-Compose Configuration\n\n   - Use the following configuration in your `docker-compose.yml` file:\n\n     ```yaml\n     version: \"3.7\"\n\n     services:\n       prometheus:\n         image: prom/prometheus:latest\n         container_name: prometheus\n         volumes:\n           - prometheus_data:/prometheus\n           - ./prometheus.yml:/etc/prometheus/prometheus.yml\n         ports:\n           - \"9090:9090\"\n         restart: always\n         network_mode: host\n\n     volumes:\n       prometheus_data:\n     ```\n\n   - Open the file with nano or your preferred text editor and paste the configuration:\n\n     ```bash\n     nano ~/apps/prometheus/docker-compose.yml\n     ```\n\n   - Save and close the file.\n\n3. Create a Custom `prometheus.yml` File\n\n   - Create the `prometheus.yml` file in the Prometheus directory:\n\n     ```bash\n     touch ~/apps/prometheus/prometheus.yml\n     ```\n\n   - Add the following configuration to the `prometheus.yml` file:\n\n     ```yaml\n     global:\n       scrape_interval: 15s\n       evaluation_interval: 15s\n\n     scrape_configs:\n       - job_name: \"cadvisor\"\n         static_configs:\n           - targets: [\"localhost:8080\"]\n\n       - job_name: \"node_exporter\"\n         static_configs:\n           - targets: [\"localhost:9100\"]\n\n       - job_name: \"jenkins\"\n         metrics_path: /prometheus/\n         static_configs:\n           - targets: [\"<your_ip_address>:8080\"]\n     ```\n\n     > **NOTE**: This configuration sets up Prometheus to scrape metrics from cAdvisor, Node Exporter, and Jenkins. Replace `<your_ip_address>` with the actual IP address of your Jenkins server.\n\n4. Run Prometheus with Docker-Compose\n\n   - Navigate to the Prometheus directory and run the container:\n\n     ```bash\n     cd ~/apps/prometheus\n     docker-compose up -d\n     ```\n\n5. Confirm Prometheus is Running\n\n   - Check if Prometheus is up and running by visiting `http://localhost:9090` in your web browser.\n\n     ![Prometheus Dashboard](/img/projects/devsecops-home-lab/installation-and-configuration/prometheus-dashboard.png)",
+      "source_content_hash": "13652b212efbd5ec200baf25143aa7729afb9fce5408525ac9576abea0b95293",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. Prometheus用のDocker-Composeファイルの作成\n\n   - 必要なディレクトリとDocker Composeファイルを作成します:\n\n     ```bash\n     mkdir -p ~/apps/prometheus\n     touch ~/apps/prometheus/docker-compose.yml\n     ```\n\n2. Docker-Compose設定のコピーと保存\n\n   - `docker-compose.yml` ファイルに以下の設定を使用します:\n\n     ```yaml\n     version: \"3.7\"\n\n     services:\n       prometheus:\n         image: prom/prometheus:latest\n         container_name: prometheus\n         volumes:\n           - prometheus_data:/prometheus\n           - ./prometheus.yml:/etc/prometheus/prometheus.yml\n         ports:\n           - \"9090:9090\"\n         restart: always\n         network_mode: host\n\n     volumes:\n       prometheus_data:\n     ```\n\n   - nanoまたはお好みのテキストエディタでファイルを開き、設定を貼り付けます:\n\n     ```bash\n     nano ~/apps/prometheus/docker-compose.yml\n     ```\n\n   - ファイルを保存して閉じます。\n\n3. カスタム `prometheus.yml` ファイルの作成\n\n   - Prometheusディレクトリに `prometheus.yml` ファイルを作成します:\n\n     ```bash\n     touch ~/apps/prometheus/prometheus.yml\n     ```\n\n   - `prometheus.yml` ファイルに以下の設定を追加します:\n\n     ```yaml\n     global:\n       scrape_interval: 15s\n       evaluation_interval: 15s\n\n     scrape_configs:\n       - job_name: \"cadvisor\"\n         static_configs:\n           - targets: [\"localhost:8080\"]\n\n       - job_name: \"node_exporter\"\n         static_configs:\n           - targets: [\"localhost:9100\"]\n\n       - job_name: \"jenkins\"\n         metrics_path: /prometheus/\n         static_configs:\n           - targets: [\"<your_ip_address>:8080\"]\n     ```\n\n     > **注**: この設定は、PrometheusがcAdvisor、Node Exporter、およびJenkinsからメトリクスを収集するように設定します。`<your_ip_address>` をJenkinsサーバーの実際のIPアドレスに置き換えてください。\n\n4. Docker-ComposeでPrometheusを実行\n\n   - Prometheusディレクトリに移動し、コンテナを実行します:\n\n     ```bash\n     cd ~/apps/prometheus\n     docker-compose up -d\n     ```\n\n5. Prometheusが実行中であることを確認\n\n   - Webブラウザで `http://localhost:9090` にアクセスし、Prometheusが起動していることを確認します。\n\n     ![Prometheusダッシュボード](/img/projects/devsecops-home-lab/installation-and-configuration/prometheus-dashboard.png)"
+      }
+    },
+    {
+      "segment_id": "cbd60296",
+      "source_content": "## You're Done",
+      "source_content_hash": "dc146497f2e2562df8ec3f604024e77882ae11623fc2a1260623fa30c5fe06f5",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 完了"
+      }
+    },
+    {
+      "segment_id": "f38d1cb0",
+      "source_content": "You’ve successfully installed and configured Prometheus on your system. Your Prometheus server is now up and running, ready to scrape metrics from the configured targets and provide insights into your system’s performance and health.",
+      "source_content_hash": "b6c51b4915f9abe42d2aca3c74b0ffbb4c8988b9b2b6a57010cd9d63bcadae9d",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "システムにPrometheusを正常にインストールおよび設定しました。Prometheusサーバーは現在稼働中であり、設定されたターゲットからメトリクスを収集し、システムのパフォーマンスと健全性に関する洞察を提供する準備が整っています。"
+      }
+    },
+    {
+      "segment_id": "a22bae45",
+      "source_content": "<!-- Sources -->",
+      "source_content_hash": "4494bb095c897c283a22423ee5efc82db998c4872791a85cc207cdfd0d31ff25",
+      "node_type": "comment",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_a22bae45"
+      }
+    },
+    {
+      "segment_id": "82c0daea",
+      "source_content": "[Prometheus' Website]: https://prometheus.io/docs/introduction/overview/",
+      "source_content_hash": "2eb2c73ea72a4e911b278d56faebba9e62abbb932ed5c77bfe0e100380bafde2",
+      "node_type": "definition",
+      "translatable": true,
+      "translations": {
+        "ja": "[PrometheusのWebサイト]: https://prometheus.io/docs/introduction/overview/"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/projects/devsecops-home-lab/installation-and-configuration/monitoring-tools/prometheus.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.154913+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "5b205d56333ce262d6e9be66ba983989bfde1f6e57dc42975bc2ee70645e8c23"
+  }
+}

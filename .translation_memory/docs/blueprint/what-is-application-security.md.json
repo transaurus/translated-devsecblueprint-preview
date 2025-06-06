@@ -1,0 +1,422 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/blueprint/what-is-application-security.md",
+  "source_file_content_hash": "a3325abd0dabdae116f2e38da00e3cbbcb22e46259f9d1941ae0646a63011623",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: what-is-application-security\ntitle: What is Application Security?\ndescription: Application Security Defined\nsidebar_position: 2\n---",
+      "source_content_hash": "03608d76eaa97ec852849789416e6aae77aae1adb36f3b0988a10731586e2b63",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "3fbbcc07",
+      "source_content": "Author: [Damien Burks]",
+      "source_content_hash": "5ea0b7dea762d9db1deb5a12bbe8e41ef43190e41291691bb9f75859ac1ac1bf",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "著者: [Damien Burks]"
+      }
+    },
+    {
+      "segment_id": "7e5c5a39",
+      "source_content": "Welcome to the very first page of The DevSec Blueprint. I've been sure to do my best structuring this content in an order that makes sense. Before we dive into the concept of DevSecOps and defining it, there are a _few_ concepts that I think you all need to be aware of starting with Application Security.",
+      "source_content_hash": "760d85571ec78bef41f878d3894c9ef8f8294483780e987415eb153756f151f0",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "The DevSec Blueprintの最初のページへようこそ。このコンテンツを理解しやすい順序で構成するよう最善を尽くしました。DevSecOpsの概念について掘り下げる前に、まずアプリケーションセキュリティから始めるべきいくつかの重要な概念について説明します。"
+      }
+    },
+    {
+      "segment_id": "9fcbdce9",
+      "source_content": "## Overview",
+      "source_content_hash": "7337f3d0aa29e9a82b8f1650b743a98eef90794631fa763a319686e69c546821",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 概要"
+      }
+    },
+    {
+      "segment_id": "ad8fd492",
+      "source_content": "So, what is Application Security? According to [Imperva](https://www.imperva.com/learn/application-security/application-security/), Application Security aims to protect software application code and data against cybersecurity threats and vulnerabilities. This includes using tools to scan your code, fixing the issues within your code, and doing a bit of threat modeling when designing your application to ensure that you're preventing vulnerabilites from being introduced into your code.",
+      "source_content_hash": "1cc2d58b654881878804fc0015caba189203a9c10a11d80974ff22a05f67a2f2",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "アプリケーションセキュリティとは何でしょうか？[Imperva](https://www.imperva.com/learn/application-security/application-security/)によると、アプリケーションセキュリティはソフトウェアアプリケーションのコードとデータをサイバーセキュリティの脅威や脆弱性から保護することを目的としています。これには、コードをスキャンするツールの使用、コード内の問題の修正、アプリケーション設計時の脅威モデリングなどが含まれ、コードに脆弱性が混入するのを防ぎます。"
+      }
+    },
+    {
+      "segment_id": "86b54d44",
+      "source_content": "This process really happens within phases within the _Secure Software Development Life Cycle (SSDLC)_, which we'll define and explain in more detail in the next page. But, let's talk a little bit about why this is actually important.",
+      "source_content_hash": "545bc158e25d0db9a50d417c4c2343114d3e5170e1c881fadb7b8ca30142c4a8",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "このプロセスは実際には「セキュアソフトウェア開発ライフサイクル（SSDLC）」の各フェーズで行われます。SSDLCの詳細は次のページで定義と説明を行いますが、まずその重要性について少しお話ししましょう。"
+      }
+    },
+    {
+      "segment_id": "d350c018",
+      "source_content": "## Why is Application Security Important?",
+      "source_content_hash": "c61140126cf128d8f79cc5c17107b8613e80769c9cb985970e0debbc11fb3cb5",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## アプリケーションセキュリティの重要性"
+      }
+    },
+    {
+      "segment_id": "1acb9a05",
+      "source_content": "We're in the digital age where information is bought and sold for a price. The thing that I want you to understand is that most of this information is stored behind or within some type of application. I am most certain that you log into a web application to pay your bills or view what's your bank account right? So imagine if that application that you using to view that data and pay those bills is vulnerable. At this point, there is a _way_ for someone to compromise the system, potentially your sensitive information and possibly someone elses, and then use that against you or/and sell it on the dark web.",
+      "source_content_hash": "3e357a2d6c2332652028f80129f2a837ba7ec0840c88cf5a41abd6855f267e76",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "私たちは情報が売買されるデジタル時代に生きています。理解しておくべきことは、これらの情報のほとんどが何らかのアプリケーションの背後や内部に保存されているということです。例えば、Webアプリケーションにログインして請求書の支払いをしたり、銀行口座を確認したりするでしょう？では、そのデータを表示したり支払いを行ったりするアプリケーションに脆弱性があったらどうなるか想像してみてください。その時点で、誰かがシステムを侵害し、あなたの機密情報や他の人の情報を盗み、それを悪用したりダークウェブで売却したりする可能性があります。"
+      }
+    },
+    {
+      "segment_id": "2df4f75f",
+      "source_content": "So, to help bring this home, I want you to understand that applications are often targeted by attackers looking to exploit vulnerabilities for unauthorized access, data theft, or other malicious purposes. If an application is poorly structured, threat modeled, or secured, here are some of the underlying impacts and affects:",
+      "source_content_hash": "44e0e0573f0f3a980a02188e38a80e40577a4913f9983e3f49e02b80a123bd84",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "つまり、アプリケーションは攻撃者にとって脆弱性を悪用して不正アクセス、データ窃取、その他の悪意のある目的を達成するための標的になりやすいのです。アプリケーションの構造が不適切だったり、脅威モデリングやセキュリティ対策が不十分だった場合、以下のような影響や結果が生じる可能性があります:"
+      }
+    },
+    {
+      "segment_id": "8cf6d045",
+      "source_content": "- **Data breaches**: Loss or exposure of sensitive data.\n- **Compliance violations**: Non-compliance with industry regulations like GDPR or HIPAA.\n- **Reputational damage**: Loss of customer trust and market position.",
+      "source_content_hash": "1bb35b035bc9ce96c0f3ab740501e0eb148a34829629a27fdbdd8c0d88593148",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- **データ侵害**: 機密データの喪失または暴露\n- **コンプライアンス違反**: GDPRやHIPAAなどの業界規制への非準拠\n- **評判の毀損**: 顧客の信頼や市場での地位の喪失"
+      }
+    },
+    {
+      "segment_id": "3c36424c",
+      "source_content": "## Common Application Security Vulnerabilities",
+      "source_content_hash": "25fbeb088bd1c0ae228cdb085b5e7c5a2a85cb171db94d36a832cbb8cb516abb",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 一般的なアプリケーションセキュリティの脆弱性"
+      }
+    },
+    {
+      "segment_id": "26524352",
+      "source_content": "There are a list of common security vulnerabilites that change every year. You'll want to ensure that you pay close attention to the [OWASP Top 10](https://owasp.org/www-project-top-ten/) as it is an excellent way to stay up-to-date on the most common vulnerabilities that affect organizations in a **major** way.",
+      "source_content_hash": "c84df5a02df659780e631c11cd2930466489b2e12beabc4ec9ce0e47cca4f7d1",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "一般的なセキュリティ脆弱性のリストは毎年変化します。[OWASP Top 10](https://owasp.org/www-project-top-ten/)に注目することが重要です。これは組織に大きな影響を与える最も一般的な脆弱性を把握するための優れた方法です。"
+      }
+    },
+    {
+      "segment_id": "73ab96a3",
+      "source_content": "However, I've taken the liberty of listing out some of the most common vulnerabilites that I\"ve experienced that are still pretty impactful that you should know:",
+      "source_content_hash": "ab00ecbeca167c3210dfa8366e8f87dcedc143ec785899cc18c6182c26cd1a5e",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "しかし、私が経験した中で今も大きな影響力を持つ最も一般的な脆弱性をいくつか挙げておきます:"
+      }
+    },
+    {
+      "segment_id": "f2c8a42b",
+      "source_content": "1. **SQL Injection**: Malicious input allows attackers to manipulate queries to a database, potentially gaining access to sensitive information.\n2. **Cross-Site Scripting (XSS)**: Attackers inject malicious scripts into web pages, potentially affecting other users.\n3. **Insecure Authentication and Authorization**: Weak or improperly configured access controls can allow unauthorized users to access sensitive data.\n4. **Sensitive Data Exposure**: Inadequate protection of sensitive information, such as encryption or tokenization, can lead to data breaches.",
+      "source_content_hash": "98a54dde755608e4a560b82dd2f724db6913ddef295704575a301e27d0e53b85",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **SQLインジェクション**: 悪意のある入力により、攻撃者がデータベースへのクエリを操作し、機密情報にアクセスする可能性があります。\n2. **クロスサイトスクリプティング（XSS）**: 攻撃者が悪意のあるスクリプトをWebページに注入し、他のユーザーに影響を与える可能性があります。\n3. **不適切な認証と認可**: 弱いまたは不適切に設定されたアクセス制御により、未承認のユーザーが機密データにアクセスする可能性があります。\n4. **機密データの露出**: 暗号化やトークン化などの機密情報の保護が不十分だと、データ侵害につながる可能性があります。"
+      }
+    },
+    {
+      "segment_id": "62a6890b",
+      "source_content": "## SAST and DAST",
+      "source_content_hash": "99a492adad518dde0c61d272e1bfc9f10e0622d292121ebbacfcfaaba62bb27c",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## SASTとDAST"
+      }
+    },
+    {
+      "segment_id": "3cfe6286",
+      "source_content": "There are ways mitigate and eliminate those vulnerabilites by leveraging two key testing methods: **Static Application Security Testing (SAST)** and **Dynamic Application Security Testing (DAST)**. These techniques play an essential role in identifying vulnerabilities within your code or your running application.",
+      "source_content_hash": "81269a12c821b1afdeb62cd875f733ac4ec735fbb036b985277a37e4f141a094",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "これらの脆弱性を軽減または排除する方法として、2つの主要なテスト手法があります: **静的アプリケーションセキュリティテスト（SAST）**と**動的アプリケーションセキュリティテスト（DAST）**です。これらの技術は、コードや実行中のアプリケーション内の脆弱性を特定する上で重要な役割を果たします。"
+      }
+    },
+    {
+      "segment_id": "1042b50d",
+      "source_content": "**Static Application Security Testing (SAST)** is a white-box testing technique that analyzes the application's source code, bytecode, or compiled binaries for vulnerabilities. White-box testing refers to the hacker an understanding of the system prior to testing it for vulnerabilites.",
+      "source_content_hash": "19ac6e9a2198d00276455f9ba92efdaafffb786cc0088503652035d63d2ae033",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "**静的アプリケーションセキュリティテスト（SAST）**は、アプリケーションのソースコード、バイトコード、またはコンパイルされたバイナリを脆弱性について分析するホワイトボックステスト技術です。ホワイトボックステストとは、テスト前にシステムを理解している状態で脆弱性をテストすることを指します。"
+      }
+    },
+    {
+      "segment_id": "aa1e7006",
+      "source_content": "SAST tools scan the code without executing the program, allowing developers to catch potential security issues early in the development process, which is nice. The benefits of SAST are:",
+      "source_content_hash": "9428f9437e1c87fd7046ac33b9a4ad8e005af580add7e8430d4b1f3c97ff1314",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "SASTツールはプログラムを実行せずにコードをスキャンするため、開発者は開発プロセスの早い段階で潜在的なセキュリティ問題を発見できます。SASTの利点は以下の通りです:"
+      }
+    },
+    {
+      "segment_id": "b93ddfac",
+      "source_content": "- **Early Detection**: Since SAST runs on the source code, it can detect security issues during development, even before the code is compiled or deployed.\n- **Comprehensive Coverage**: SAST can analyze all code paths and uncover vulnerabilities such as SQL injection, XSS, buffer overflows, and insecure coding practices.\n- **Automated**: SAST tools can be integrated into the CI/CD pipeline, automatically analyzing code upon each commit or build.",
+      "source_content_hash": "3c64070a7dce9a041a1430d2649411b34cc4cd3ca3530593b3ae4f91ce5962f9",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- **早期検出**: SASTはソースコード上で動作するため、コードがコンパイルまたはデプロイされる前の開発段階でセキュリティ問題を検出できます。\n- **包括的なカバレッジ**: SASTはすべてのコードパスを分析し、SQLインジェクション、XSS、バッファオーバーフロー、安全でないコーディングプラクティスなどの脆弱性を発見できます。\n- **自動化**: SASTツールはCI/CDパイプラインに統合可能で、各コミットやビルド時に自動的にコードを分析します。"
+      }
+    },
+    {
+      "segment_id": "c504c207",
+      "source_content": "On the other hand, **Dynamic Application Security Testing (DAST)** is a black-box testing technique that examines the application's running state by simulating real-world attacks. Black-box testing refers to the tester not having any knowledge about the application or product, which is what most pentesters or hackers do anyway.",
+      "source_content_hash": "9941bf4de553f62209fa4e73c4b8f6ecf3ff827ce8399cbfacfcb0156bdc8a26",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "一方、**Dynamic Application Security Testing (DAST)** はブラックボックステスト手法で、アプリケーションの稼働状態を実際の攻撃をシミュレートして検査します。ブラックボックステストとは、テスターがアプリケーションや製品について事前知識を持たない状態で行うテストのことで、多くのペンテスターやハッカーが実際に行う方法です。"
+      }
+    },
+    {
+      "segment_id": "98d26038",
+      "source_content": "DAST tools test applications in their operational environments (e.g., web apps, APIs) to find vulnerabilities that may only become apparent during runtime, which can give you a very _accurate_ assessment of what is truly components of your app is truly vulnerable. Here are some of the benefits of DAST:",
+      "source_content_hash": "bc2fd5874982b455bd7cde411761ccb958d4e03da6765b186d9347ccdd4a2a7d",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "DASTツールはアプリケーションをその動作環境（例：Webアプリ、API）でテストし、ランタイム時にのみ明らかになる脆弱性を発見します。これにより、アプリのどのコンポーネントが実際に脆弱であるかを非常に正確に評価できます。DASTの利点は以下の通りです："
+      }
+    },
+    {
+      "segment_id": "c94a9c0e",
+      "source_content": "- **Runtime Detection**: Since DAST tests a running application, it can catch vulnerabilities like misconfigurations, authentication issues, and other flaws that arise when the application is in use.\n- **No Access to Source Code**: DAST doesn’t need access to the application’s code, making it effective for identifying vulnerabilities in third-party applications and APIs.\n- **Real-World Simulation**: DAST mimics the behavior of a real-world attacker, identifying potential attack vectors from an external perspective.",
+      "source_content_hash": "915a4c6120fd3eb651485c205a9638d9081ac328591a11a9e0d188a72f65b35a",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- **ランタイム検出**: DASTは動作中のアプリケーションをテストするため、設定ミス、認証問題など、アプリケーション使用時に発生する欠陥を捕捉できます。\n- **ソースコード不要**: DASTはアプリケーションのコードへのアクセスを必要としないため、サードパーティ製アプリケーションやAPIの脆弱性特定に有効です。\n- **実世界シミュレーション**: DASTは実際の攻撃者の挙動を模倣し、外部視点からの潜在的な攻撃経路を特定します。"
+      }
+    },
+    {
+      "segment_id": "23dfb152",
+      "source_content": "While SAST focuses on finding vulnerabilities in the code itself, DAST assesses how the application performs once deployed. Together, they provide a comprehensive approach to security testing:",
+      "source_content_hash": "dc1bcc94f95220e46ff1b2f6acbbb4a883ac176238cb17369c43584f14ef5aca",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "SASTがコード自体の脆弱性発見に焦点を当てるのに対し、DASTはデプロイ後のアプリケーションパフォーマンスを評価します。両者を組み合わせることで包括的なセキュリティテストが可能です："
+      }
+    },
+    {
+      "segment_id": "3df4f066",
+      "source_content": "- **SAST**: Ideal for early-stage detection, scanning static code and catching issues before the application is deployed.\n- **DAST**: Crucial for identifying vulnerabilities that can only be found in the operational environment, such as misconfigurations or runtime-specific issues.",
+      "source_content_hash": "34a204e3abf7064ed5c666bee90695241127542d1fee616e12a0de59665f3ad4",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- **SAST**: 早期段階での検出に最適で、静的コードをスキャンしアプリケーションがデプロイされる前に問題を捕捉します。\n- **DAST**: 設定ミスやランタイム固有の問題など、動作環境でしか見つからない脆弱性の特定に不可欠です。"
+      }
+    },
+    {
+      "segment_id": "79ad944d",
+      "source_content": "By incorporating both SAST and DAST into the SDLC, you ensure that security testing occurs at both the code level and the operational level, minimizing the risk of vulnerabilities slipping through the cracks.",
+      "source_content_hash": "2f8f304ebd75a1acee6087b96f2b82aa2d16a7f65b20ec8ccf0c1b058b695455",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "SASTとDASTの両方をSDLCに組み込むことで、コードレベルと運用レベルの両方でセキュリティテストが実施され、脆弱性が見過ごされるリスクを最小限に抑えられます。"
+      }
+    },
+    {
+      "segment_id": "8c6d7ee7",
+      "source_content": "## Tools and Projects",
+      "source_content_hash": "ffd27ad007d1696546232d1a42ebe68facf50fae59e75731ec174edb2645838a",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## ツールとプロジェクト"
+      }
+    },
+    {
+      "segment_id": "06e24cc0",
+      "source_content": "There are a plethora of tools that you should play around with. Some of these will really test your application penetration testing skills and help you better understand how these vulnerabilities work. I've listed them all out in a table below:",
+      "source_content_hash": "c67961ba2be897d4eb6e81f21264b74ec68c73c839dee4128595e22616540bf7",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "試すべきツールは数多く存在します。これらの中にはアプリケーションペネトレーションテストスキルを真に試し、これらの脆弱性がどのように機能するかをより深く理解するのに役立つものもあります。以下の表にそれらをまとめました："
+      }
+    },
+    {
+      "segment_id": "24b230ee",
+      "source_content": "| **Project Name**                                                                      | **Description**                                                                                                           |\n| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |\n| [OWASP Juice Shop](https://owasp.org/www-project-juice-shop/)                         | A vulnerable web app for practicing web security testing with a focus on OWASP Top 10 vulnerabilities.                    |\n| [Damn Vulnerable Web Application (DVWA)](https://github.com/digininja/DVWA)           | PHP/MySQL-based web app designed for practicing penetration testing skills.                                               |\n| [Vulnerable Node.js Application (VulnNode)](https://github.com/cr0hn/vulnerable-node) | A vulnerable Node.js application for practicing JavaScript/Node.js specific security testing.                             |\n| [Hackazon](https://github.com/rapid7/hackazon)                                        | An e-commerce platform that simulates a real-world site with multiple security vulnerabilities.                           |\n| [Mutillidae II](https://github.com/webpwnized/mutillidae)                             | A free, open-source vulnerable web application that covers over 40 vulnerabilities for testing.                           |\n| [bWAPP](http://www.itsecgames.com/)                                                   | A PHP-based vulnerable app with over 100 web vulnerabilities, covering OWASP Top 10 and beyond.                           |\n| [OWASP WebGoat](https://owasp.org/www-project-webgoat/)                               | An insecure web application designed for practicing web security vulnerabilities and solutions.                           |\n| [NodeGoat](https://github.com/OWASP/NodeGoat)                                         | A deliberately insecure Node.js app, focusing on vulnerabilities specific to JavaScript and Node.js.                      |\n| [OWASP Security Shepherd](https://owasp.org/www-project-security-shepherd/)           | A platform designed for learning security principles with a capture-the-flag format for both beginner and advanced users. |",
+      "source_content_hash": "1e9d3e9d220693e8b7349619943f583f10f6709e9260c2ebc84c62f2d6c06a35",
+      "node_type": "table",
+      "translatable": false,
+      "translations": {}
+    },
+    {
+      "segment_id": "8a9b6c26",
+      "source_content": "## Additional Resources",
+      "source_content_hash": "10f87178f164c035ecfa7770143db68c2c8a7dfbbddfd5278bdeb0733b121288",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 追加リソース"
+      }
+    },
+    {
+      "segment_id": "a1fa5396",
+      "source_content": "To help you better understand application security, here are some resources that I've hand picked out for you to review and look at:",
+      "source_content_hash": "a40f760b947f9d5c38e7b09432209ae6764a09cd34b005c130dbd3ab054d5784",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "アプリケーションセキュリティをより深く理解するために、私が厳選した以下のリソースを参照してください："
+      }
+    },
+    {
+      "segment_id": "1c598ecd",
+      "source_content": "### Books",
+      "source_content_hash": "344b2af65af2d2dbb34da9412ec763f8a8e36a23588aa8fc42195ea9ec6a23bf",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "### 書籍"
+      }
+    },
+    {
+      "segment_id": "917cc3d5",
+      "source_content": "| **Book Title**                                                               | **Author**                     | **Link**                          |\n| ---------------------------------------------------------------------------- | ------------------------------ | --------------------------------- |\n| Alice and Bob Learn Application Security                                     | Tanya Janca                    | [Amazon](https://a.co/d/awZU6Mb)  |\n| The Web Application Hacker's Handbook: Finding and Exploiting Security Flaws | Dafydd Stuttard & Marcus Pinto | [Amazon](https://amzn.to/4fJwQPU) |\n| Hacking APIs: Breaking Web Application Programming Interfaces                | Corey J. Ball                  | [Amazon](https://amzn.to/4fOGHnK) |",
+      "source_content_hash": "75fafd43ca5e2845b9ae53613717ac7fc7367e0f50934dbd28b2206b495086e7",
+      "node_type": "table",
+      "translatable": false,
+      "translations": {}
+    },
+    {
+      "segment_id": "f6b04a59",
+      "source_content": "### YouTube Videos",
+      "source_content_hash": "22295a0af76e9b6a1795c9b7fa092594c5d699f523fa43c1325148212053b768",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "### YouTube動画"
+      }
+    },
+    {
+      "segment_id": "5baf88e2",
+      "source_content": "#### Application Security 101 - What you need to know in 8 minutes",
+      "source_content_hash": "6fa70bf45583d27abd391a2ab19ac7be52217c1ad5bc17f88ae0efdf5b8f8368",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "#### アプリケーションセキュリティ101 - 8分で知るべきこと"
+      }
+    },
+    {
+      "segment_id": "f9d6f2bf",
+      "source_content": "<iframe\n  width=\"100%\"\n  height=\"500\"\n  src=\"https://www.youtube.com/embed/Dp019cWu1cg?si=AHNFdEYNPoa4XGWZ\"\n  frameborder=\"0\"\n  allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\"\n  allowfullscreen\n></iframe>",
+      "source_content_hash": "7ce03053ae08f08bd9c368adfc13065c0fa52ba53dc4aee1a010d9f4513435e0",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {}
+    },
+    {
+      "segment_id": "42a5832e",
+      "source_content": "#### What is SAST and DAST?",
+      "source_content_hash": "d48856f0fc326d236691bf5bbee8902176b305e39438b6a39c8a021ff5aa2528",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "#### SASTとDASTとは？"
+      }
+    },
+    {
+      "segment_id": "8850c5e2",
+      "source_content": "<iframe\n  width=\"100%\"\n  height=\"500\"\n  src=\"https://www.youtube.com/embed/Nz7WCh9HQpo?si=jlloCTA87MRipc0b\"\n  frameborder=\"0\"\n  allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\"\n  allowfullscreen\n></iframe>",
+      "source_content_hash": "9b901e2b5846b647acc3c13cbf37830dbaea616c6349e30269f41e1714b9f2fd",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {}
+    },
+    {
+      "segment_id": "f8614e13",
+      "source_content": "### Articles",
+      "source_content_hash": "5b133b70489bd1219990b8121e100e62dc2bcf347d6ece2f7e9932f103505276",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "### 記事"
+      }
+    },
+    {
+      "segment_id": "396efb28",
+      "source_content": "If you're into blogs and want to dive more deeply into Application Security, check out the ones below:",
+      "source_content_hash": "2d91c51fe50866c3a59855b26e79bf97ef4d801ebcc0265a28336ebba7160ebe",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "ブログを好み、アプリケーションセキュリティについてさらに深く掘り下げたい場合は、以下の記事をチェックしてください："
+      }
+    },
+    {
+      "segment_id": "10e4f9ca",
+      "source_content": "- https://www.crowdstrike.com/en-us/cybersecurity-101/application-security/\n- https://www.ibm.com/topics/application-security\n- https://medium.com/googledeveloperseurope/what-is-application-security-all-you-need-to-know-guide-blog-3ceee69deb11",
+      "source_content_hash": "6f5f1f14bb30265ceff4abdb9663b859fbb648f2952a5d94fa7347fc9f7766dc",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- https://www.crowdstrike.com/en-us/cybersecurity-101/application-security/\n- https://www.ibm.com/topics/application-security\n- https://medium.com/googledeveloperseurope/what-is-application-security-all-you-need-to-know-guide-blog-3ceee69deb11"
+      }
+    },
+    {
+      "segment_id": "a22bae45",
+      "source_content": "<!-- Links -->",
+      "source_content_hash": "25f54153c0d0e0dac3bb699044aa9b88a8a71752b65c898e921cc72c327d285a",
+      "node_type": "comment",
+      "translatable": false,
+      "translations": {}
+    },
+    {
+      "segment_id": "82c0daea",
+      "source_content": "[Damien Burks]: https://www.youtube.com/@damienjburks",
+      "source_content_hash": "7097815c6ac6c02cff2091f30ccf75b895bb53b20eda52fea9f0f673e9d0ed23",
+      "node_type": "definition",
+      "translatable": true,
+      "translations": {
+        "ja": "[Damien Burks]: https://www.youtube.com/@damienjburks"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/blueprint/what-is-application-security.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.154390+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "a3325abd0dabdae116f2e38da00e3cbbcb22e46259f9d1941ae0646a63011623"
+  }
+}

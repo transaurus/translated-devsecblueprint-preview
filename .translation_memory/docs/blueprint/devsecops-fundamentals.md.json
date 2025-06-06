@@ -1,0 +1,412 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/blueprint/devsecops-fundamentals.md",
+  "source_file_content_hash": "bac1fca13efc0ab4712bd27c9dd5b93163175e0f642a22d609ccbd893465c477",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: devsecops-fundamentals\ntitle: DevSecOps Fundamentals\ndescription: Defining and explaining DevSecOps at a high-level\nsidebar_position: 4\n---",
+      "source_content_hash": "68a234499d4f92509325770a6875ea789d81b9477fd184b9573056a358eaf1fe",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "3fbbcc07",
+      "source_content": "Author: [Damien Burks]",
+      "source_content_hash": "5ea0b7dea762d9db1deb5a12bbe8e41ef43190e41291691bb9f75859ac1ac1bf",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "著者: [Damien Burks]"
+      }
+    },
+    {
+      "segment_id": "7e5c5a39",
+      "source_content": "OKAY! You've reach my favorite section of the blueprint - _What is DevSecOps?_",
+      "source_content_hash": "2017038a071bf941e99811dd5f8efa348101d329073effb68e1ea6a340dafc8b",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "OK！あなたはこのブループリントの私のお気に入りのセクションに到達しました - _DevSecOpsとは何か？_"
+      }
+    },
+    {
+      "segment_id": "8d66f911",
+      "source_content": "At this point, you should have a fundamental understanding all the concept I've listed below:",
+      "source_content_hash": "cdbb4c6eeedcaf653409616229936565acfed49a7d34e78cc7379bf414eeb28e",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "この時点で、以下の概念について基本的な理解を持っているはずです："
+      }
+    },
+    {
+      "segment_id": "9e760345",
+      "source_content": "1. DevOps\n1. Version Control System(s)\n1. Programming\n1. Linux/Bash Scripting\n1. CI/CD\n1. Application Security\n1. the Secure Software Development Life Cycle (SSDLC)... and the Software Development Life Cycle (SDLC)",
+      "source_content_hash": "d6e91235eefdd3e39a8d397168b5d0793cf5db76efd9b3c81c3da27225719087",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. DevOps\n1. バージョン管理システム\n1. プログラミング\n1. Linux/Bashスクリプティング\n1. CI/CD\n1. アプリケーションセキュリティ\n1. セキュアソフトウェア開発ライフサイクル（SSDLC）...およびソフトウェア開発ライフサイクル（SDLC）"
+      }
+    },
+    {
+      "segment_id": "2df4f75f",
+      "source_content": "If you do, then you're free to move forward. If you haven't, then I **HIGHLY** suggest you go back, read, experiment, and try to play around with the projects and tools.",
+      "source_content_hash": "5fc23f0d6002d4efb1b7116fa5776c66745356fec01c72e4ce84e68db86a450f",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "もし理解しているなら、先に進んで構いません。もし理解していないなら、**強く**戻って読み、実験し、プロジェクトやツールを試すことをお勧めします。"
+      }
+    },
+    {
+      "segment_id": "95b38f97",
+      "source_content": "## Overview",
+      "source_content_hash": "7337f3d0aa29e9a82b8f1650b743a98eef90794631fa763a319686e69c546821",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 概要"
+      }
+    },
+    {
+      "segment_id": "ccc88b4c",
+      "source_content": "According to [RedHat](https://www.redhat.com/en/topics/devops/what-is-devsecops), _DevSecOps stands for development, security, and operations. It's an approach to culture, automation, and platform design that integrates security as a shared responsibility throughout the entire IT lifecycle._",
+      "source_content_hash": "4936cb13b105440e1f5a2bd372f86548adede7f49fd6691b05e466e59ded4740",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "[RedHat](https://www.redhat.com/en/topics/devops/what-is-devsecops)によると、_DevSecOpsは開発（development）、セキュリティ（security）、運用（operations）を意味します。これは、セキュリティをITライフサイクル全体を通じて共有責任として統合する、文化、自動化、プラットフォーム設計へのアプローチです。_"
+      }
+    },
+    {
+      "segment_id": "d9172fa4",
+      "source_content": "The beautiful thing about this is that it extends the principles of DevOps (collaboration, automation, and continuous delivery) by embedding security into every phase of the software development lifecycle (SDLC), which will be covered later.",
+      "source_content_hash": "f14c4174a0b0effa27f5fe261ef5f06a8e74639f3b85148bcc6f0b69431a7091",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "これの素晴らしい点は、DevOpsの原則（協力、自動化、継続的デリバリー）を拡張し、セキュリティをソフトウェア開発ライフサイクル（SDLC）のすべてのフェーズに組み込むことです。これについては後ほど説明します。"
+      }
+    },
+    {
+      "segment_id": "26524352",
+      "source_content": "Ultimately, the goal is to shift security \"left,\" or earlier, in the SDLC, ensuring that vulnerabilities are identified and mitigated before they can become critical issues.",
+      "source_content_hash": "47c3dc2f700f4a8291aef20a6ee6a47efd6333c7f93c056f1bd6b1551d80760b",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "最終的な目標は、セキュリティをSDLCの「左」、つまりより早い段階にシフトさせ、脆弱性が重大な問題になる前に特定および緩和されるようにすることです。"
+      }
+    },
+    {
+      "segment_id": "73ab96a3",
+      "source_content": "![DevSecOps Model](/img/blueprint/devsecops_model.png)",
+      "source_content_hash": "8778b317744a5866b9bc41d27f18f970ab73c70dbbe395e4cf1d2ea65d10dd18",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "![DevSecOpsモデル](/img/blueprint/devsecops_model.png)"
+      }
+    },
+    {
+      "segment_id": "35042e83",
+      "source_content": "> Image Source: [Atlassian | DevSecOps Tools](https://www.atlassian.com/devops/devops-tools/devsecops-tools)",
+      "source_content_hash": "d4378912cdafff850fee6d4c9f1376acae6d1a4be01f7d7c395789a963e025a5",
+      "node_type": "blockquote",
+      "translatable": true,
+      "translations": {
+        "ja": "> 画像出典: [Atlassian | DevSecOpsツール](https://www.atlassian.com/devops/devops-tools/devsecops-tools)"
+      }
+    },
+    {
+      "segment_id": "517051a7",
+      "source_content": "Over time, DevSecOps has evolved as a response to the limitations of DevOps, where security was often an afterthought. It emerged from the need to include security in the agile and continuous delivery practices of DevOps, which allows organizations to reduce the risk of security vulnerabilities and ensure compliance with industry regulations.",
+      "source_content_hash": "a1c70ccc4081fcf5e758826b9c4c28f004669cbf222199bee6f62edcd93e92a9",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "時が経つにつれ、DevSecOpsはDevOpsの限界に対する応答として進化してきました。DevOpsではセキュリティが後付けになることが多かったためです。DevSecOpsは、DevOpsのアジャイルおよび継続的デリバリーのプラクティスにセキュリティを含める必要性から生まれ、組織がセキュリティ脆弱性のリスクを減らし、業界規制へのコンプライアンスを確保できるようにします。"
+      }
+    },
+    {
+      "segment_id": "80d9e13c",
+      "source_content": "### Why is it important?",
+      "source_content_hash": "30617e0b41c48a09bc51af4d34840a899dd96a7fdf051a96d58b80e572589d4f",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "### なぜ重要なのか？"
+      }
+    },
+    {
+      "segment_id": "33331f27",
+      "source_content": "Well, traditional security practices often creßate bottlenecks in the fast-paced world of DevOps, as they typically occur at the end of the development cycle. DevSecOps addresses this by incorporating security measures from the start, enabling faster and more secure software releases.",
+      "source_content_hash": "873daf2080af254fa8458ff51627eb6790dacdd9fa4db680b06ba9099045dc91",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "従来のセキュリティプラクティスは、DevOpsの高速な世界においてボトルネックを生み出すことがよくあります。なぜなら、それらは通常開発サイクルの終わりに行われるからです。DevSecOpsはこれを解決し、セキュリティ対策を最初から組み込むことで、より速く、より安全なソフトウェアリリースを可能にします。"
+      }
+    },
+    {
+      "segment_id": "8d04259b",
+      "source_content": "## Core Principles of DevSecOps",
+      "source_content_hash": "b6c02ebe9f335abdfc48f07dbc47ff6ebb49523d993f0b9dcc12fee3f968f520",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## DevSecOpsのコア原則"
+      }
+    },
+    {
+      "segment_id": "95e9ba12",
+      "source_content": "To get a better understanding of DevSecOps as a whole, you need to understand the core principles of DevSecOps. I've listed the **four** key principals that you need to understand below:",
+      "source_content_hash": "1cfaf42017f73fe55c01990a9c76d4162c357c92dde7bd6261ab0c749d78794e",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "DevSecOps全体をよりよく理解するためには、DevSecOpsのコア原則を理解する必要があります。以下に理解すべき**4つ**の主要な原則を挙げます："
+      }
+    },
+    {
+      "segment_id": "824626b3",
+      "source_content": "1. **Integration of Security**\n\n   Security is integrated into every phase and sub-phase of the SDLC. In reality, the SSDLC is a precursor of DevSecOps. This holistic approach ensures that **security is NOT an afterthought** but a fundamental aspect of the development process.\n\n2. **Automation**\n\n   Automation is crucial in DevSecOps to ensure that security checks are consistently applied without _**severly**_ impacting the developer experience. Extra _emphasis_ on minimizing the impact on the developer experience. In addition, automated security tests, such as static code analysis and vulnerability scans, can and should be integrated into CI/CD pipelines to catch issues early in the development lifecycle.\n\n3. **Collaboration**\n\n   DevSecOps fosters a culture of collaboration among development, security, and operations teams. This cultural movement breaks down silos and encourages a shared responsibility between the developers, operations, and security team, leading to creation of a very cohesive and effective strategy for secure software development and deployment.\n\n4. **Continuous Feedback & Monitoring**\n\n   Continuous feedback loops and monitoring allows for real-time insights into the security posture of the application and infrastructure. This enables teams to quickly identify and remediate security issues as they arise.",
+      "source_content_hash": "3234c934472ba6dc9bcf08dda9eddea4480d83c71cd7fe6f8763e0de776e4f1e",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **セキュリティの統合**\n\n   セキュリティはSDLCのすべてのフェーズおよびサブフェーズに統合されます。実際、SSDLCはDevSecOpsの前身です。この包括的なアプローチにより、**セキュリティが後付けではない**、開発プロセスの基本的な側面であることが保証されます。\n\n2. **自動化**\n\n   自動化はDevSecOpsにおいて重要であり、セキュリティチェックが開発者エクスペリエンスに_**深刻な**_影響を与えずに一貫して適用されるようにします。開発者エクスペリエンスへの影響を最小限に抑えることに特に重点を置いています。さらに、静的コード分析や脆弱性スキャンなどの自動化されたセキュリティテストをCI/CDパイプラインに統合することで、開発ライフサイクルの早い段階で問題を検出できます。\n\n3. **協力**\n\n   DevSecOpsは、開発、セキュリティ、運用チーム間の協力文化を促進します。この文化的な動きはサイロを打破し、開発者、運用、セキュリティチーム間の共有責任を奨励し、安全なソフトウェア開発とデプロイのための非常に結束力のある効果的な戦略の作成につながります。\n\n4. **継続的なフィードバックと監視**\n\n   継続的なフィードバックループと監視により、アプリケーションとインフラのセキュリティ状況に関するリアルタイムの洞察が得られます。これにより、チームはセキュリティ問題が発生した際に迅速に特定し、修復することができます。"
+      }
+    },
+    {
+      "segment_id": "c431704b",
+      "source_content": "## Additional Resources",
+      "source_content_hash": "10f87178f164c035ecfa7770143db68c2c8a7dfbbddfd5278bdeb0733b121288",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 追加リソース"
+      }
+    },
+    {
+      "segment_id": "79ad944d",
+      "source_content": "Before you move onto the next section, here are some of the various resources that I recommend you look into, such as certifications, books to read, and YouTube videos, etc:",
+      "source_content_hash": "b6dcf713378876dcc23607a2b770043f8bb201909ae8945176db5fe5ce78c512",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "次のセクションに進む前に、認定資格、読むべき書籍、YouTube動画など、私がお勧めするさまざまなリソースをいくつか紹介します："
+      }
+    },
+    {
+      "segment_id": "8c6d7ee7",
+      "source_content": "### Books",
+      "source_content_hash": "344b2af65af2d2dbb34da9412ec763f8a8e36a23588aa8fc42195ea9ec6a23bf",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "### 書籍"
+      }
+    },
+    {
+      "segment_id": "ddbffa81",
+      "source_content": "| **Book Name**                                                                                                           | **Author**                                            | **Link**                          |\n| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- | --------------------------------- |\n| The Phoenix Project                                                                                                     | Gene Kim, Kevin Behr, and George Spafford             | [Amazon](https://a.co/d/7emFNLg)  |\n| Continuous Delivery                                                                                                     | Jez Humble and David Farley                           | [Amazon](https://a.co/d/0ixNvOq)  |\n| The DevOps Handbook                                                                                                     | Gene Kim, Patrick Debois, John Willis, and Jez Humble | [Amazon](https://a.co/d/3NLl4hM)  |\n| Securing DevOps                                                                                                         | Julien Vehent                                         | [Amazon](https://a.co/d/6Fgtzin)  |\n| DevSecOps: A leader’s guide to producing secure software without compromising flow, feedback and continuous improvement | Glenn Wilson                                          | [Amazon](https://amzn.to/4fsfMye) |\n| Cloud Native DevOps with Kubernetes                                                                                     | John Arundel and Justin Domingus                      | [Amazon](https://a.co/d/2fGdXaE)  |\n| Infrastructure as Code                                                                                                  | Kief Morris                                           | [Amazon](https://a.co/d/cINH2dd)  |\n| Kubernetes Security                                                                                                     | Liz Rice                                              | [Amazon](https://a.co/d/2kLIXF9)  |\n| Securing DevOps                                                                                                         | Julien Vehent                                         | [Amazon](https://a.co/d/6Fgtzin)  |",
+      "source_content_hash": "1131401de85e72ad19bf0ea74524f8d7ec067a2cf669d151c3915941c8ee563e",
+      "node_type": "table",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_ddbffa81"
+      }
+    },
+    {
+      "segment_id": "2fd0be2a",
+      "source_content": "### Articles",
+      "source_content_hash": "5b133b70489bd1219990b8121e100e62dc2bcf347d6ece2f7e9932f103505276",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "### 記事"
+      }
+    },
+    {
+      "segment_id": "c0ea80dd",
+      "source_content": "- https://developer.ibm.com/articles/devsecops-what-and-why/\n- https://www.microsoft.com/en-us/security/business/security-101/what-is-devsecops\n- https://www.redhat.com/en/topics/devops/what-is-devsecops\n- https://aws.amazon.com/compliance/shared-responsibility-model/",
+      "source_content_hash": "b11810502c74d5ead5ec54ff3ceb5a18319362ac47792c5206ce01176ffba456",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- https://developer.ibm.com/articles/devsecops-what-and-why/\n- https://www.microsoft.com/en-us/security/business/security-101/what-is-devsecops\n- https://www.redhat.com/en/topics/devops/what-is-devsecops\n- https://aws.amazon.com/compliance/shared-responsibility-model/"
+      }
+    },
+    {
+      "segment_id": "759d12dd",
+      "source_content": "### Certifications",
+      "source_content_hash": "f402136f0992fb4870124a94b65bebe36554c7ca01fe9fc971abecc702c9bc78",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "### 認定資格"
+      }
+    },
+    {
+      "segment_id": "74dd7937",
+      "source_content": "So if I had to recommend certifications that you should get in order to transition into DevSecOps, here are the list of things that I would recommend (not in a specific order):",
+      "source_content_hash": "e5a495437c93a2ad1b33930d0a425611ba63c3ef5bc2310484344112284a2105",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "DevSecOpsへの移行を目指す方におすすめの認定資格を、特に順番はありませんが以下にリストアップします："
+      }
+    },
+    {
+      "segment_id": "9be2808c",
+      "source_content": "| Name                                                                                                                           | Level        |\n| ------------------------------------------------------------------------------------------------------------------------------ | ------------ |\n| [CompTIA Security+](https://www.comptia.org/certifications/security)                                                           | Beginner     |\n| [CompTIA Linux+](https://www.comptia.org/certifications/linux)                                                                 | Beginner     |\n| [Certified Kubernetes Administrator (CKA)](https://www.cncf.io/certification/cka/)                                             | Intermediate |\n| [Certified Kubernetes Application Developer (CKAD)](https://www.cncf.io/certification/ckad/)                                   | Intermediate |\n| [Certified DevSecOps Professional (CDP)](https://www.practical-devsecops.com/certifications/certified-devsecops-professional/) | Intermediate |\n| [Certified DevSecOps Expert (CDE)](https://www.practical-devsecops.com/certifications/certified-devsecops-expert/)             | Expert       |\n| [ISC^2 CSSLP](https://www.isc2.org/Certifications/CSSLP)                                                                       | Expert       |",
+      "source_content_hash": "e97ef9f2bf68da1e564ad3b829c23bd0c11d1721d4a518c83656cccb220bb169",
+      "node_type": "table",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_9be2808c"
+      }
+    },
+    {
+      "segment_id": "25212439",
+      "source_content": "If you're looking to specialize in Cloud, then you'll want to look at these:",
+      "source_content_hash": "f2fd18c55a6a830090a67668c75979858e2d66c443f076eb1a20cde9852acd66",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "クラウドに特化したい場合は、以下の資格を検討すると良いでしょう："
+      }
+    },
+    {
+      "segment_id": "baeab777",
+      "source_content": "| **Name**                                                                                                                            | **Level**    |\n| ----------------------------------------------------------------------------------------------------------------------------------- | ------------ |\n| [AWS Certified Security – Specialty](https://aws.amazon.com/certification/certified-security-specialty/)                            | Intermediate |\n| [Microsoft Certified: Azure Security Engineer Associate](https://learn.microsoft.com/en-us/certifications/azure-security-engineer/) | Intermediate |\n| [Google Professional Cloud Security Engineer](https://cloud.google.com/certification/cloud-security-engineer)                       | Intermediate |",
+      "source_content_hash": "4100a592a4c9abee201b9bf7f40903d38e61b6d9ee6cb7f21382440416da1d4d",
+      "node_type": "table",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_baeab777"
+      }
+    },
+    {
+      "segment_id": "f947c8e4",
+      "source_content": "### YouTube Videos",
+      "source_content_hash": "22295a0af76e9b6a1795c9b7fa092594c5d699f523fa43c1325148212053b768",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "### YouTube動画"
+      }
+    },
+    {
+      "segment_id": "d1f76d04",
+      "source_content": "#### What is DevSecOps? DevSecOps explained in 8 Mins",
+      "source_content_hash": "e1232aea97a536d4625fc9d8d01e9ca85e50897b42443da83c062e0db454406b",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "#### DevSecOpsとは？8分で解説"
+      }
+    },
+    {
+      "segment_id": "65095059",
+      "source_content": "<iframe\n  width=\"100%\"\n  height=\"500\"\n  src=\"https://www.youtube.com/embed/nrhxNNH5lt0?si=OC_5Tq6pBROq7DyC\"\n  frameborder=\"0\"\n  allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\"\n  allowfullscreen\n></iframe>",
+      "source_content_hash": "318068f8c1653601baf69b173d9403aab48e2940a814313befda7b4005917062",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_65095059"
+      }
+    },
+    {
+      "segment_id": "cbd60296",
+      "source_content": "#### What is DevSecOps? DevSecOps explained in 7 Mins",
+      "source_content_hash": "54af5ddc9094bd481c690b47590e3d4b404f3aa9f1da02f4d67f5e23bb1d442b",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "#### DevSecOpsとは？7分で解説"
+      }
+    },
+    {
+      "segment_id": "d4059883",
+      "source_content": "<iframe\n  width=\"100%\"\n  height=\"500\"\n  src=\"https://www.youtube.com/embed/VLEF6MU0Wfg?si=dYktpIAnAej9Z2A7\"\n  frameborder=\"0\"\n  allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\"\n  allowfullscreen\n></iframe>",
+      "source_content_hash": "1bf2fbaef774a49e7243769af3c12b975e56ffa8ed62ccc4a0f76db8512e8535",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_d4059883"
+      }
+    },
+    {
+      "segment_id": "c766290e",
+      "source_content": "#### Accelerate Your DevSecOps Journey: 5 Key Skills in 5 Minutes",
+      "source_content_hash": "e64edfd380b6689faadcc7497f2050e976ea465241b61120cb8c565d3c521f3a",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "#### DevSecOpsの旅を加速：5分で学ぶ5つの重要なスキル"
+      }
+    },
+    {
+      "segment_id": "448a0039",
+      "source_content": "<iframe\n  width=\"100%\"\n  height=\"500\"\n  src=\"https://www.youtube.com/embed/7J9rjMbPZm4?si=FuH6jox0BE57Ip-n\"\n  frameborder=\"0\"\n  allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\"\n  allowfullscreen\n></iframe>",
+      "source_content_hash": "2747de22799b4a783939f5c983ac1362a94d7616279e0c26d6632c02cfb63805",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_448a0039"
+      }
+    },
+    {
+      "segment_id": "0d5321b7",
+      "source_content": "#### What is DevSecOps? - Hackitect's playground",
+      "source_content_hash": "2fccc6c61d0474f2868276f6e76339886e51f557383df3ff9d77be6a23687121",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "#### DevSecOpsとは？ - Hackitect's playground"
+      }
+    },
+    {
+      "segment_id": "dc7a93fa",
+      "source_content": "<iframe\n    width=\"100%\"\n    height=\"400\"\n    src=\"https://www.youtube.com/embed/DOlE7691Q3o?si=oBUjzHIQawYkvTZJ\"\n    frameborder=\"0\"\n    allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\"\n    allowfullscreen\n></iframe>",
+      "source_content_hash": "96da2c21b31b8c152038cd13aa55495a874ac9e6f429e6e3cabdb9e41c96d6b4",
+      "node_type": "mdxJsxFlowElement",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_dc7a93fa"
+      }
+    },
+    {
+      "segment_id": "d24ae29a",
+      "source_content": "<!-- Links -->",
+      "source_content_hash": "25f54153c0d0e0dac3bb699044aa9b88a8a71752b65c898e921cc72c327d285a",
+      "node_type": "comment",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_d24ae29a"
+      }
+    },
+    {
+      "segment_id": "d0e55c7e",
+      "source_content": "[Damien Burks]: https://www.youtube.com/@damienjburks",
+      "source_content_hash": "7097815c6ac6c02cff2091f30ccf75b895bb53b20eda52fea9f0f673e9d0ed23",
+      "node_type": "definition",
+      "translatable": true,
+      "translations": {
+        "ja": "[Damien Burks]: https://www.youtube.com/@damienjburks"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/blueprint/devsecops-fundamentals.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.147800+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "bac1fca13efc0ab4712bd27c9dd5b93163175e0f642a22d609ccbd893465c477"
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/projects/devsecops-pipeline-aws/setup/setup-github-repos.md",
+  "source_file_content_hash": "9b1cbde4a4cd4e421659392100f91b142e36a9c33bcb77748356d6335e05c6bd",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: setup-github-repos\ntitle: Setting Up GitHub Repositories\nsidebar_position: 1\n---",
+      "source_content_hash": "7c61d1e66226187d814268f273ef3f85114af235b408506acb735cf739e65c48",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "a703643c",
+      "source_content": "## Overview",
+      "source_content_hash": "7337f3d0aa29e9a82b8f1650b743a98eef90794631fa763a319686e69c546821",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 概要"
+      }
+    },
+    {
+      "segment_id": "53eaf0e1",
+      "source_content": "This guide will walk you through the process of setting up GitHub repositories in your personal account. If you're unfamiliar with GitHub, it is a web-based platform that leverages Git, a version control system, to help developers manage and track changes in their code. It also facilitates collaboration on projects, tracks revisions, and enables code contributions from anywhere in the world. For more details, check out this article named [introduction to GitHub on GeeksforGeeks](https://www.geeksforgeeks.org/introduction-to-github/). Plus, GitHub offers free accounts, which is always a bonus!",
+      "source_content_hash": "10e28145e798f52f7ecc9206127f083dc7d7feff9049c9170b125ff7d4d5bd9a",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "このガイドでは、GitHubリポジトリを個人アカウントにセットアップする手順を説明します。GitHubに慣れていない方のために説明すると、GitHubはGitというバージョン管理システムを利用したウェブベースのプラットフォームで、開発者がコードの変更を管理・追跡するのに役立ちます。また、プロジェクトの共同作業を容易にし、リビジョンを追跡し、世界中どこからでもコードの貢献を可能にします。詳細については、[GeeksforGeeksのGitHub入門記事](https://www.geeksforgeeks.org/introduction-to-github/)を参照してください。さらに、GitHubは無料アカウントを提供しており、これは常に嬉しい特典です！"
+      }
+    },
+    {
+      "segment_id": "8a5f6a7b",
+      "source_content": "## Prerequisites",
+      "source_content_hash": "bbd3d4949a6f237efd8d4ff5c7c5f30d968e7a989ad12f3d7dcef69c98053912",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 前提条件"
+      }
+    },
+    {
+      "segment_id": "180bddb1",
+      "source_content": "Before proceeding, ensure you have a GitHub account. If you don't already have one, follow this [guide to create a GitHub account](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github).",
+      "source_content_hash": "172b229d5e1717501b4e1c128dbf9668b93d8dfa7f2f88add245ca550e6985ae",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "始める前に、GitHubアカウントを持っていることを確認してください。まだ持っていない場合は、[GitHubアカウント作成ガイド](https://docs.github.com/ja/get-started/start-your-journey/creating-an-account-on-github)に従って作成してください。"
+      }
+    },
+    {
+      "segment_id": "e14c9928",
+      "source_content": "## Configuration Steps",
+      "source_content_hash": "46b73969bd7ae342f27c4c5abce80a42600ba1c0846396c70ac16f4b181acd52",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 設定手順"
+      }
+    },
+    {
+      "segment_id": "3daf1b88",
+      "source_content": "### Forking Repositories",
+      "source_content_hash": "a03b3b82333b02498716bbc78293a7ae125c39f8e82ec9ee50c068411a1a751b",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "### リポジトリのフォーク"
+      }
+    },
+    {
+      "segment_id": "f6168993",
+      "source_content": "To begin, you'll need to fork the repositories into your personal GitHub account:",
+      "source_content_hash": "c62378f8e9f3ae50531accef65fa65ab281bd6d28fa7983ec5fb0ef50f4f6c86",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "まず、リポジトリを個人のGitHubアカウントにフォークする必要があります："
+      }
+    },
+    {
+      "segment_id": "0787cf7f",
+      "source_content": "1. Log in to your GitHub account.\n2. Navigate to the landing page of the first project: [AWS DevSecOps Pipeline](https://github.com/The-DevSec-Blueprint/aws-devsecops-pipeline).\n3. Click the **Fork** button in the top-right corner.\n4. Select your personal account as the **Owner** and click **Create Fork**. Ensure the **Copy the main branch only** option is enabled.\n\n   ![alt text](/img/projects/devsecops-pipeline-aws/setup/image-8.png)\n\n5. Repeat the above steps for the second project: [Awesome FastAPI](https://github.com/The-DevSec-Blueprint/awsome-fastapi).\n6. Clone both repositories onto your local machine using the following command, as an example:\n\n   ```text\n   git clone https://github.com/The-DevSec-Blueprint/awsome-fastapi.git\n   ```",
+      "source_content_hash": "030bf53b16d000939f22758c1a4920d2568bfa45f0f55b61088ae5e957c06282",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. GitHubアカウントにログインします。\n2. 最初のプロジェクトのランディングページに移動します：[AWS DevSecOps Pipeline](https://github.com/The-DevSec-Blueprint/aws-devsecops-pipeline)。\n3. 右上隅の**Fork**ボタンをクリックします。\n4. **Owner**として個人アカウントを選択し、**Create Fork**をクリックします。**Copy the main branch only**オプションが有効になっていることを確認してください。\n\n   ![alt text](/img/projects/devsecops-pipeline-aws/setup/image-8.png)\n\n5. 上記の手順を2つ目のプロジェクトでも繰り返します：[Awesome FastAPI](https://github.com/The-DevSec-Blueprint/awsome-fastapi)。\n6. 以下のコマンドを使用して、両方のリポジトリをローカルマシンにクローンします（例）：\n\n   ```text\n   git clone https://github.com/The-DevSec-Blueprint/awsome-fastapi.git\n   ```"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/projects/devsecops-pipeline-aws/setup/setup-github-repos.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.150820+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "9b1cbde4a4cd4e421659392100f91b142e36a9c33bcb77748356d6335e05c6bd"
+  }
+}

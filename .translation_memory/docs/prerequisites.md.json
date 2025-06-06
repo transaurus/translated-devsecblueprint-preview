@@ -1,0 +1,92 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/prerequisites.md",
+  "source_file_content_hash": "b949ceaba9aacc29e1516cdf88c8970deffb239490db1c90dde929f647596f02",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: prerequisites\ntitle: Prerequisites\ndescription: Essential knowledge and skills needed before starting the DevSecOps learning pathway.\nsidebar_position: 2\n---",
+      "source_content_hash": "736d3518090d0e0ab5b76bb7aa86da8604301da6bb811691bd25217f933e4fd3",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "3fbbcc07",
+      "source_content": "Author: [Damien Burks]",
+      "source_content_hash": "5ea0b7dea762d9db1deb5a12bbe8e41ef43190e41291691bb9f75859ac1ac1bf",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "著者: [Damien Burks]"
+      }
+    },
+    {
+      "segment_id": "1cc03ec8",
+      "source_content": "## Overview",
+      "source_content_hash": "7337f3d0aa29e9a82b8f1650b743a98eef90794631fa763a319686e69c546821",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 概要"
+      }
+    },
+    {
+      "segment_id": "8d66f911",
+      "source_content": "Before diving into the core concepts and theories of DevSecOps, it's important to build a **solid foundation** with some essential background knowledge. The topics/concepts that I am going to recommend will be extremely beneficial for you to understand.. It'll also help you with going through the docs and understanding the flow as well.",
+      "source_content_hash": "8278c8c5981948f56983d75778f3a00a258a80220bcf32b70e30b6e9adc65b19",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "DevSecOpsの核心的な概念や理論に取り組む前に、**確固たる基礎**を築くための必須の背景知識を身につけることが重要です。ここで紹介するトピックや概念は、理解を深める上で非常に有益です。また、ドキュメントを読み進め、全体の流れを把握するのにも役立ちます。"
+      }
+    },
+    {
+      "segment_id": "70153c6e",
+      "source_content": "## Concepts You'll Need To Know",
+      "source_content_hash": "72cb0d4b9f2a6c5f0665d5aff399ad55ecad6a7d1b0fdd794b2dfc4cf5aca5ac",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 知っておくべき概念"
+      }
+    },
+    {
+      "segment_id": "60e4ab9d",
+      "source_content": "| Concept                      | Reason(s) You Need To Know It                                                                                                                                                                                                                                                                                                                                  | Resources                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |\n| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| Version Control System (Git) | You'll need to understand what Version Control is, and have a fundamental understanding of Git. Understanding this concepts will help you understand how the files are checked out from a VCS (Version Control System) during pipeline builds.                                                                                                                 | <ul><li><a href=\"https://thedevops.guide/guide/version-control-system\">The DevOps Guide - Version Control System</a></li></ul>                                                                                                                                                                                                                                                                                                                                                                                                                                 |\n| Linux and Bash Scripting     | Familiarity with Linux is essential, as it's a common environment in DevSecOps workflows. You'll need to know how to navigate the Linux command line, manage files and processes, and automate tasks using Bash scripting. This knowledge will be key as you begin to secure and automate processes within your infrastructure.                                | <ul><li><a href=\"https://www.youtube.com/watch?v=zA3vmx0GaO8&pp=ygUNd2FodCBpcyBsaW51eA%3D%3D\">What is Linux?</a></li><li><a href=\"https://learntocloud.guide/phase1/\">Learn To Cloud - Phase 1</a></li></ul>                                                                                                                                                                                                                                                                                                                                                   |\n| Programming Concepts         | A basic understanding of programming is necessary for DevSecOps. You'll be working with various scripts, tools, and automation processes that require coding skills. Whether you're familiar with Python, Java, or another language, being comfortable with programming concepts will enable you to create and manage secure, automated workflows effectively. | <ul><li><a href=\"https://www.youtube.com/watch?v=zOjov-2OZ0E&pp=ygUlcHJvZ3JhbW1pbmcgY29uY2VwdHMgYW5kIGZ1bmRhbWVudGFscw%3D%3D\">Introduction to Programming and Computer Science</a></li><li><a href=\"https://www.udemy.com/course/complete-python-bootcamp/\">The Complete Python Bootcamp From Zero to Hero in Python</a></li><li><a href=\"https://learntocloud.guide/phase2/\">Learn To Cloud - Phase 2</a></li></ul><ul><li><a href=\"https://www.youtube.com/watch?v=zOjov-2OZ0E\">Introduction to Programming and Computer Science - Full Course</a></li></ul> |\n| Networking                   | Understanding the basics of networking is vital for securing and managing infrastructure. You'll need to know about IP addressing, DNS, firewalls, and common protocols (HTTP, HTTPS, FTP). This knowledge will help you configure and secure networks, which is a critical aspect of DevSecOps practices.                                                     | <ul><li><a href=\"https://www.youtube.com/watch?v=3QhU9jd03a0&pp=ygUPbmV0d29ya2luZyAxMDEg\">Computer Networks: Crash Course Computer Science</a></li></ul><ul><li><a href=\"https://youtu.be/6Jubl1UnJTE\"> Introduction to Network Security </a></li></ul>                                                                                                                                                                                                                                                                                                        |\n| Basic Security Concepts      | A solid grasp of fundamental security concepts is essential. This includes knowledge of encryption, authentication, access control, and common security threats like malware and phishing. Understanding these concepts will enable you to identify potential vulnerabilities and implement security measures to protect your infrastructure and applications. | <ul><li><a href=\"https://www.youtube.com/watch?v=inWWhr5tnEA&pp=ygUcYmFzaWMgY3liZXJzZWN1cml0eSBjb25jZXB0cw%3D%3D\">What Is Cyber Security?</a></li><li><a href=\"https://www.youtube.com/watch?v=bPVaOlJ6ln0&pp=ygUcYmFzaWMgY3liZXJzZWN1cml0eSBjb25jZXB0cw%3D%3D\">Cybersecurity: Crash Course Computer Science #31</a></li></ul>                                                                                                                                                                                                                                 |\n| DevOps                       | DevOps is the foundation of DevSecOps. It's necessary that you understand what this means and what it implies.                                                                                                                                                                                                                                                 | <ul><li><a href=\"https://thedevops.guide/guide/devops\">The DevOps Guide - What is DevOps?</a></li><li><a href=\"https://learntocloud.guide/phase4/\">Learn To Cloud - Phase 4</a></li><li><a href=\"https://www.youtube.com/watch?v=0yWAtQ6wYNM&pp=ygUOd2FodCBpcyBkZXZvcHM%3D\">What is DevOps? REALLY understand it - DevOps vs SRE</a></li></ul>                                                                                                                                                                                                                 |\n| CI/CD                        | You'll need to understand what Continous Integration (CI) and Continous Delivery (CD) is before we move forward.                                                                                                                                                                                                                                               | <ul><li><a href=\"https://thedevops.guide/guide/ci-cd\">The DevOps Guide - CI/CD</a></li></ul>                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |\n| Cloud Computing              | If we wish to pursue the Cloud DevSecOps, then you definitely need to understand the Cloud. The knowledge that you'll help you build scalable DevSecOps solutions within the Cloud by leveraging existing services to protect your applications.                                                                                                               | <li><a href=\"https://learntocloud.guide\"> Learn To Cloud</a></li>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |",
+      "source_content_hash": "680b0acd18b21ff540d2ae69202cc47d7b40d81e99049fc93e449c8ab7690c4c",
+      "node_type": "table",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_60e4ab9d"
+      }
+    },
+    {
+      "segment_id": "c5c72dc0",
+      "source_content": "<!-- Links -->",
+      "source_content_hash": "25f54153c0d0e0dac3bb699044aa9b88a8a71752b65c898e921cc72c327d285a",
+      "node_type": "comment",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_c5c72dc0"
+      }
+    },
+    {
+      "segment_id": "a04269a9",
+      "source_content": "[Damien Burks]: https://www.linkedin.com/in/damienjburks",
+      "source_content_hash": "07bab1752957211c61ea26b7e3ec1d7cdea149209243f18aaf6def772974284c",
+      "node_type": "definition",
+      "translatable": true,
+      "translations": {
+        "ja": "[Damien Burks]: https://www.linkedin.com/in/damienjburks"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/prerequisites.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.146565+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "b949ceaba9aacc29e1516cdf88c8970deffb239490db1c90dde929f647596f02"
+  }
+}

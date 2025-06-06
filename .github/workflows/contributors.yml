@@ -1,0 +1,18 @@
+name: Contribution Image Generator
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  contributors-image:
+    runs-on: ubuntu-latest
+    name: Create Contributors Image
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: wow-actions/contributors-list@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          svgPath: "static/img/CONTRIBUTORS.svg"

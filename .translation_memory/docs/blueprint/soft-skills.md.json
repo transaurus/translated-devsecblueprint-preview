@@ -1,0 +1,262 @@
+{
+  "source_file_path_relative_to_docusaurus_root": "docs/blueprint/soft-skills.md",
+  "source_file_content_hash": "4a1bb9db21dc38e6289144022f50022f4da51b469568b8278827337bfbe5a6a2",
+  "segments": [
+    {
+      "segment_id": "58cfcc64",
+      "source_content": "---\nid: soft-skills\ntitle: Introduction To Soft Skills\nsidebar_position: 1\n---",
+      "source_content_hash": "ece48df0226b9cd9804dfb410e02aed33f20ecd8bf0d31e961e803d5b2cee5d7",
+      "node_type": "yaml",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_58cfcc64"
+      }
+    },
+    {
+      "segment_id": "6ef78e84",
+      "source_content": "Author: [Damien Burks]",
+      "source_content_hash": "5ea0b7dea762d9db1deb5a12bbe8e41ef43190e41291691bb9f75859ac1ac1bf",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "Author: [Damien Burks]"
+      }
+    },
+    {
+      "segment_id": "d912d376",
+      "source_content": "## Overview",
+      "source_content_hash": "7337f3d0aa29e9a82b8f1650b743a98eef90794631fa763a319686e69c546821",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 概要"
+      }
+    },
+    {
+      "segment_id": "8ac585fb",
+      "source_content": "Before we dive into the technical theory and such, there is one thing I want to get across to you all: Technical skills are just half of the battle. You need to ensure that you have the soft skills. You need to make sure you know how to effectively communicate, collaborate, and have the ability to adapt to any situation that is thrown at you.",
+      "source_content_hash": "ede56c8046d721d736e02805d843ad46d99b033996a194e78589bb15b66216d8",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "技術的な理論に入る前に、一つ伝えておきたいことがあります。技術スキルは戦いの半分に過ぎません。ソフトスキルを身につける必要があります。効果的にコミュニケーションを取り、協力し合い、どんな状況にも適応する能力を確保することが重要です。"
+      }
+    },
+    {
+      "segment_id": "ba4f48ff",
+      "source_content": "## Key Soft Skills & Behaviors",
+      "source_content_hash": "87fb42b6f8772004f48b025fc56ca3498f04a4cc3cb24ebe9800f23f09300f27",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 重要なソフトスキルと行動"
+      }
+    },
+    {
+      "segment_id": "cf898102",
+      "source_content": "These are the key soft skills that you need to hone in order to be an effective professional within all of information technology, as these are in fact transferrable skills. I've outlined them and adding in some tips underneath each one.",
+      "source_content_hash": "74d091317cda0c1d2367fc91f71e9495562f0481cea447583ea154117226b1d8",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "これらは、情報技術全般で効果的なプロフェッショナルになるために磨くべき重要なソフトスキルです。実際に転用可能なスキルであり、以下に各スキルのヒントも含めてまとめました。"
+      }
+    },
+    {
+      "segment_id": "3daf1b88",
+      "source_content": "### 1. **Communication**",
+      "source_content_hash": "0c31d2ed01eac6df8aea9c56c37c753a82f409202aa0dc4b14577ca1f896acd0",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "### 1. **コミュニケーション**"
+      }
+    },
+    {
+      "segment_id": "034de896",
+      "source_content": "- **Active Listening**: Foster open discussions, ensuring all voices are heard and understood.\n- **Clear, Concise Writing**: In an IT environment that often relies on asynchronous communication (emails, tickets, or documentation), well-written messages prevent miscommunication.\n- **Constructive Feedback**: Provide actionable, timely, and respectful feedback, focusing on growth and improvement.",
+      "source_content_hash": "cf9374d3e8cfa21ecbbf06402b238b82b1365d894913c3788066725614589e67",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- **アクティブリスニング**: オープンな議論を促進し、すべての声が聞かれ理解されるようにする。\n- **明確で簡潔な文章**: 非同期コミュニケーション（メール、チケット、ドキュメント）が主流のIT環境では、誤解を防ぐために明確な文章が重要。\n- **建設的なフィードバック**: 成長と改善に焦点を当てた、具体的でタイムリーかつ尊重のあるフィードバックを提供する。"
+      }
+    },
+    {
+      "segment_id": "40f9552a",
+      "source_content": "### 2. **Collaboration**",
+      "source_content_hash": "6d3043599992eb2247147dc8c95a8e50087b471852f8048276d8bd3c0a2a453c",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "### 2. **コラボレーション**"
+      }
+    },
+    {
+      "segment_id": "44d89370",
+      "source_content": "- **Cross-Functional Teams**: Collaborate across disciplines (e.g., development, operations, security, and business units) to align goals and achieve optimal outcomes.\n- **Shared Knowledge**: Maintain accessible and up-to-date documentation (e.g., wikis, knowledge bases) to promote transparency and efficiency.\n- **Empathy**: Understand the pressures and constraints faced by others to foster trust and mutual respect.",
+      "source_content_hash": "64c3f41b3d2aceec36269af5a917b63bdaf275ac0a58d167c1c3c6164ecca861",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- **クロスファンクショナルチーム**: 開発、運用、セキュリティ、ビジネス部門など、異なる分野と協力して目標を調整し、最適な結果を達成する。\n- **知識の共有**: 透明性と効率を促進するため、最新のドキュメント（Wiki、ナレッジベースなど）を維持する。\n- **共感**: 他者が直面するプレッシャーや制約を理解し、信頼と相互尊重を育む。"
+      }
+    },
+    {
+      "segment_id": "f2f30ae8",
+      "source_content": "### 3. **Adaptability**",
+      "source_content_hash": "545486f19f4387ef7928250ba7c76dfe1caad3382f3b3abb178d513977bb4349",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "### 3. **適応力**"
+      }
+    },
+    {
+      "segment_id": "c6dea11f",
+      "source_content": "- **Embrace Change**: Stay flexible and open to evolving technologies, methodologies, and organizational needs.\n- **Continuous Learning**: Commit to ongoing skill development and staying informed about industry trends.\n- **Resilience**: Approach unexpected challenges with a problem-solving mindset and perseverance.",
+      "source_content_hash": "9df2c3cf7ac2bdd26861b6d0a75798c2101b3fc6ef1e494699d24b00ab7509d4",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- **変化を受け入れる**: 進化する技術、方法論、組織のニーズに対して柔軟でオープンである。\n- **継続的な学習**: スキルの向上と業界の動向についての情報収集に努める。\n- **レジリエンス**: 予期せぬ課題に対して問題解決マインドと忍耐力で取り組む。"
+      }
+    },
+    {
+      "segment_id": "f422383e",
+      "source_content": "### 4. **Problem-Solving**",
+      "source_content_hash": "96d7dea11d8a9f0da631ba3c8d652aabe2e6520997693729594c8b569607048e",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "### 4. **問題解決**"
+      }
+    },
+    {
+      "segment_id": "5d66c9dc",
+      "source_content": "- **Critical Thinking**: Analyze complex issues systematically to identify root causes and potential solutions.\n- **Innovation**: Leverage creative thinking to design novel approaches or improve existing workflows.\n- **Collaboration in Problem-Solving**: Engage with diverse perspectives to tackle challenges collaboratively.",
+      "source_content_hash": "d49a14e7e300d9594633cd104fdef500e057ef9dd9f5a76bc25bbc6630a479ac",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- **批判的思考**: 複雑な問題を体系的に分析し、根本原因と潜在的な解決策を特定する。\n- **イノベーション**: 創造的思考を活用し、新しいアプローチを設計したり、既存のワークフローを改善したりする。\n- **問題解決における協力**: 多様な視点を取り入れ、協力的に課題に取り組む。"
+      }
+    },
+    {
+      "segment_id": "9f9e64f5",
+      "source_content": "### 5. **Conflict Resolution**",
+      "source_content_hash": "84209f3075f406a3e8e2f7cdaa5a769beb6f8d54f4c9caae1100a13c817ef70f",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "### 5. **コンフリクト解決**"
+      }
+    },
+    {
+      "segment_id": "bdfae007",
+      "source_content": "- **Focus on Common Goals**: Reframe conflicts by identifying shared objectives and aligning on priorities.\n- **Encourage Healthy Debate**: Create an environment where differing opinions are respected and explored constructively.\n- **Blame-Free Resolution**: Shift focus from assigning blame to identifying solutions and implementing improvements.",
+      "source_content_hash": "b35cf5335ccb81e6209903d4790d3cb1cac8732d525792109215cde2f4a65cbb",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "- **共通の目標に焦点を当てる**: 対立を再構築し、共有する目的を特定して優先順位を合わせる。\n- **健全な議論を促進する**: 異なる意見が尊重され、建設的に検討される環境を作る。\n- **非難のない解決**: 責任の追及から解決策の特定と改善の実施へと焦点を移す。"
+      }
+    },
+    {
+      "segment_id": "f44c1398",
+      "source_content": "## Recommended Reading & Resources",
+      "source_content_hash": "2f2446da6051e9beb3f0cae78f126e34edad694b7045f3d718c174bee9ff87d3",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## 推奨読書とリソース"
+      }
+    },
+    {
+      "segment_id": "29528c8d",
+      "source_content": "Below are some resources to help you dive deeper into building those skills that will take you quite far. Most of these books that I've recommended are unrelated to the field, as they are focused more on how to communicate and collaborate. They'll build those inter and intra personal skills that you need.",
+      "source_content_hash": "7f711f4789efb7d737a0ba04466abd64962afc61955bdfdcb454a91524f00b47",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "これらのスキルをさらに深めるためのリソースを以下に示します。私が推奨する書籍のほとんどは、コミュニケーションと協力に焦点を当てたもので、技術分野とは直接関係ありません。これらは、必要な対人スキルと個人内スキルを構築するのに役立ちます。"
+      }
+    },
+    {
+      "segment_id": "11c76fcc",
+      "source_content": "### Books",
+      "source_content_hash": "344b2af65af2d2dbb34da9412ec763f8a8e36a23588aa8fc42195ea9ec6a23bf",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "### 書籍"
+      }
+    },
+    {
+      "segment_id": "36b6db6e",
+      "source_content": "| **Book Title**                          | **Author(s)**         | **Link**                |\n| --------------------------------------- | --------------------- | ----------------------- |\n| How to Win Friends and Influence People | Dale Carnegie         | https://amzn.to/3DIitxx |\n| 7 Habits of Highly Effective People     | Stephen R. Covey      | https://amzn.to/4abqB5P |\n| Active Listening Techniques             | Nixaly Leonardo, LCSW | https://amzn.to/422bee6 |\n| Read Peoplie                            | Rita Carter           | https://amzn.to/3C3cumw |\n| The 3rd Alternative                     | Steven Covey          | https://a.co/d/2hzblSV  |\n| Exactly What to Say                     | Phil Jones            | https://a.co/d/1bIXzwm  |\n| How to Talk So Little Kids Will Listen  | Joanna Faber          | https://a.co/d/hYCTqZl  |\n| Never Split the Difference              | Chris Voss            | https://a.co/d/dzTh9HG  |",
+      "source_content_hash": "262d06553063783a760c56d26cd24a6fd1dfb28a0bd38751f51e1aa39bb78466",
+      "node_type": "table",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_36b6db6e"
+      }
+    },
+    {
+      "segment_id": "c315c636",
+      "source_content": "## What You Should Have Learned",
+      "source_content_hash": "d191277a3954762ba8eb8c73cd25a721c938cdfc415cf17ce2ca3b4f9f767d0d",
+      "node_type": "heading",
+      "translatable": true,
+      "translations": {
+        "ja": "## このセクションで学ぶべきこと"
+      }
+    },
+    {
+      "segment_id": "531437ca",
+      "source_content": "By the end of this section, you should:",
+      "source_content_hash": "ef04a1c0cbce8f707c79c65cd5d5483883e097eecd594ea6afdcd5d787524260",
+      "node_type": "paragraph",
+      "translatable": true,
+      "translations": {
+        "ja": "このセクションの終わりまでに、以下のことを理解している必要があります:"
+      }
+    },
+    {
+      "segment_id": "645e08e3",
+      "source_content": "1. **Understand the Importance of Soft Skills**: Recognize how communication, collaboration, and adaptability contribute to both individual and team success.\n2. **Gain Insights into Building Trust**: Learn how empathy and shared knowledge foster stronger professional relationships.\n3. **Embrace Continuous Improvement**: Appreciate the value of reflecting on past experiences, seeking feedback, and adapting to new challenges.\n4. **Adopt Practical Strategies**: Acquire actionable tips for improving communication, managing conflicts, and solving problems effectively.",
+      "source_content_hash": "5e76e8d083742f22cf64348018b2f9e4c512b116376518ba2303913763d1f4e8",
+      "node_type": "list",
+      "translatable": true,
+      "translations": {
+        "ja": "1. **ソフトスキルの重要性を理解する**: コミュニケーション、コラボレーション、適応力が個人とチームの成功にどのように貢献するかを認識する。\n2. **信頼構築の洞察を得る**: 共感と知識共有が、より強い専門的な関係を育む方法を学ぶ。\n3. **継続的改善を受け入れる**: 過去の経験を振り返り、フィードバックを求め、新しい課題に適応することの価値を理解する。\n4. **実践的な戦略を採用する**: コミュニケーションの改善、コンフリクトの管理、効果的な問題解決のための具体的なヒントを習得する。"
+      }
+    },
+    {
+      "segment_id": "2c0bc267",
+      "source_content": "<!-- Links -->",
+      "source_content_hash": "25f54153c0d0e0dac3bb699044aa9b88a8a71752b65c898e921cc72c327d285a",
+      "node_type": "comment",
+      "translatable": false,
+      "translations": {
+        "ja": "@@untranslatable_placeholder_2c0bc267"
+      }
+    },
+    {
+      "segment_id": "4c2de15e",
+      "source_content": "[Damien Burks]: https://www.youtube.com/@damienjburks",
+      "source_content_hash": "7097815c6ac6c02cff2091f30ccf75b895bb53b20eda52fea9f0f673e9d0ed23",
+      "node_type": "definition",
+      "translatable": true,
+      "translations": {
+        "ja": "[Damien Burks]: https://www.youtube.com/@damienjburks"
+      }
+    }
+  ],
+  "target_i18n_subpath": "docusaurus-plugin-content-docs/current/blueprint/soft-skills.md",
+  "last_updated_timestamp": "2025-06-06T10:44:33.156148+00:00",
+  "schema_version": "1.0",
+  "translated_versions": {
+    "ja": "4a1bb9db21dc38e6289144022f50022f4da51b469568b8278827337bfbe5a6a2"
+  }
+}
